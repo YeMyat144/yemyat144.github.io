@@ -22,9 +22,7 @@ const Header = () => {
       <Box sx={{ mb: 5, borderRadius: 0, border: 0 }}>
         <Toolbar sx={{ justifyContent: 'space-between' }}>
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <IconButton component={Link} to="/" sx={{ p: 0 }}>
-              <img src={logo} alt="Logo" style={{ width: 35, height: 35 }} />
-            </IconButton>
+            <Typography variant="h1">YeMyat</Typography>          
           </Box>
 
           {isMobile ? (
