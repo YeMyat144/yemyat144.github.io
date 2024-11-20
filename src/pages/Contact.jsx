@@ -114,12 +114,9 @@ function Contact() {
             flex: 1,
             display: 'flex',
             justifyContent: 'center',
-            alignItems: 'center',
-            px: 2,
-            py: 1,
           }}
         >
-          <StyledPaper elevation={3} sx={{ width: '100%', maxWidth: 500 }}>
+          <StyledPaper elevation={3} sx={{  width: '100%', maxWidth: 800,bgcolor: '#f5f5f5' }}>
             <Typography variant="h4" align="center" gutterBottom color="secondary">
               Get in Touch
             </Typography>

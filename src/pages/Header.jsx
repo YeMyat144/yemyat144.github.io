@@ -22,7 +22,7 @@ const Header = () => {
       <Box sx={{ mb: 5, borderRadius: 0, border: 0 }}>
         <Toolbar sx={{ justifyContent: 'space-between' }}>
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <Typography variant="h1">YeMyat</Typography>          
+            <Typography variant="h4">YeMyat</Typography>          
           </Box>
 
           {isMobile ? (

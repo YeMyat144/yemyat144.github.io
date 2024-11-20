@@ -28,11 +28,11 @@ let theme = createTheme({
       main: '#f50057',
     },
     background: {
-      default: '#f5f5f5',
+      default: '#ffffff',
       paper: '#ffffff',
     },
     text: {
-      primary: '#333333',
+      primary: '#000',
       secondary: '#666666',
     },
   },
@@ -50,14 +50,10 @@ let theme = createTheme({
 theme = responsiveFontSizes(theme);
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
-  padding: theme.spacing(4),
-  marginTop: theme.spacing(4),
-  marginBottom: theme.spacing(4),
+  padding: theme.spacing(3),
   boxShadow: '0 3px 5px 2px rgba(0, 0, 0, .1)',
-  transition: 'transform 0.3s ease-in-out',
-  '&:hover': {
-    transform: 'translateY(-5px)',
-  },
+  height: '100%',
+  overflow: 'auto',
 }));
 
 const StyledAvatar = styled(Avatar)(({ theme }) => ({
@@ -89,23 +85,28 @@ const skills = [
   { name: 'Node.js', level: 70 },
   { name: 'Python', level: 60 },
   { name: 'SQL', level: 65 },
-  // Add more skills as needed
 ];
 
 function AboutMe() {
   return (
     <ThemeProvider theme={theme}>
-      <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+      <Box sx={{ 
+        display: 'flex', 
+        flexDirection: 'column', 
+        height: '100vh', 
+        overflow: 'hidden',
+        bgcolor: theme.palette.background.default,
+      }}>
         <Header />
-        <Container component="main" maxWidth="md" sx={{ mt: 8, mb: 2, flex: 1 }}>
+        <Box component="main" sx={{  flex: 1, overflow: 'auto', mr: 5 ,ml:5 }}>
           <StyledPaper elevation={3}>
-            <Grid container spacing={4} alignItems="center">
-              <Grid item xs={12} md={8}>
+            <Grid container spacing={2} sx={{ height: '100%' }}>
+              <Grid item xs={12} >
                 <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center', flexWrap: 'wrap', mt: 1 }}>
                   <Typography variant="h4" component="h1" gutterBottom align="center">
                     Ye Myat Moe
                   </Typography>
-                  <Typography variant="h6" color="textSecondary" paragraph align="center">
+                  <Typography variant="subtitle1" color="textSecondary" paragraph align="center">
                     Full Stack Web Developer
                   </Typography>
                   <Box sx={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', mt: 1 }}>
@@ -129,14 +130,19 @@ function AboutMe() {
                       <Typography variant="body2" color="textSecondary">
                         {skill.name}
                       </Typography>
-                      <LinearProgress variant="determinate" value={skill.level} color="primary" />
+                      <LinearProgress variant="determinate" value={skill.level} sx={{  
+                          bgcolor: '#808080', // Background color (unfilled)  
+                          '& .MuiLinearProgress-bar': {  
+                            backgroundColor: '#000', // Fill color (for the bar)  
+                          }  }}
+                         />
                     </Box>
                   ))}
                 </Box>
                 <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
                   <StyledButton
                     variant="contained"
-                    color="primary"
+                    sx={{ backgroundColor: '#000' }}
                     startIcon={<DownloadIcon />}
                     href="/assets/cv.pdf"
                     download
@@ -147,7 +153,7 @@ function AboutMe() {
               </Grid>
             </Grid>
           </StyledPaper>
-        </Container>
+        </Box>
         <Footer />
       </Box>
     </ThemeProvider>
