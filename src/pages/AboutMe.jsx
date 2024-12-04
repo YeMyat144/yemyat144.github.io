@@ -115,25 +115,26 @@ function AboutMe() {
                     <SkillChip icon={<BrushIcon />} label="UI/UX" />
                   </Box>
                 </Box>
-                <Typography variant="body1" paragraph sx={{ fontSize: '0.9rem' }}>
+                <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center', flexWrap: 'wrap', mt: 1 }}>
+                <Typography variant="body1" paragraph sx={{ maxWidth: '900px', fontSize: '0.9rem', textAlign: 'center' }}>
                   I am a passionate full stack web developer with a keen eye for creating functional websites.
                   With extensive experience in both front-end and back-end development, I thrive on tackling new challenges
                   and expanding my skill set. My goal is to build intuitive and efficient web solutions that make
                   a positive impact on users' lives and businesses.
                 </Typography>
-                <Box sx={{ mt: 2 }}>
+                
                   <Typography variant="h6" gutterBottom>
                     Key Skills
                   </Typography>
                   {skills.map((skill) => (
-                    <Box key={skill.name} sx={{ mt: 1 }}>
+                    <Box key={skill.name} sx={{ mt: 1, width: '80%', maxWidth: '600px'}}>
                       <Typography variant="body2" color="textSecondary">
                         {skill.name}
                       </Typography>
                       <LinearProgress variant="determinate" value={skill.level} sx={{  
-                          bgcolor: '#808080', // Background color (unfilled)  
+                          bgcolor: '#808080', 
                           '& .MuiLinearProgress-bar': {  
-                            backgroundColor: '#000', // Fill color (for the bar)  
+                            backgroundColor: '#000',  
                           }  }}
                          />
                     </Box>
@@ -147,7 +148,7 @@ function AboutMe() {
                     href="/assets/cv.pdf"
                     download
                   >
-                    Download Resume
+                    Resume
                   </StyledButton>
                 </Box>
               </Grid>

@@ -13,7 +13,7 @@ const Footer = () => {
       <IconButton href="https://github.com/yemyat144" aria-label="GitHub">
         <GitHubIcon sx={{ fontSize: 42, color: theme.palette.text.primary }} />
       </IconButton>
-      <IconButton href="https://linkedin.com" aria-label="LinkedIn">
+      <IconButton href="https://www.linkedin.com/in/ye-myat-moe-2a6105230/" aria-label="LinkedIn">
         <LinkedInIcon sx={{ fontSize: 48, color: theme.palette.text.primary }} />
       </IconButton>
       <IconButton href="https://instagram.com/dest_voyage_" aria-label="Instagram">

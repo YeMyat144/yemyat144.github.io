@@ -3,11 +3,11 @@ import {
   Typography, 
   Button, 
   Box, 
-  Grid, 
   Card, 
   CardContent, 
   CardActions, 
   Chip,
+  Grid,
   ThemeProvider, 
   createTheme, 
   responsiveFontSizes 
@@ -44,7 +44,7 @@ let theme = createTheme({
 theme = responsiveFontSizes(theme);
 
 const StyledCard = styled(Card)(({ theme }) => ({
-  height: '100%',
+  height: '215px',
   display: 'flex',
   flexDirection: 'column',
   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
@@ -62,7 +62,7 @@ function Projects() {
   const projectData = [
     { 
       name: 'Tale&Twist', 
-      description: 'Branching narratives where user choices influence the story outcome', 
+      description: 'Branching narratives where user choices influence the outcome', 
       repoLink: 'https://talentwist.vercel.app',
       tags: ['React', 'Next.js', 'Vercel']
     },
@@ -76,7 +76,7 @@ function Projects() {
       name: 'TaskCard', 
       description: 'A task board with customizable columns and draggable cards.', 
       repoLink: 'https://task-card-trello.netlify.app/',
-      tags: ['React', 'DnD', 'Netlify']
+      tags: ['React', 'Node.js', 'Netlify']
     },
     { 
       name: 'Virtual Keyboard', 
@@ -86,14 +86,14 @@ function Projects() {
     },
     { 
       name: 'TrueTrack', 
-      description: 'A tracker app helping users manage their finances by tracking income, expenses, and overall balance', 
-      repoLink: 'https://yemyat144.github.io/YOLO/',
-      tags: ['JavaScript', 'HTML', 'CSS']
+      description: 'A tracker app helping users manage their finances', 
+      repoLink: 'https://github.com/YeMyat144/true-track',
+      tags: ['TypeScript', 'HTML', 'CSS']
     },
     { 
-      name: 'TheTrend', 
-      description: 'A shopping website for ganja using JavaScript', 
-      repoLink: 'https://yemyat144.github.io/menu_page/',
+      name: 'SignQueen', 
+      description: 'A fun and interactive zodiac sign quiz app', 
+      repoLink: 'https://signqueen.netlify.app/',
       tags: ['JavaScript', 'HTML', 'CSS']
     },
   ];
