@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ye Myat Moe - Portfolio</title>
-    <link rel="icon" type="imgae/png" href="./assets/logo.png">
+    <link rel="icon" type="image/png" href="./assets/logo.png">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,50 +12,54 @@
             padding: 0;
             background-color: #000000;
             color: #e0e0e0;
+            display: flex;
+            flex-direction: column;
         }
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+            flex: 1;
+            padding: 20px;
+            margin-left: 250px; /* Adjust based on nav width */
         }
         nav {
             background-color: #0b0e13;
+            width: 150px;
+            height: 100vh;
             position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            z-index: 1000;
-        }
-        nav .container {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            padding: 1rem;
-        }
-        nav .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #ffffff;
         }
         nav ul {
             list-style-type: none;
-            display: flex;
-            gap: 1rem;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+        nav ul li {
+            margin: 1rem 0;
+            text-align: center;
         }
         nav a {
             color: #6c6565;
             text-decoration: none;
+            font-size: 1.2rem;
             transition: color 0.3s ease;
         }
         nav a:hover, nav a.active {
             color: #ffffff;
         }
         section {
-            min-height: 100vh;
-            display: flex;
+            display: none;
+            max-height: 100vh;
             flex-direction: column;
             justify-content: center;
             padding: 4rem 0;
+        }
+        section.active {
+            display: flex;
         }
         h1 {
             font-size: 2.5rem;
@@ -90,7 +94,7 @@
         .project-card {
             background-color: #0b0e13;
             border-radius: 8px;
-            padding: 1.5rem;
+            padding: 1rem;
         }
         .project-card h3 {
             margin-top: 0;
@@ -126,36 +130,56 @@
         .social-links a:hover {
             color: #ffffff;
         }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            nav {
+                width: 100%;
+                height: auto;
+                position: static;
+                flex-direction: row;
+                justify-content: center;
+                padding: 1rem 0;
+            }
+            nav ul {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+            }
+            nav ul li {
+                margin: 0;
+            }
+            .container {
+                margin-left: 0;
+            }
+        }
     </style>
 </head>
 <body>
     <nav>
-        <div class="container">
-            <div class="logo">YeMyat</div>
-            <ul>
-                <li><a href="#about" class="active">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
+        <ul>
+            <li><a href="#about" class="active">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </nav>
 
     <main class="container">
-        <section id="about">
+        <section id="about" class="active">
             <h1>About Me</h1>
-            <img src="./assets/me.jpg" alt="Ye Myat Moe" class="profile-img" style="display: flex; justify-content: center; 
-            align-items: center; margin: 0 auto;">
-            <p>
+            <img src="./assets/me.jpg" alt="Ye Myat Moe" class="profile-img">
+            <p style="max-width: 35rem;">
                 Hi, I'm Ye Myat Moe, a passionate software developer with expertise in web technologies and a knack for creating
                 elegant solutions to complex problems.
             </p>
-            <a href="./assets/Ye Myat Moe Resume.pdf" download class="btn" style="display: inline-block; width: 150px; padding: 10px; background-color: #151924; color: white; text-align: center; border-radius: 4px; text-decoration: none; transition: background-color 0.3s;" >
+            <a href="./assets/Ye Myat Moe Resume.pdf" download class="btn" style="display: inline-block; width: 150px; padding: 10px; background-color: #151924; color: white; text-align: center; border-radius: 4px; text-decoration: none; transition: background-color 0.3s;">
                 Download Resume
             </a>
         </section>
 
         <section id="projects">
-            <h1>Projects</h1>
+            <h2>Projects</h2>
             <div class="projects">
                 <div class="project-card">
                     <h3>Tale&Twist</h3>
@@ -196,27 +220,7 @@
                         <a href="https://github.com/YeMyat144/hueseek" target="_blank" rel="noopener noreferrer" class="btn">GitHub</a>
                         <a href="https://hueseek.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn">Live Demo</a>
                     </div>
-                </div>
-                <div class="project-card">
-                    <h3>TaskCard</h3>
-                    <p>A task board with customizable columns and draggable cards</p>
-                    <div class="technologies">
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/YeMyat144/task-card" target="_blank" rel="noopener noreferrer" class="btn">GitHub</a>
-                        <a href="https://task-card.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn">Live Demo</a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <h3>SignQueen</h3>
-                    <p>A fun zodiac sign quiz app and sharing zodiac knowledges</p>
-                    <div class="technologies">
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/YeMyat144/zodiac" target="_blank" rel="noopener noreferrer" class="btn">GitHub</a>
-                        <a href="https://signqueen.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn">Live Demo</a>
-                    </div>
-                </div>
+                </div>            
             </div>
         </section>
 
@@ -246,21 +250,18 @@
         const navLinks = document.querySelectorAll('nav a');
         const sections = document.querySelectorAll('section');
 
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= sectionTop - sectionHeight / 3) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').slice(1) === current) {
-                    link.classList.add('active');
-                }
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').slice(1);
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                    if (section.id === targetId) {
+                        section.classList.add('active');
+                    }
+                });
+                navLinks.forEach(link => link.classList.remove('active'));
+                link.classList.add('active');
             });
         });
     </script>
