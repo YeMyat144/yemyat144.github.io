@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ye Myat Moe - Portfolio</title>
+    <link rel="icon" type="imgae/png" href="./assets/logo.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            color: #e0e0e0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        nav {
+            background-color: #1e1e1f;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+        }
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            gap: 1rem;
+        }
+        nav a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        nav a:hover, nav a.active {
+            color: #ffffff;
+        }
+        section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 4rem 0;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #ffffff;
+        }
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 2rem;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            background-color: #333;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #444;
+        }
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .project-card {
+            background-color: #1E1E1E;
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+        .project-card h3 {
+            margin-top: 0;
+            color: #ffffff;
+        }
+        .technologies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .tech-tag {
+            background-color: #333;
+            color: #ffffff;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+        }
+        .project-links {
+            display: flex;
+            justify-content: space-between;
+        }
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .social-links a {
+            color: #e0e0e0;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        .social-links a:hover {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo">YeMyat</div>
+            <ul>
+                <li><a href="#about" class="active">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section id="about">
+            <h1>About Me</h1>
+            <img src="./assets/me.jpg" alt="Ye Myat Moe" class="profile-img" style="display: flex; justify-content: center; 
+            align-items: center; margin: 0 auto;">
+            <p>
+                Hi, I'm Ye Myat Moe, a passionate software developer with expertise in web technologies and a knack for creating
+                elegant solutions to complex problems.
+            </p>
+            <a href="./assets/Ye Myat Moe Resume.pdf" download class="btn" style="display: inline-block; width: 150px; padding: 10px; background-color: #1f2937; color: white; text-align: center; border-radius: 4px; text-decoration: none; transition: background-color 0.3s;" >
+                Download Resume
+            </a>
+        </section>
+
+        <section id="projects">
+            <h1>Projects</h1>
+            <div class="projects">
+                <div class="project-card">
+                    <h3>Tale&Twist</h3>
+                    <p>Branching narratives where user choices influence the outcome</p>
+                    <div class="technologies">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Next.js</span>
+                        <span class="tech-tag">Vercel</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/YeMyat144/talentwist" target="_blank" rel="noopener noreferrer" class="btn">GitHub</a>
+                        <a href="https://talentwist.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn">Live Demo</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>TicketTango</h3>
+                    <p>An online system for booking cinema tickets featuring JuzBird, M3</p>
+                    <div class="technologies">
+                        <span class="tech-tag">Next.js</span>
+                        <span class="tech-tag">React/MUI</span>
+                        <span class="tech-tag">MongoDB</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/MyoMyatMin/ticket-tango" target="_blank" rel="noopener noreferrer" class="btn">GitHub</a>
+                        <a href="https://ticket-tango.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn">Live Demo</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Gomma</h3>
+                    <p>A remove background web app using AI</p>
+                    <div class="technologies">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Next.js</span>
+                        <span class="tech-tag">CSS</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/YeMyat144/gomma" target="_blank" rel="noopener noreferrer" class="btn">GitHub</a>
+                        <a href="https://gomma.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn">Live Demo</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>HueSeek</h3>
+                    <p>A color picker app with a search feature</p>
+                    <div class="technologies">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Next.js</span>
+                        <span class="tech-tag">Vercel</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/YeMyat144/hueseek" target="_blank" rel="noopener noreferrer" class="btn">GitHub</a>
+                        <a href="https://hueseek.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn">Live Demo</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>TaskCard</h3>
+                    <p>A task board with customizable columns and draggable cards</p>
+                    <div class="technologies">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Next.js</span>
+                        <span class="tech-tag">Netlify</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/YeMyat144/task-card" target="_blank" rel="noopener noreferrer" class="btn">GitHub</a>
+                        <a href="https://task-card.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn">Live Demo</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>SignQueen</h3>
+                    <p>A fun and interactive zodiac sign quiz app</p>
+                    <div class="technologies">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">CSS</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/YeMyat144/zodiac" target="_blank" rel="noopener noreferrer" class="btn">GitHub</a>
+                        <a href="https://signqueen.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn">Live Demo</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h1>Contact Me</h1>
+            <p>Feel free to reach out to me for any inquiries or collaboration opportunities.</p>
+            <p>Email: yemyatmoe.tetee@gmail.com</p>
+            <p>Phone: +66 617406702</p>
+            <div class="social-links">
+                <a href="https://github.com/yemyat144" target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                </a>
+                <a href="https://facebook.com/ye.m.moe.73" target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                </a>
+                <a href="https://instagram.com/yemyat_moe/" target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                </a>
+                <a href="https://linkedin.com/in/ye-myat-moe-2a6105230/" target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const navLinks = document.querySelectorAll('nav a');
+        const sections = document.querySelectorAll('section');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
