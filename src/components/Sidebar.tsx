@@ -54,7 +54,7 @@ export default function Sidebar() {
             mb: 1,
             border: '4px solid rgba(255, 255, 255, 0.1)',
           }}
-          src='/me.png'
+          src='https://scontent.fbkk29-6.fna.fbcdn.net/v/t1.15752-9/477599155_601347436127305_8647772254490006977_n.png?stp=dst-png_s480x480&_nc_cat=109&ccb=1-7&_nc_sid=0024fc&_nc_ohc=VxXyZJ1YyIEQ7kNvgG1fAMk&_nc_oc=AdipsPsaXpZn7seVUOFLdrXMBr_3NET-crNubQnGGdwkUe0fhVP-YKX0lXhB-aH2M-8&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fbkk29-6.fna&oh=03_Q7cD1gGPXaNg5PxNqBl7mAgOJFCVEoC1nEbnMlEFnxlZ9POSHw&oe=67DDB652'
         />
         <Typography variant="h6" sx={{ fontWeight: 450 }}>
           Ye Myat Moe
