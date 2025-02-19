@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom'
 import AboutMe from './pages/AboutMe'
 import Projects from './pages/Projects'
 import Contact from './pages/Contact'
+import Home from './pages/Home'
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
       <Sidebar />
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <Routes>
-          <Route path="/" element={<AboutMe />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/aboutme" element={<AboutMe />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>

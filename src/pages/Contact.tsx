@@ -5,6 +5,7 @@ import {
   LinkedIn as LinkedInIcon,
   Instagram as InstagramIcon,
 } from '@mui/icons-material'
+import { Helmet } from 'react-helmet'
 
 const contacts = [
   {
@@ -31,6 +32,10 @@ const contacts = [
 
 export default function Contact() {
   return (
+    <>
+      <Helmet>
+        <title>Ye Myat | Contact</title>
+      </Helmet>
     <Box sx={{ maxWidth: 1000, mx: 'auto', mt: 6 }}>
       <Paper 
         elevation={0}
@@ -106,5 +111,6 @@ export default function Contact() {
         </Grid>
       </Paper>
     </Box>
+    </>
   )
 }
