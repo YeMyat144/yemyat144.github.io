@@ -39,7 +39,7 @@ export default function Sidebar() {
                 width: 30,
                 height: 30,
               }}
-              src="/me.png"
+              src="https://i.ibb.co/zhgLSrW7/me.png"
             />
           </Box>
           <Tabs
@@ -92,7 +92,7 @@ export default function Sidebar() {
                     transform: 'scale(1.05)',
                   },
                 }}
-                src='/me.png'
+                src='https://i.ibb.co/zhgLSrW7/me.png'
               />
             </Box>
             <Typography variant="h6" sx={{ fontWeight: 450 }}>
