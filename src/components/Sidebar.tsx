@@ -17,27 +17,29 @@ export default function Sidebar() {
   const navigate = useNavigate()
   const location = useLocation()
   const [selectedTab, setSelectedTab] = useState(location.pathname)
-  
+
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down('md')) 
 
   const handleTabChange = (_event: SyntheticEvent, newValue: string) => {
-    navigate(newValue)
+    // Update the selected tab and navigate to the selected path
     setSelectedTab(newValue)
+    navigate(newValue)
   }
 
   return (
     <Box sx={{ display: 'flex', minHeight: '100vh' }}>
       {isMobile ? (
-        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'fixed', bottom: 0, left: 0, width: '100%', bgcolor: '#0A1929', zIndex: 10, padding:'8px' }}>
-          <Box sx={{ ml: 2 }} onClick={() => navigate('/')} >
+        // Mobile version: Fixed bottom navigation
+        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'fixed', bottom: 0, left: 0, width: '100%', bgcolor: '#0A1929', zIndex: 10, padding: '8px' }}>
+          <Box sx={{ ml: 2 }} onClick={() => navigate('/')}>
             <Avatar
               sx={{
                 cursor: 'pointer',
                 width: 30,
                 height: 30,
               }}
-              src='/me.png'
+              src="/me.png"
             />
           </Box>
           <Tabs
@@ -62,7 +64,7 @@ export default function Sidebar() {
           </Tabs>
         </Box>
       ) : (
-        // Sidebar for Desktop
+        // Desktop version: Sidebar
         <Drawer
           variant="permanent"
           sx={{
@@ -79,15 +81,15 @@ export default function Sidebar() {
           }}
         >
           <Box sx={{ p: 4, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <Box sx={{ cursor: 'pointer', mb: 2 }} onClick={() => navigate('/')} >
+            <Box sx={{ cursor: 'pointer', mb: 2 }} onClick={() => navigate('/')}>
               <Avatar
                 sx={{
                   width: 80,
                   height: 80,
                   border: '4px solid rgba(255, 255, 255, 0.1)',
                   transition: 'transform 0.2s ease-in-out',
-                         '&:hover': {
-                   transform: 'scale(1.05)',
+                  '&:hover': {
+                    transform: 'scale(1.05)',
                   },
                 }}
                 src='/me.png'
@@ -133,7 +135,6 @@ export default function Sidebar() {
           </List>
         </Drawer>
       )}
-    
     </Box>
   )
 }

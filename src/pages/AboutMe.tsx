@@ -73,7 +73,7 @@ export default function AboutMe() {
               <Button
                 variant="contained"
                 startIcon={<DownloadIcon />}
-                href="/resume.pdf"
+                href="https://drive.google.com/file/d/1AuFORPYO4cWV2h0i72ZTM26Rx-k9OK8Z/view?usp=sharing"
                 download
                 fullWidth
                 sx={{
