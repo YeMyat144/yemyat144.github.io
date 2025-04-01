@@ -8,7 +8,7 @@ export default function AboutMe() {
       <Helmet>
         <title>Ye Myat | About Me</title>
       </Helmet>
-      <Box sx={{ maxWidth: 1000, mx: 'auto', mt: 6 }}>
+      <Box sx={{ maxWidth: 1100, mx: 'auto', mt: 6 }}>
         <Paper
           elevation={0}
           sx={{
@@ -87,7 +87,7 @@ export default function AboutMe() {
                   },
                 }}
               >
-                Download Resume
+                 Resume
               </Button>
             </Box>
           </Grid>

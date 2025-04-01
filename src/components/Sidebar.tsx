@@ -29,16 +29,15 @@ export default function Sidebar() {
   return (
     <Box sx={{ display: 'flex', minHeight: '100vh' }}>
       {isMobile ? (
-        // Tab Bar for Mobile
-        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'fixed', bottom: 0, left: 0, width: '100%', bgcolor: '#0A1929', zIndex: 10 }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'fixed', bottom: 0, left: 0, width: '100%', bgcolor: '#0A1929', zIndex: 10, padding:'8px' }}>
           <Box sx={{ ml: 2 }} onClick={() => navigate('/')} >
             <Avatar
               sx={{
-                pointer: 'cursor',
+                cursor: 'pointer',
                 width: 30,
                 height: 30,
               }}
-              src='https://scontent.fbkk29-6.fna.fbcdn.net/v/t1.15752-9/477599155_601347436127305_8647772254490006977_n.png?stp=dst-png_s480x480&_nc_cat=109&ccb=1-7&_nc_sid=0024fc&_nc_ohc=VxXyZJ1YyIEQ7kNvgG1fAMk&_nc_oc=AdipsPsaXpZn7seVUOFLdrXMBr_3NET-crNubQnGGdwkUe0fhVP-YKX0lXhB-aH2M-8&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fbkk29-6.fna&oh=03_Q7cD1gGPXaNg5PxNqBl7mAgOJFCVEoC1nEbnMlEFnxlZ9POSHw&oe=67DDB652'
+              src='/me.png'
             />
           </Box>
           <Tabs
@@ -91,7 +90,7 @@ export default function Sidebar() {
                    transform: 'scale(1.05)',
                   },
                 }}
-                src='https://scontent.fbkk29-6.fna.fbcdn.net/v/t1.15752-9/477599155_601347436127305_8647772254490006977_n.png?stp=dst-png_s480x480&_nc_cat=109&ccb=1-7&_nc_sid=0024fc&_nc_ohc=VxXyZJ1YyIEQ7kNvgG1fAMk&_nc_oc=AdipsPsaXpZn7seVUOFLdrXMBr_3NET-crNubQnGGdwkUe0fhVP-YKX0lXhB-aH2M-8&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fbkk29-6.fna&oh=03_Q7cD1gGPXaNg5PxNqBl7mAgOJFCVEoC1nEbnMlEFnxlZ9POSHw&oe=67DDB652'
+                src='/me.png'
               />
             </Box>
             <Typography variant="h6" sx={{ fontWeight: 450 }}>
@@ -134,9 +133,7 @@ export default function Sidebar() {
           </List>
         </Drawer>
       )}
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        
-      </Box>
+    
     </Box>
   )
 }

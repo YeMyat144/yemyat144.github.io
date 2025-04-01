@@ -36,7 +36,7 @@ export default function Contact() {
       <Helmet>
         <title>Ye Myat | Contact</title>
       </Helmet>
-    <Box sx={{ maxWidth: 1000, mx: 'auto', mt: 6 }}>
+    <Box sx={{ maxWidth: 1100, mx: 'auto', mt: 6 }}>
       <Paper 
         elevation={0}
         sx={{ 
