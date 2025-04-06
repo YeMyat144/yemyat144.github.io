@@ -107,7 +107,7 @@ export default function Sidebar() {
                   selected={location.pathname === item.path}
                   onClick={() => navigate(item.path)}
                   sx={{
-                    borderRadius: 2,
+                    borderRadius: 1.3,
                     py: 1.5,
                     '&:hover': {
                       backgroundColor: 'rgba(100, 181, 246, 0.08)',

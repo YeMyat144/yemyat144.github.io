@@ -13,7 +13,7 @@ export default function AboutMe() {
           elevation={0}
           sx={{
             p: 6,
-            borderRadius: 4,
+            borderRadius: 2,
             background: 'linear-gradient(145deg, rgba(15, 39, 68, 0.7) 0%, rgba(10, 25, 41, 0.7) 100%)',
             backdropFilter: 'blur(10px)',
             border: '1px solid rgba(255, 255, 255, 0.05)',
