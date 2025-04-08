@@ -4,11 +4,11 @@ import { Helmet } from 'react-helmet'
 
 const projects = [
   {
-    title: 'Tale&Twist',
-    description: 'Branching narratives where user choices influence the outcome',
-    image: 'https://i.ibb.co/KTbF92x/1.png',
-    repoUrl: 'https://github.com/YeMyat144/talentwist',
-    liveUrl: 'https://talentwist.vercel.app/',
+    title: 'Algovithm',
+    description: 'A website for visualizing sorting and pathfinding algorithms',
+    image: 'https://i.ibb.co/mF0xyxtF/Screenshot-2025-04-08-120404.png',
+    repoUrl: 'https://github.com/YeMyat144/algovithm',
+    liveUrl: 'https://algovithm.vercel.app/',
   },
   {
     title: 'Ticket Tango',
@@ -23,6 +23,20 @@ const projects = [
     image: 'https://i.ibb.co/4nHMXKqY/3.png',
     repoUrl: 'https://github.com/YeMyat144/fitmemo-frontend',
     liveUrl: 'https://fitmemo.vercel.app/',
+  },
+  {
+    title: 'NarutoNote',
+    description: 'A website featuring content on one of my favorite anime series',
+    image: 'https://i.ibb.co/vvsQnw1x/Screenshot-2025-04-08-122905.png',
+    repoUrl: 'https://github.com/YeMyat144/naruto-note',
+    liveUrl: 'https://narutonote.vercel.app/',
+  },
+  {
+    title: 'Tale&Twist',
+    description: 'Branching narratives where user choices influence the outcome',
+    image: 'https://i.ibb.co/KTbF92x/1.png',
+    repoUrl: 'https://github.com/YeMyat144/talentwist',
+    liveUrl: 'https://talentwist.vercel.app/',
   },
   {
     title: 'Gomma',
@@ -103,7 +117,7 @@ export default function Projects() {
               <CardActions sx={{ p: 3, pt: 0 }}>
                 <Button
                   variant="outlined"
-                  size="large"
+                  size="small"
                   startIcon={<GitHubIcon />}
                   href={project.repoUrl}
                   target="_blank"
@@ -121,7 +135,7 @@ export default function Projects() {
                 </Button>
                 <Button
                   variant="contained"
-                  size="large"
+                  size="small"
                   startIcon={<LaunchIcon />}
                   href={project.liveUrl}
                   target="_blank"
