@@ -134,7 +134,7 @@ const ContactPage: React.FC = () => {
         >
           my channel
         </Typography>
-        .
+        
       </Typography>
     }
   />
