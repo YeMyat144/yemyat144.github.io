@@ -3,6 +3,7 @@ import { Box, Typography, useTheme } from '@mui/material';
 import { motion } from 'framer-motion';
 import { projects } from '../data/projects';
 import { GitHub, Language } from '@mui/icons-material';
+import { Helmet} from 'react-helmet';
 
 const MotionBox = motion(Box);
 
@@ -10,6 +11,10 @@ const ProjectsPage: React.FC = () => {
   const theme = useTheme();
   
   return (
+    <>
+      <Helmet>
+        <title>Ye Myat Moe | Projects</title>
+      </Helmet>
     <Box sx={{ maxWidth: 1200, mx: 'auto', p: 3}}>
       <MotionBox
         initial={{ opacity: 0, y: 20 }}
@@ -189,6 +194,7 @@ const ProjectsPage: React.FC = () => {
         ))}
       </Box>
     </Box>
+    </>
   );
 };
 

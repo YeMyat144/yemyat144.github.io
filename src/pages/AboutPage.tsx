@@ -14,7 +14,7 @@ const AboutPage: React.FC = () => {
   return (
     <>
     <Helmet>
-      <title>Ye Myat Moe | About Me</title>
+      <title>Ye Myat Moe | About</title>
     </Helmet>
     <Box sx={{ maxWidth: 1200, mx: 'auto',p: 4, }}>
       <Stack spacing={4}>
