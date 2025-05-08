@@ -126,7 +126,7 @@ const ContactPage: React.FC = () => {
         I share my project videos on{' '}
         <Typography
           component="a"
-          href="https://www.youtube.com/@YeMyat144" 
+          href="https://www.youtube.com/@yemyatlabs" 
           target="_blank"
           rel="noopener noreferrer"
           color="secondary"
