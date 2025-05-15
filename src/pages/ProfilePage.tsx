@@ -64,7 +64,7 @@ const ProfilePage: React.FC = () => {
             color="primary"
             startIcon={<Download />}
             component="a"
-            href="https://drive.google.com/uc?export=download&id=1AuFORPYO4cWV2h0i72ZTM26Rx-k9OK8Z"
+            href="https://drive.google.com/uc?export=download&id=1I-7BBOappryFtIXSsJcAOE7e2MRiAQqx"
             target="_blank"
             rel="noopener noreferrer"
             sx={{ 
@@ -130,7 +130,7 @@ const ProfilePage: React.FC = () => {
           </Typography>
           
           <Typography variant="body1" paragraph>
-            I am a Full Stack Developer. I enjoy solving problems by making simple solutions. I focus on good design and write clean code. I build apps that help people.
+            I am a full-stack developer with hands-on experience in building modern web applications using React, Next.js, and Node.js. I'm passionate about real-time systems, machine learning, and...
           </Typography>
           
           <Button

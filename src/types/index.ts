@@ -6,6 +6,10 @@ export interface Project {
   techStack: string[];
   repoLink: string;
   liveLink?: string;
+  slug: string;
+  longDescription?: string;
+  features?: string[];
+  youtubeLink?: string;
 }
 
 export interface NavItem {

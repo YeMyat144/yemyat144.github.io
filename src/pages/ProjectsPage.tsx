@@ -4,11 +4,13 @@ import { motion } from 'framer-motion';
 import { projects } from '../data/projects';
 import { GitHub, Language } from '@mui/icons-material';
 import { Helmet} from 'react-helmet';
+import { useNavigate } from 'react-router-dom';
 
 const MotionBox = motion(Box);
 
 const ProjectsPage: React.FC = () => {
   const theme = useTheme();
+  const navigate = useNavigate();
   
   return (
     <>
@@ -52,6 +54,7 @@ const ProjectsPage: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
+            onClick={() => navigate(`/projects/${project.slug}`)}
             sx={{
               position: 'relative',
               height: { xs: 300, md: 400 },

@@ -34,10 +34,66 @@ const AboutPage: React.FC = () => {
           </Typography>
           
           <Typography variant="body1" paragraph>
-            I am a Full Stack Developer. I enjoy solving problems by making simple solutions. I focus on good design and write clean code. I build apps that help people.
+            I am a full-stack developer with hands-on experience in building modern web applications using React, Next.js, and Node.js. I'm passionate about real-time systems, machine learning, and creating scalable, user-friendly solutions. I have a strong background in frontend development, backend integration, data processing, and ML/NLP dashboard design.
           </Typography>
 
         <Divider sx={{ my: 3 }} />
+
+        {/* Skills Section */}
+        
+          <Typography 
+            variant="h5" 
+            component="h2" 
+            gutterBottom
+            sx={{ 
+              fontWeight: 700,
+              color: theme.palette.primary.main,
+              mb: 3
+            }}
+          >
+            Skills
+          </Typography>
+          
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
+            <Box>
+              <Typography variant="body1" fontWeight={600}>
+                Frontend Development
+              </Typography>
+              <Typography variant="body2" color="secondary">
+                React, Next.js, Vue.js, Redux, Tailwind CSS, Bootstrap, Material UI
+              </Typography>
+            </Box>
+
+            <Box>
+              <Typography variant="body1" fontWeight={600}>
+                Backend Development
+              </Typography>
+              <Typography variant="body2" color="secondary">
+                Node.js, Express.js, MongoDB, Firebase, Supabase, PostgreSQL
+              </Typography>
+            </Box>
+
+            <Box>
+              <Typography variant="body1" fontWeight={600}>
+                UI/UX Design
+              </Typography>
+              <Typography variant="body2" color="secondary">
+                Figma, Behance, Responsive Design
+              </Typography>
+            </Box>
+
+            <Box>
+              <Typography variant="body1" fontWeight={600}>
+                Machine Learning & NLP
+              </Typography>
+              <Typography variant="body2" color="secondary">
+                Python, TensorFlow, PyTorch, NLTK, Scikit-learn
+              </Typography>
+            </Box>
+
+          </Box>
+
+          <Divider sx={{ my: 3 }} />
         
 
         {/* Education Section */}
