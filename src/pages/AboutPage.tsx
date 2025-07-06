@@ -30,11 +30,11 @@ const AboutPage: React.FC = () => {
               mb: 3
             }}
           >
-            Who I Am
+            Professional Summary
           </Typography>
           
           <Typography variant="body1" paragraph>
-            I am a full-stack developer with hands-on experience in building modern web applications using React, Next.js, and Node.js. I'm passionate about real-time systems, machine learning, and creating scalable, user-friendly solutions. I have a strong background in frontend development, backend integration, data processing, and ML/NLP dashboard design.
+            I'm a Computer Science undergraduate with a strong interest in solving real-world challenges through technology. I’ve had hands-on experience in areas like machine learning, NLP, and full-stack development. My interests lean toward real-time systems and computer vision, and I enjoy working on data-driven projects that make an impact. Whether I’m building an application or experimenting with AI models, I’m always focused on creating meaningful and functional solutions.
           </Typography>
 
         <Divider sx={{ my: 3 }} />
@@ -57,37 +57,46 @@ const AboutPage: React.FC = () => {
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
             <Box>
               <Typography variant="body1" fontWeight={600}>
-                Frontend Development
+                Languages & Frameworks
               </Typography>
               <Typography variant="body2" color="secondary">
-                React, Next.js, Vue.js, Redux, Tailwind CSS, Bootstrap, Material UI
+                Python, JavaScript, TypeScript, React.js, Next.js, Node.js, Express.js, C#
               </Typography>
             </Box>
 
             <Box>
               <Typography variant="body1" fontWeight={600}>
-                Backend Development
+                ML & CV Tools
               </Typography>
               <Typography variant="body2" color="secondary">
-                Node.js, Express.js, MongoDB, Firebase, Supabase, PostgreSQL
+                YOLOv5, Scikit-learn, OpenCV, NLTK, spaCy, TensorFlow, PyTorch
               </Typography>
             </Box>
 
             <Box>
               <Typography variant="body1" fontWeight={600}>
-                UI/UX Design
+                Databases
               </Typography>
               <Typography variant="body2" color="secondary">
-                Figma, Behance, Responsive Design
+                MongoDB, Firestore, PostgreSQL
               </Typography>
             </Box>
 
             <Box>
               <Typography variant="body1" fontWeight={600}>
-                Machine Learning & NLP
+                Tools & Platforms
               </Typography>
               <Typography variant="body2" color="secondary">
-                Python, TensorFlow, PyTorch, NLTK, Scikit-learn
+                Git, WebSocket, Flask, Streamlit, Unity, Supabase, Vercel, Firebase, Docker
+              </Typography>
+            </Box>
+
+            <Box>
+              <Typography variant="body1" fontWeight={600}>
+                Others
+              </Typography>
+              <Typography variant="body2" color="secondary">
+                Tailwind CSS, Material UI (MUI), NLP, Resume Parsing, Game Development, Responsive Design
               </Typography>
             </Box>
 
@@ -116,7 +125,7 @@ const AboutPage: React.FC = () => {
               Bachelor of Computer Science
             </Typography>
             <Typography variant="body2" color="secondary" gutterBottom>
-              Assumption University of Thailand • 2022 - Present
+              Assumption University of Thailand • June 2022 - Present
             </Typography>
           </Box>
 
@@ -144,7 +153,7 @@ const AboutPage: React.FC = () => {
                 AWS Cloud Foundation
               </Typography>
               <Typography variant="body2" color="secondary">
-                Amazon Web Services • 2023
+                Amazon Web Services • September 20, 2023
               </Typography>
             </Box>
 
@@ -153,11 +162,47 @@ const AboutPage: React.FC = () => {
                 Management Skills
               </Typography>
               <Typography variant="body2" color="secondary">
-                Parami University, Yangon • 2021
+                Parami University, Yangon • October 8, 2021
               </Typography>
             </Box>
           </Box>
+
           <Divider sx={{ my: 3 }} />
+
+        {/* Languages Section */}
+        
+          <Typography 
+            variant="h5" 
+            component="h2" 
+            gutterBottom
+            sx={{ 
+              fontWeight: 700,
+              color: theme.palette.primary.main,
+              mb: 3
+            }}
+          >
+            Languages
+          </Typography>
+
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
+            <Box>
+              <Typography variant="body1" fontWeight={600}>
+                English
+              </Typography>
+              <Typography variant="body2" color="secondary">
+                Proficient
+              </Typography>
+            </Box>
+
+            <Box>
+              <Typography variant="body1" fontWeight={600}>
+                Burmese
+              </Typography>
+              <Typography variant="body2" color="secondary">
+                Native
+              </Typography>
+            </Box>
+          </Box>
         
       </Stack>
     </Box>

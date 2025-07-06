@@ -1,6 +1,7 @@
 export interface Project {
   id: number;
   title: string;
+  contributors?: string[];
   description: string;
   image: string;
   techStack: string[];

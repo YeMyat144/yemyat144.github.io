@@ -65,9 +65,6 @@ const SidebarPermanent: React.FC<SidebarPermanentProps> = ({ drawerWidth }) => {
         <Typography variant="h6" fontWeight="bold">
           Ye Myat Moe
         </Typography>
-        <Typography variant="body2">
-          Web Developer
-        </Typography>
       </DrawerHeader>
       
       <List>

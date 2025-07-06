@@ -84,7 +84,7 @@ const ContactPage: React.FC = () => {
                   secondary={
                     <Typography 
                       component="a" 
-                      href="tel:+1234567890" 
+                      href="tel:+66617406702" 
                       color="text.primary"
                       sx={{ 
                         textDecoration: 'none',
@@ -92,7 +92,7 @@ const ContactPage: React.FC = () => {
                         '&:hover': { color: theme.palette.primary.main }
                       }}
                     >
-                      +66 6-1740-6702
+                      +66 61-740-6702
                     </Typography>
                   }
                 />
@@ -109,7 +109,7 @@ const ContactPage: React.FC = () => {
                       color="text.primary"
                       sx={{ fontWeight: 500 }}
                     >
-                      Samut Prakan, Thailand
+                      Bang Bo District, Samut Prakan 10560, Thailand
                     </Typography>
                   }
                 />

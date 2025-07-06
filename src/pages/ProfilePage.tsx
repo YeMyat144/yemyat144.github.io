@@ -43,7 +43,7 @@ const ProfilePage: React.FC = () => {
         >
           <Box
             component="img"
-            src='https://i.imgur.com/cnJpjzp.png'
+            src='https://i.ibb.co/v6bGvCk2/Screenshot-2025-07-05-143410.png'
             alt="Cover"
             sx={{
               width: '100%',
@@ -64,7 +64,7 @@ const ProfilePage: React.FC = () => {
             color="primary"
             startIcon={<Download />}
             component="a"
-            href="https://drive.google.com/uc?export=download&id=1I-7BBOappryFtIXSsJcAOE7e2MRiAQqx"
+            href="https://drive.google.com/uc?export=download&id=157K8dY2zY8eCmQ2gB4WQHB6JedoHy951"
             target="_blank"
             rel="noopener noreferrer"
             sx={{ 
@@ -130,7 +130,7 @@ const ProfilePage: React.FC = () => {
           </Typography>
           
           <Typography variant="body1" paragraph>
-            I am a full-stack developer with hands-on experience in building modern web applications using React, Next.js, and Node.js. I'm passionate about real-time systems, machine learning, and...
+            I'm a Computer Science undergraduate with a strong interest in solving real-world challenges through technology. I’ve had hands-on experience in areas like machine learning, NLP, and ...
           </Typography>
           
           <Button
@@ -169,10 +169,10 @@ const ProfilePage: React.FC = () => {
           
           <Box sx={{ mb: 2 }}>
             <Typography variant="body1" fontWeight={600}>
-              Front-end Development
+              Machine Learning & CV
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              React, TypeScript, Next.js, Material UI
+              YOLOv5, TensorFlow, OpenCV, Scikit-learn, NLP
             </Typography>
           </Box>
           
@@ -180,10 +180,10 @@ const ProfilePage: React.FC = () => {
           
           <Box sx={{ mb: 2 }}>
             <Typography variant="body1" fontWeight={600}>
-              Back-end Development
+              Full-Stack Development
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Node.js, Express, MongoDB, PostgreSQL
+              React, Next.js, Node.js, Python, Flask, Firebase
             </Typography>
           </Box>
           
@@ -191,10 +191,10 @@ const ProfilePage: React.FC = () => {
           
           <Box sx={{ mb: 2 }}>
             <Typography variant="body1" fontWeight={600}>
-              UI/UX Design
+              Game Development
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Figma, Behance, Responsive Design
+              Unity, C#, Real-time Systems, Computer Vision
             </Typography>
           </Box>
         </MotionPaper>
@@ -289,7 +289,7 @@ const ProfilePage: React.FC = () => {
               <Button 
                 variant="outlined" 
                 size="small"
-                onClick={() => navigate('/projects')}
+                onClick={() => navigate('/projects/samsarent')}
                 sx={{ 
                   color: 'white', 
                   borderColor: 'white',
@@ -321,7 +321,7 @@ const ProfilePage: React.FC = () => {
           >
             <Box 
               component="img"
-              src="https://i.imgur.com/0kFRXUZ.png"
+              src="https://i.ibb.co/ZqzRjnJ/Screenshot-2025-07-05-142917.png"
               alt="NarrateNow"
               sx={{ 
                 width: '100%',
@@ -350,11 +350,11 @@ const ProfilePage: React.FC = () => {
                 textAlign: 'center',
               }}
             >
-              <Typography variant="h6" gutterBottom>NarrateNow</Typography>
+              <Typography variant="h6" gutterBottom>Real-Time Anime Face Stylization</Typography>
               <Button 
                 variant="outlined" 
                 size="small"
-                onClick={() => navigate('/projects')}
+                onClick={() => navigate('/projects/anime-face-stylization')}
                 sx={{ 
                   color: 'white', 
                   borderColor: 'white',

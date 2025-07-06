@@ -1,10 +1,10 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { 
-  Box, 
-  Typography, 
-  useTheme, 
-  Button, 
+import {
+  Box,
+  Typography,
+  useTheme,
+  Button,
   Chip,
   IconButton,
 } from '@mui/material';
@@ -19,15 +19,15 @@ const ProjectDetailPage: React.FC = () => {
   const { projectSlug } = useParams();
   const navigate = useNavigate();
   const theme = useTheme();
-  
+
   const project = projects.find(p => p.slug === projectSlug);
 
   if (!project) {
     return (
       <Box sx={{ textAlign: 'center', py: 8 }}>
         <Typography variant="h4" gutterBottom>Project Not Found</Typography>
-        <Button 
-          variant="contained" 
+        <Button
+          variant="contained"
           onClick={() => navigate('/projects')}
           startIcon={<ArrowBackIosNewIcon />}
         >
@@ -58,12 +58,12 @@ const ProjectDetailPage: React.FC = () => {
           >
             <ArrowBackIosNewIcon />
           </IconButton>
-          
-          <Typography 
-            variant="h3" 
-            component="h1" 
+
+          <Typography
+            variant="h3"
+            component="h1"
             align="center"
-            sx={{ 
+            sx={{
               fontWeight: 800,
               color: theme.palette.primary.main,
               mb: 2
@@ -71,11 +71,11 @@ const ProjectDetailPage: React.FC = () => {
           >
             {project.title}
           </Typography>
-          
+
         </Box>
 
-        <Box 
-          sx={{ 
+        <Box
+          sx={{
             position: 'relative',
             height: { xs: 300, md: 500 },
             mb: 4,
@@ -96,51 +96,84 @@ const ProjectDetailPage: React.FC = () => {
           />
         </Box>
         <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, mb: 4 }}>
+          <Button
+            variant="contained"
+            color="primary"
+            startIcon={<GitHub />}
+            href={project.repoLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{ borderRadius: 2 }}
+          >
+            Repo
+          </Button>
+          {project.liveLink && (
             <Button
-              variant="contained"
-              color="primary"
-              startIcon={<GitHub />}
-              href={project.repoLink}
+              variant="outlined"
+              color="secondary"
+              startIcon={<Language />}
+              href={project.liveLink}
               target="_blank"
               rel="noopener noreferrer"
               sx={{ borderRadius: 2 }}
             >
-              Repo
+              Live
             </Button>
-            {project.liveLink && (
-              <Button
-                variant="outlined"
-                color="secondary"
-                startIcon={<Language />}
-                href={project.liveLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                sx={{ borderRadius: 2 }}
-              >
-                Live
-              </Button>
-            )}
-            {/* youtube demo */}
-            {project.youtubeLink && (
-              <Button
-                variant="outlined"
-                color="secondary"
-                startIcon={<YouTube />}
-                href={project.youtubeLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                sx={{ borderRadius: 2 }}
-              >
-                Demo
-              </Button>
-            )}
-          </Box>
+          )}
+          {/* youtube demo */}
+          {project.youtubeLink && (
+            <Button
+              variant="outlined"
+              color="secondary"
+              startIcon={<YouTube />}
+              href={project.youtubeLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{ borderRadius: 2 }}
+            >
+              Demo
+            </Button>
+          )}
+        </Box>
 
         <Box sx={{ mb: 4 }}>
-          <Typography 
-            variant="h5" 
+
+          {project.contributors && project.contributors.length > 0 && (
+            <Box sx={{ mb: 4 }}>
+              <Typography
+                variant="h5"
+                component="h2"
+                sx={{
+                  fontWeight: 700,
+                  color: theme.palette.primary.main,
+                  mb: 2
+                }}
+              >
+                Contributors
+              </Typography>
+              <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+                {project.contributors.map((contributor, index) => (
+                  <Chip
+                    key={index}
+                    label={contributor}
+                    sx={{
+                      bgcolor: `${theme.palette.primary.main}15`,
+                      color: theme.palette.primary.dark,
+                      fontWeight: 500,
+                      '&:hover': {
+                        bgcolor: `${theme.palette.primary.main}25`,
+                      }
+                    }}
+                  />
+                ))}
+              </Box>
+            </Box>
+          )}
+
+          <Typography
+            variant="h5"
             component="h2"
-            sx={{ 
+            sx={{
               fontWeight: 700,
               color: theme.palette.primary.main,
               mb: 2
@@ -156,10 +189,10 @@ const ProjectDetailPage: React.FC = () => {
         </Box>
 
         <Box sx={{ mb: 4 }}>
-          <Typography 
-            variant="h5" 
+          <Typography
+            variant="h5"
             component="h2"
-            sx={{ 
+            sx={{
               fontWeight: 700,
               color: theme.palette.primary.main,
               mb: 2
@@ -184,10 +217,10 @@ const ProjectDetailPage: React.FC = () => {
 
         {project.features && (
           <Box sx={{ mb: 4 }}>
-            <Typography 
-              variant="h5" 
+            <Typography
+              variant="h5"
               component="h2"
-              sx={{ 
+              sx={{
                 fontWeight: 700,
                 color: theme.palette.primary.main,
                 mb: 2
@@ -197,10 +230,10 @@ const ProjectDetailPage: React.FC = () => {
             </Typography>
             <Box component="ul" sx={{ pl: 3 }}>
               {project.features.map((feature, index) => (
-                <Typography 
-                  key={index} 
-                  component="li" 
-                  variant="body1" 
+                <Typography
+                  key={index}
+                  component="li"
+                  variant="body1"
                   sx={{ mb: 1 }}
                 >
                   {feature}
