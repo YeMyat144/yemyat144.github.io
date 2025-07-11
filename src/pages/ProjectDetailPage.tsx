@@ -120,7 +120,6 @@ const ProjectDetailPage: React.FC = () => {
               Live
             </Button>
           )}
-          {/* youtube demo */}
           {project.youtubeLink && (
             <Button
               variant="outlined"

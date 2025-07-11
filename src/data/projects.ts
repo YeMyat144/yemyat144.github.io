@@ -116,5 +116,80 @@ export const projects: Project[] = [
       'Real-time webcam processing',
       'Deep learning-based image transformation'
     ],
-  }
+  },
+  {
+    id: 7,
+    title: 'The Decider',
+    description: 'A mobile application built with React Native and Expo',
+    longDescription: 'A modern, intuitive mobile application built with React Native and Expo that helps users make decisions through an interactive and engaging interface.',
+    image: 'https://i.ibb.co/wNCWLQ5w/Screenshot-2025-07-11-220901.png',
+    techStack: ['React Native', 'Expo', 'Framer Motion', 'Lottie', 'React Native Paper' ],
+    repoLink: 'https://github.com/YeMyat144/decider',
+    liveLink: '',
+    youtubeLink: 'https://www.youtube.com/watch?v=SNs5-WcHOH8',
+    slug: 'the-decider',
+    features: [
+      'Interactive decision-making interface',
+      'Smooth animations and transitions',
+      'Modern UI/UX design',
+      'Cross-platform compatibility (iOS & Android)',
+      'Offline functionality'
+    ],
+  },
+  {
+    id: 8,
+    title: 'Draw | Guess',
+    description: 'A drawing and guessing game built with Vue 3 and Socket.IO.',
+    longDescription: 'A real-time multiplayer drawing and guessing game built with Vue 3, TypeScript, and Socket.IO. Players take turns drawing while others try to guess the word, earning points for correct guesses.',
+    image: 'https://i.imgur.com/k5rMXRE.png',
+    techStack: ['Vue 3', 'TypeScript', 'Fastify', 'Socket.IO'],
+    repoLink: 'https://github.com/YeMyat144/draw-guess',
+    liveLink: 'https://drawnguess.vercel.app',
+    youtubeLink: 'https://www.youtube.com/watch?v=wPfYlacUP7s',
+    slug: 'draw-guess',
+    features: [
+      'Real-time multiplayer gameplay',
+      'Drawing canvas with multiple tools',
+      'Room-based gameplay',    
+      'Custom word input option',
+      'Role switching between players'
+    ],
+  },
+  {
+    id: 9,
+    title: 'Signology',
+    description: 'A zodiac sign quiz app built using React',
+    longDescription: 'A fun, interactive, and now more advanced Zodiac Sign Quiz app built using React and Material-UI (MUI). Signology brings quiz customization, deeper zodiac insights, and a compatibility checker to help you explore astrology like never before',
+    image: 'https://i.ibb.co/XxMMfqfR/Screenshot-2025-07-11-220428.png',
+    techStack: ['React', 'TypeScript', 'Material UI'],
+    repoLink: 'https://github.com/YeMyat144/zodiac',
+    liveLink: 'https://signology.netlify.app/',
+    youtubeLink: 'https://www.youtube.com/watch?v=TGhRpa3xecs',
+    slug: 'signology',
+    features: [
+      'Test your zodiac knowledge with interactive multiple-choice questions',
+      'Tracks and displays your quiz performance',
+      'Check romantic compatibility between any two zodiac signs',    
+    ],
+  },
+  {
+    id: 10,
+    title: 'NarrateNow',
+    description: 'A web app to create and explore interactive stories with choices',
+    longDescription: 'NarrateNow is a full-featured web application that allows users to create, share, and experience interactive stories where every decision shapes the narrative. Built with Next.js and Supabase, it provides a platform for creative storytelling with branching narratives.',
+    image: 'https://i.imgur.com/0kFRXUZ.png',
+    techStack: ['Next.js', 'Supabase', 'Imgur API', 'PostgreSQL'],
+    repoLink: 'https://github.com/YeMyat144/narratenow',
+    liveLink: 'https://narratenow.vercel.app',
+    youtubeLink: 'https://www.youtube.com/watch?v=EfIbmmByEhc',
+    slug: 'narratenow',
+    features: [
+      'Intuitive story editor with branching narrative paths',
+      'Discover and read stories created by other users',
+      'Make choices that affect the story outcome',    
+      'Create, edit, and delete your stories',
+      'Like stories and share them with others'
+    ],
+  },
+
 ];

@@ -42,7 +42,7 @@ export const socialLinks: SocialLink[] = [
   {
     name: 'LinkedIn',
     icon: LinkedIn,
-    url: 'https://www.linkedin.com/in/ye-myat-moe-2a6105230/',
+    url: 'https://www.linkedin.com/in/yemyatmoe14/',
   },
   {
     name: 'Instagram',
