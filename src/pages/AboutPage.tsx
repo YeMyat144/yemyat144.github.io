@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { 
   Box, 
   Typography, 
@@ -10,6 +10,19 @@ import { Helmet } from 'react-helmet';
 
 const AboutPage: React.FC = () => {
   const theme = useTheme();
+  const [enlargedImgSrc, setEnlargedImgSrc] = useState<string | null>(null);
+
+  // Close modal on Escape key
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    if (e.key === 'Escape') setEnlargedImgSrc(null);
+  }, []);
+
+  useEffect(() => {
+    if (enlargedImgSrc) {
+      window.addEventListener('keydown', handleKeyDown);
+      return () => window.removeEventListener('keydown', handleKeyDown);
+    }
+  }, [enlargedImgSrc, handleKeyDown]);
   
   return (
     <>
@@ -149,7 +162,7 @@ const AboutPage: React.FC = () => {
 
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
             {/* AWS Certificate */}
-            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 2, alignItems: { xs: 'flex-start', md: 'center' } }}>
+            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 2, alignItems: { xs: 'flex-start', md: 'center' }, position: 'relative' }}>
               <Box 
                 sx={{ 
                   width: { xs: '100%', md: 200 }, 
@@ -157,10 +170,11 @@ const AboutPage: React.FC = () => {
                   borderRadius: theme.shape.borderRadius,
                   overflow: 'hidden',
                   flexShrink: 0,
-                  '&:hover img': {
-                    transform: 'scale(1.05)',
-                  }
+                  position: 'relative',
+                  cursor: 'pointer',
                 }}
+                onClick={() => setEnlargedImgSrc('https://i.ibb.co/HL5QcYPV/aws.png')}
+                title="Click to enlarge"
               >
                 <Box 
                   component="img"
@@ -189,7 +203,7 @@ const AboutPage: React.FC = () => {
             </Box>
 
             {/* Unity Certificate */}
-            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 2, alignItems: { xs: 'flex-start', md: 'center' } }}>
+            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 2, alignItems: { xs: 'flex-start', md: 'center' }, position: 'relative' }}>
               <Box 
                 sx={{ 
                   width: { xs: '100%', md: 200 }, 
@@ -197,10 +211,11 @@ const AboutPage: React.FC = () => {
                   borderRadius: theme.shape.borderRadius,
                   overflow: 'hidden',
                   flexShrink: 0,
-                  '&:hover img': {
-                    transform: 'scale(1.05)',
-                  }
+                  position: 'relative',
+                  cursor: 'pointer',
                 }}
+                onClick={() => setEnlargedImgSrc('https://i.ibb.co/qFNZRFrc/unity.png')}
+                title="Click to enlarge"
               >
                 <Box 
                   component="img"
@@ -229,7 +244,7 @@ const AboutPage: React.FC = () => {
             </Box>
 
             {/* Management Certificate */}
-            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 2, alignItems: { xs: 'flex-start', md: 'center' } }}>
+            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 2, alignItems: { xs: 'flex-start', md: 'center' }, position: 'relative' }}>
               <Box 
                 sx={{ 
                   width: { xs: '100%', md: 200 }, 
@@ -237,14 +252,15 @@ const AboutPage: React.FC = () => {
                   borderRadius: theme.shape.borderRadius,
                   overflow: 'hidden',
                   flexShrink: 0,
-                  '&:hover img': {
-                    transform: 'scale(1.05)',
-                  }
+                  position: 'relative',
+                  cursor: 'pointer',
                 }}
+                onClick={() => setEnlargedImgSrc('https://i.ibb.co/ycXRdPHg/Screenshot-2025-07-15-012954.png')}
+                title="Click to enlarge"
               >
                 <Box 
                   component="img"
-                  src="https://i.ibb.co/sd3JWmzq/parami.png"
+                  src="https://i.ibb.co/ycXRdPHg/Screenshot-2025-07-15-012954.png"
                   alt="Parami Management Skills Certificate"
                   sx={{ 
                     width: '100%',
@@ -256,7 +272,7 @@ const AboutPage: React.FC = () => {
               </Box>
               <Box sx={{ flex: 1 }}>
                 <Typography variant="body1" fontWeight={600}>
-                  Management Skills Development
+                  Management Skills
                 </Typography>
                 <Typography variant="body2" color="secondary" gutterBottom>
                   Parami University, Yangon • October 8, 2021
@@ -267,7 +283,83 @@ const AboutPage: React.FC = () => {
                 </Typography>
               </Box>
             </Box>
+
+            {/* Physics behind Internet*/}
+            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 2, alignItems: { xs: 'flex-start', md: 'center' }, position: 'relative' }}>
+              <Box 
+                sx={{ 
+                  width: { xs: '100%', md: 200 }, 
+                  height: { xs: 150, md: 120 },
+                  borderRadius: theme.shape.borderRadius,
+                  overflow: 'hidden',
+                  flexShrink: 0,
+                  position: 'relative',
+                  cursor: 'pointer',
+                }}
+                onClick={() => setEnlargedImgSrc('https://i.ibb.co/sd3JWmzq/parami.png')}
+                title="Click to enlarge"
+              >
+                <Box 
+                  component="img"
+                  src="https://i.ibb.co/sd3JWmzq/parami.png"
+                  alt="Physics behind Internet Certificate"
+                  sx={{ 
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    transition: 'transform 0.3s ease',
+                  }}
+                />
+              </Box>
+              <Box sx={{ flex: 1 }}>
+                <Typography variant="body1" fontWeight={600}>
+                  Physics behind Internet
+                </Typography>
+                <Typography variant="body2" color="secondary" gutterBottom>
+                  Parami University, Yangon • October 8, 2021
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Explored the physical principles underlying internet technologies including data transmission, 
+                  network protocols, and the impact of physics on modern communication systems.
+                </Typography>
+              </Box>
+            </Box>
           </Box>
+
+          {/* Modal overlay for enlarged image */}
+          {enlargedImgSrc && (
+            <Box
+              onClick={() => setEnlargedImgSrc(null)}
+              sx={{
+                position: 'fixed',
+                top: -32,
+                left: 0,
+                width: '100vw',
+                height: '100vh',
+                bgcolor: 'rgba(0,0,0,0.8)',
+                zIndex: 1300,
+                border: 'none',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+              }}
+            >
+              <Box
+                component="img"
+                src={enlargedImgSrc}
+                alt="Enlarged certificate"
+                sx={{
+                  maxWidth: { xs: '90vw', md: 600 },
+                  maxHeight: { xs: '70vh', md: 600 },
+                  borderRadius: 2,
+                  boxShadow: 8,
+                  background: '#fff',
+                }}
+                onClick={e => e.stopPropagation()}
+              />
+            </Box>
+          )}
 
           <Divider sx={{ my: 3 }} />
 
