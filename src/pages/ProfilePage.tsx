@@ -43,7 +43,7 @@ const ProfilePage: React.FC = () => {
         >
           <Box
             component="img"
-            src='https://i.ibb.co/v6bGvCk2/Screenshot-2025-07-05-143410.png'
+            src='/me/banner.png'
             alt="Cover"
             sx={{
               width: '100%',
@@ -366,6 +366,152 @@ const ProfilePage: React.FC = () => {
               >
                 View Details
               </Button>
+            </Box>
+          </Box>
+        </Box>
+      </MotionPaper>
+      
+      {/* Certificates Section */}
+      <MotionPaper
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.4 }}
+        sx={{ 
+          p: 3, 
+          borderRadius: theme.shape.borderRadius * 1.5,
+          mb: 6
+        }}
+      >
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
+          <Typography 
+            variant="h5" 
+            component="h2"
+            sx={{ 
+              fontWeight: 700,
+              color: theme.palette.primary.main,
+            }}
+          >
+            Certificates
+          </Typography>
+          
+          <Button
+            variant="text"
+            color="primary"
+            endIcon={<ArrowForward />}
+            onClick={() => navigate('/about')}
+          >
+            View all certificates
+          </Button>
+        </Box>
+        
+        <Box 
+          sx={{ 
+            display: 'flex',
+            flexDirection: { xs: 'column', md: 'row' },
+            gap: 3
+          }}
+        >
+          <Box 
+            sx={{ 
+              flex: 1, 
+              borderRadius: theme.shape.borderRadius,
+              overflow: 'hidden',
+              position: 'relative',
+              height: 200,
+              '&:hover img': {
+                transform: 'scale(1.05)',
+              },
+              '&:hover .overlay': {
+                opacity: 1,
+              }
+            }}
+          >
+            <Box 
+              component="img"
+              src="/certificates/aws.png"
+              alt="AWS Cloud Foundation Certificate"
+              sx={{ 
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                transition: 'transform 0.5s ease',
+              }}
+            />
+            <Box 
+              className="overlay"
+              sx={{ 
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                bgcolor: 'rgba(0, 0, 0, 0.7)',
+                color: 'white',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                opacity: 0,
+                transition: 'opacity 0.3s ease',
+                p: 2,
+                textAlign: 'center',
+              }}
+            >
+              <Typography variant="h6" gutterBottom>AWS Cloud Foundation</Typography>
+              <Typography variant="body2" gutterBottom>Amazon Web Services</Typography>
+              <Typography variant="caption">September 20, 2023</Typography>
+            </Box>
+          </Box>
+          
+          <Box 
+            sx={{ 
+              flex: 1, 
+              borderRadius: theme.shape.borderRadius,
+              overflow: 'hidden',
+              position: 'relative',
+              height: 200,
+              '&:hover img': {
+                transform: 'scale(1.05)',
+              },
+              '&:hover .overlay': {
+                opacity: 1,
+              }
+            }}
+          >
+            <Box 
+              component="img"
+              src="/certificates/unity.png"
+              alt="Unity Essentials Pathway Certificate"
+              sx={{ 
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                transition: 'transform 0.5s ease',
+              }}
+            />
+            <Box 
+              className="overlay"
+              sx={{ 
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                bgcolor: 'rgba(0, 0, 0, 0.7)',
+                color: 'white',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                opacity: 0,
+                transition: 'opacity 0.3s ease',
+                p: 2,
+                textAlign: 'center',
+              }}
+            >
+              <Typography variant="h6" gutterBottom>Unity Essentials Pathway</Typography>
+              <Typography variant="body2" gutterBottom>Unity Technologies</Typography>
+              <Typography variant="caption">July 13, 2025</Typography>
             </Box>
           </Box>
         </Box>

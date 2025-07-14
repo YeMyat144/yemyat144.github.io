@@ -147,23 +147,125 @@ const AboutPage: React.FC = () => {
             Certificates
           </Typography>
 
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
-            <Box>
-              <Typography variant="body1" fontWeight={600}>
-                AWS Cloud Foundation
-              </Typography>
-              <Typography variant="body2" color="secondary">
-                Amazon Web Services • September 20, 2023
-              </Typography>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+            {/* AWS Certificate */}
+            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 2, alignItems: { xs: 'flex-start', md: 'center' } }}>
+              <Box 
+                sx={{ 
+                  width: { xs: '100%', md: 200 }, 
+                  height: { xs: 150, md: 120 },
+                  borderRadius: theme.shape.borderRadius,
+                  overflow: 'hidden',
+                  flexShrink: 0,
+                  '&:hover img': {
+                    transform: 'scale(1.05)',
+                  }
+                }}
+              >
+                <Box 
+                  component="img"
+                  src="/certificates/aws.png"
+                  alt="AWS Cloud Foundation Certificate"
+                  sx={{ 
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    transition: 'transform 0.3s ease',
+                  }}
+                />
+              </Box>
+              <Box sx={{ flex: 1 }}>
+                <Typography variant="body1" fontWeight={600}>
+                  AWS Academy Graduate - AWS Academy Cloud Foundations
+                </Typography>
+                <Typography variant="body2" color="secondary" gutterBottom>
+                  Amazon Web Services • September 20, 2023
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Completed comprehensive cloud computing fundamentals course covering AWS services, 
+                  security, architecture, and best practices for cloud deployment and management.
+                </Typography>
+              </Box>
             </Box>
 
-            <Box>
-              <Typography variant="body1" fontWeight={600}>
-                Management Skills
-              </Typography>
-              <Typography variant="body2" color="secondary">
-                Parami University, Yangon • October 8, 2021
-              </Typography>
+            {/* Unity Certificate */}
+            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 2, alignItems: { xs: 'flex-start', md: 'center' } }}>
+              <Box 
+                sx={{ 
+                  width: { xs: '100%', md: 200 }, 
+                  height: { xs: 150, md: 120 },
+                  borderRadius: theme.shape.borderRadius,
+                  overflow: 'hidden',
+                  flexShrink: 0,
+                  '&:hover img': {
+                    transform: 'scale(1.05)',
+                  }
+                }}
+              >
+                <Box 
+                  component="img"
+                  src="/certificates/unity.png"
+                  alt="Unity Essentials Pathway Certificate"
+                  sx={{ 
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    transition: 'transform 0.3s ease',
+                  }}
+                />
+              </Box>
+              <Box sx={{ flex: 1 }}>
+                <Typography variant="body1" fontWeight={600}>
+                  Unity Essentials Pathway
+                </Typography>
+                <Typography variant="body2" color="secondary" gutterBottom>
+                  Unity Technologies • July 13, 2025
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Mastered Unity game development fundamentals including scripting, physics, 
+                  animation, and project management for creating interactive 3D applications.
+                </Typography>
+              </Box>
+            </Box>
+
+            {/* Management Certificate */}
+            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 2, alignItems: { xs: 'flex-start', md: 'center' } }}>
+              <Box 
+                sx={{ 
+                  width: { xs: '100%', md: 200 }, 
+                  height: { xs: 150, md: 120 },
+                  borderRadius: theme.shape.borderRadius,
+                  overflow: 'hidden',
+                  flexShrink: 0,
+                  '&:hover img': {
+                    transform: 'scale(1.05)',
+                  }
+                }}
+              >
+                <Box 
+                  component="img"
+                  src="/certificates/parami.png"
+                  alt="Parami Management Skills Certificate"
+                  sx={{ 
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    transition: 'transform 0.3s ease',
+                  }}
+                />
+              </Box>
+              <Box sx={{ flex: 1 }}>
+                <Typography variant="body1" fontWeight={600}>
+                  Management Skills Development
+                </Typography>
+                <Typography variant="body2" color="secondary" gutterBottom>
+                  Parami University, Yangon • October 8, 2021
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Developed essential management and leadership skills including team coordination, 
+                  project planning, communication strategies, and organizational development.
+                </Typography>
+              </Box>
             </Box>
           </Box>
 
