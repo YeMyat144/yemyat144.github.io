@@ -219,7 +219,7 @@ const AboutPage: React.FC = () => {
                   Unity Essentials Pathway
                 </Typography>
                 <Typography variant="body2" color="secondary" gutterBottom>
-                  Unity Technologies • July 13, 2025
+                  Unity Technologies • June 30, 2025
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                   Mastered Unity game development fundamentals including scripting, physics, 

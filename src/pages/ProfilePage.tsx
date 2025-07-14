@@ -511,7 +511,7 @@ const ProfilePage: React.FC = () => {
             >
               <Typography variant="h6" gutterBottom>Unity Essentials Pathway</Typography>
               <Typography variant="body2" gutterBottom>Unity Technologies</Typography>
-              <Typography variant="caption">July 13, 2025</Typography>
+              <Typography variant="caption">June 30, 2025</Typography>
             </Box>
           </Box>
         </Box>
