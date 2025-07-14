@@ -43,7 +43,7 @@ const ProfilePage: React.FC = () => {
         >
           <Box
             component="img"
-            src='/me/banner.png'
+            src='https://i.ibb.co/L7rCnb2/banner.png'
             alt="Cover"
             sx={{
               width: '100%',
@@ -428,7 +428,7 @@ const ProfilePage: React.FC = () => {
           >
             <Box 
               component="img"
-              src="/certificates/aws.png"
+              src="https://i.ibb.co/HL5QcYPV/aws.png"
               alt="AWS Cloud Foundation Certificate"
               sx={{ 
                 width: '100%',
@@ -480,7 +480,7 @@ const ProfilePage: React.FC = () => {
           >
             <Box 
               component="img"
-              src="/certificates/unity.png"
+              src="https://i.ibb.co/qFNZRFrc/unity.png"
               alt="Unity Essentials Pathway Certificate"
               sx={{ 
                 width: '100%',

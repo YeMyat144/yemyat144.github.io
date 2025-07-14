@@ -164,7 +164,7 @@ const AboutPage: React.FC = () => {
               >
                 <Box 
                   component="img"
-                  src="/certificates/aws.png"
+                  src="https://i.ibb.co/HL5QcYPV/aws.png"
                   alt="AWS Cloud Foundation Certificate"
                   sx={{ 
                     width: '100%',
@@ -204,7 +204,7 @@ const AboutPage: React.FC = () => {
               >
                 <Box 
                   component="img"
-                  src="/certificates/unity.png"
+                  src="https://i.ibb.co/qFNZRFrc/unity.png"
                   alt="Unity Essentials Pathway Certificate"
                   sx={{ 
                     width: '100%',
@@ -244,7 +244,7 @@ const AboutPage: React.FC = () => {
               >
                 <Box 
                   component="img"
-                  src="/certificates/parami.png"
+                  src="https://i.ibb.co/sd3JWmzq/parami.png"
                   alt="Parami Management Skills Certificate"
                   sx={{ 
                     width: '100%',

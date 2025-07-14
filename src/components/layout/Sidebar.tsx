@@ -63,7 +63,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, drawerWidth }) => {
       <DrawerHeader>
         
         <Avatar
-          src='/me/me.png'
+          src='https://i.ibb.co/zWP7Q2BJ/me.png'
           alt="Profile"
           sx={{ 
             width: 80, 

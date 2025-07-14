@@ -53,7 +53,7 @@ const SidebarPermanent: React.FC<SidebarPermanentProps> = ({ drawerWidth }) => {
     >
       <DrawerHeader>
         <Avatar
-          src='/me/me.png'
+          src='https://i.ibb.co/zWP7Q2BJ/me.png'
           alt="Profile"
           sx={{ 
             width: 80, 
