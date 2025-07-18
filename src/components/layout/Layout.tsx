@@ -33,20 +33,23 @@ const Layout: React.FC = () => {
           display: { xs: 'flex', md: 'none' },
           '&:hover': {
             bgcolor: theme.palette.secondary.main,
-          }
+          },
+          width: 60,
+          height: 60,
         }}
+        size="large"
       >
-        <MenuIcon />
+        <MenuIcon fontSize="large" />
       </IconButton>
 
-      <Sidebar 
-        isOpen={isSidebarOpen} 
-        onClose={() => setSidebarOpen(false)} 
+      <Sidebar
+        isOpen={isSidebarOpen}
+        onClose={() => setSidebarOpen(false)}
         drawerWidth={drawerWidth}
       />
       <SidebarPermanent drawerWidth={drawerWidth} />
-      
-      <MotionBox 
+
+      <MotionBox
         sx={{
           flexGrow: 1,
           p: 3,
