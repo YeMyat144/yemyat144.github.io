@@ -98,7 +98,8 @@ const ContactForm: React.FC = () => {
           sx={{ 
             display: 'flex', 
             flexDirection: 'column', 
-            gap: 3 
+            gap: 3,
+            width: '100%',
           }}
         >
           <TextField
@@ -161,11 +162,13 @@ const ContactForm: React.FC = () => {
             disabled={formik.isSubmitting}
             sx={{ 
               borderRadius: theme.shape.borderRadius * 1.5,
-              alignSelf: 'flex-start',
+              alignSelf: { xs: 'stretch', sm: 'flex-start' },
               mt: 2,
-              py: 1.5,
-              px: 4, 
+              py: { xs: 1, sm: 1.5 },
+              px: { xs: 2, sm: 4 },
               fontWeight: 600,
+              fontSize: { xs: '1rem', sm: '1.1rem' },
+              width: { xs: '100%', sm: 'auto' },
               transition: 'transform 0.2s',
               '&:hover': {
                 transform: 'translateY(-2px)'

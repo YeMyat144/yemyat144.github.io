@@ -43,7 +43,7 @@ const AboutPage: React.FC = () => {
               mb: 3
             }}
           >
-            Professional Summary
+            Who I Am
           </Typography>
           
           <Typography variant="body1" paragraph>
@@ -72,7 +72,7 @@ const AboutPage: React.FC = () => {
               <Typography variant="body1" fontWeight={600}>
                 Languages & Frameworks
               </Typography>
-              <Typography variant="body2" color="secondary">
+              <Typography variant="body2" >
                 Python, JavaScript, TypeScript, React.js, Next.js, Node.js, Express.js, C#
               </Typography>
             </Box>
@@ -81,7 +81,7 @@ const AboutPage: React.FC = () => {
               <Typography variant="body1" fontWeight={600}>
                 ML & CV Tools
               </Typography>
-              <Typography variant="body2" color="secondary">
+              <Typography variant="body2" >
                 YOLOv5, Scikit-learn, OpenCV, NLTK, spaCy, TensorFlow, PyTorch
               </Typography>
             </Box>
@@ -90,7 +90,7 @@ const AboutPage: React.FC = () => {
               <Typography variant="body1" fontWeight={600}>
                 Databases
               </Typography>
-              <Typography variant="body2" color="secondary">
+              <Typography variant="body2" >
                 MongoDB, Firestore, PostgreSQL
               </Typography>
             </Box>
@@ -99,7 +99,7 @@ const AboutPage: React.FC = () => {
               <Typography variant="body1" fontWeight={600}>
                 Tools & Platforms
               </Typography>
-              <Typography variant="body2" color="secondary">
+              <Typography variant="body2" >
                 Git, WebSocket, Flask, Streamlit, Unity, Supabase, Vercel, Firebase, Docker
               </Typography>
             </Box>
@@ -108,7 +108,7 @@ const AboutPage: React.FC = () => {
               <Typography variant="body1" fontWeight={600}>
                 Others
               </Typography>
-              <Typography variant="body2" color="secondary">
+              <Typography variant="body2" >
                 Tailwind CSS, Material UI (MUI), NLP, Resume Parsing, Game Development, Responsive Design
               </Typography>
             </Box>
@@ -137,7 +137,7 @@ const AboutPage: React.FC = () => {
             <Typography variant="body1" fontWeight={600}>
               Bachelor of Computer Science
             </Typography>
-            <Typography variant="body2" color="secondary" gutterBottom>
+            <Typography variant="body2"  gutterBottom>
               Assumption University of Thailand • June 2022 - Present
             </Typography>
           </Box>
@@ -192,7 +192,7 @@ const AboutPage: React.FC = () => {
                 <Typography variant="body1" fontWeight={600}>
                   AWS Academy Graduate - AWS Academy Cloud Foundations
                 </Typography>
-                <Typography variant="body2" color="secondary" gutterBottom>
+                <Typography variant="body2"  gutterBottom>
                   Amazon Web Services • September 20, 2023
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
@@ -233,7 +233,7 @@ const AboutPage: React.FC = () => {
                 <Typography variant="body1" fontWeight={600}>
                   Unity Essentials Pathway
                 </Typography>
-                <Typography variant="body2" color="secondary" gutterBottom>
+                <Typography variant="body2"  gutterBottom>
                   Unity Technologies • June 30, 2025
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
@@ -274,7 +274,7 @@ const AboutPage: React.FC = () => {
                 <Typography variant="body1" fontWeight={600}>
                   Management Skills
                 </Typography>
-                <Typography variant="body2" color="secondary" gutterBottom>
+                <Typography variant="body2"  gutterBottom>
                   Parami University, Yangon • October 8, 2021
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
@@ -315,7 +315,7 @@ const AboutPage: React.FC = () => {
                 <Typography variant="body1" fontWeight={600}>
                   Physics behind Internet
                 </Typography>
-                <Typography variant="body2" color="secondary" gutterBottom>
+                <Typography variant="body2"  gutterBottom>
                   Parami University, Yangon • October 8, 2021
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
@@ -383,7 +383,7 @@ const AboutPage: React.FC = () => {
               <Typography variant="body1" fontWeight={600}>
                 English
               </Typography>
-              <Typography variant="body2" color="secondary">
+              <Typography variant="body2" >
                 Proficient
               </Typography>
             </Box>
@@ -392,7 +392,7 @@ const AboutPage: React.FC = () => {
               <Typography variant="body1" fontWeight={600}>
                 Burmese
               </Typography>
-              <Typography variant="body2" color="secondary">
+              <Typography variant="body2" >
                 Native
               </Typography>
             </Box>

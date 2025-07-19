@@ -50,10 +50,7 @@ const ProjectDetailPage: React.FC = () => {
             sx={{
               position: 'absolute',
               left: 0,
-              top: 0,
-              bgcolor: 'background.paper',
-              boxShadow: theme.shadows[2],
-              '&:hover': { bgcolor: 'background.paper' }
+              top: 0
             }}
           >
             <ArrowBackIosNewIcon />
@@ -193,7 +190,6 @@ const ProjectDetailPage: React.FC = () => {
             component="h2"
             sx={{
               fontWeight: 700,
-              color: theme.palette.primary.main,
               mb: 2
             }}
           >
@@ -205,8 +201,6 @@ const ProjectDetailPage: React.FC = () => {
                 key={tech}
                 label={tech}
                 sx={{
-                  bgcolor: `${theme.palette.secondary.main}15`,
-                  color: theme.palette.secondary.dark,
                   fontWeight: 500,
                 }}
               />

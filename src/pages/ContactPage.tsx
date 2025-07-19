@@ -54,7 +54,7 @@ const ContactPage: React.FC = () => {
             <List disablePadding>
               <ListItem sx={{ py: 2 }}>
                 <ListItemIcon>
-                  <EmailIcon color="secondary" />
+                  <EmailIcon />
                 </ListItemIcon>
                 <ListItemText 
                   primary="Email" 
@@ -77,7 +77,7 @@ const ContactPage: React.FC = () => {
               
               <ListItem sx={{ py: 2 }}>
                 <ListItemIcon>
-                  <PhoneIcon color="secondary" />
+                  <PhoneIcon />
                 </ListItemIcon>
                 <ListItemText 
                   primary="Phone" 
@@ -100,7 +100,7 @@ const ContactPage: React.FC = () => {
               
               <ListItem sx={{ py: 2 }}>
                 <ListItemIcon>
-                  <LocationIcon color="secondary" />
+                  <LocationIcon />
                 </ListItemIcon>
                 <ListItemText 
                   primary="Location" 
@@ -117,7 +117,7 @@ const ContactPage: React.FC = () => {
               
               <ListItem sx={{ py: 2 }}>
   <ListItemIcon>
-    <YouTube color="secondary" />
+    <YouTube />
   </ListItemIcon>
   <ListItemText 
     primary="YouTube" 
@@ -129,7 +129,7 @@ const ContactPage: React.FC = () => {
           href="https://www.youtube.com/@yemyatlabs" 
           target="_blank"
           rel="noopener noreferrer"
-          color="secondary"
+          color="error.main"
           sx={{ fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
         >
           my channel

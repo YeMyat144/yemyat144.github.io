@@ -12,6 +12,7 @@ export const projects: Project[] = [
     liveLink: '',
     youtubeLink: '',
     slug: 'yolo-thai-invoices',
+    featured: true,
     features: [
       'Collected and annotated a custom dataset of 200 Thai invoices for training and evaluation',
       'Trained and fine-tuned YOLOv5 model on Thai invoice datasets',
@@ -32,6 +33,7 @@ export const projects: Project[] = [
     liveLink: '',
     youtubeLink: '',
     slug: 'bot-detection',
+    featured: true,
     features: [
       'Built Random Forest classifier for detecting bots based on tweet metadata',
       'Integrated model explainability using SHAP and LIME',
@@ -50,6 +52,7 @@ export const projects: Project[] = [
     liveLink: 'https://samsarent.vercel.app/',
     youtubeLink: 'https://youtu.be/0zYmkKj3rOg?si=lvhcVT_nPo-EVMe-',
     slug: 'samsarent',
+    featured: true,
     features: [
       'Built user flow for listing, requesting, and approving borrow and swap requests',
       'Integrated Firebase Firestore for real-time updates',

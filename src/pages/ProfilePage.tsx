@@ -3,520 +3,321 @@ import {
   Box, 
   Typography, 
   Button, 
-  Paper,
-  useTheme, 
-  Divider,
-  Stack
+  Stack,
+  Grid
 } from '@mui/material';
 import { motion } from 'framer-motion';
 import { Download, ArrowForward } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import { projects } from '../data/projects';
 
 const MotionBox = motion(Box);
-const MotionPaper = motion(Paper);
 
 const ProfilePage: React.FC = () => {
-  const theme = useTheme();
   const navigate = useNavigate();
   
   return (
     <>
-    <Helmet>  
-      <title>Ye Myat Moe | Profile</title>
-    </Helmet>
-    <Box sx={{ maxWidth: 1200, mx: 'auto' }}>
-      <MotionBox
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        sx={{ mb: 3 }}
-      >
-        <Box
-          sx={{
+      <Helmet>  
+        <title>Ye Myat Moe | Profile</title>
+      </Helmet>
+      
+      <Box sx={{ maxWidth: 1400, mx: 'auto', position: 'relative' }}>
+        {/* Hero Section */}
+        <MotionBox
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          sx={{ 
+            textAlign: 'center',
+            mb: 8,
             position: 'relative',
-            height: { xs: 200, md: 250 },
-            borderRadius: theme.shape.borderRadius * 2,
-            overflow: 'hidden',
-            mb: { xs: 4, md: 6 },
+            zIndex: 2,
           }}
         >
-          <Box
-            component="img"
-            src='https://i.ibb.co/L7rCnb2/banner.png'
-            alt="Cover"
-            sx={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              filter: 'brightness(0.85)',
-            }}
-          />
-
-        </Box>
-
-        <Box sx={{ pl: { xs: 2, md: 4 } }}>
-          
-          
-          <Box sx={{ display: 'flex', gap: 2, mb: 4 }}>
-          <Button
-            variant="contained"
-            color="primary"
-            startIcon={<Download />}
-            component="a"
-            href="https://drive.google.com/uc?export=download&id=157K8dY2zY8eCmQ2gB4WQHB6JedoHy951"
-            target="_blank"
-            rel="noopener noreferrer"
+          {/* Large Title */}
+          <Typography 
+            variant="h1" 
             sx={{ 
-              px: 3, 
-              py: 1.2,
-              borderRadius: theme.shape.borderRadius * 1,
-              transition: 'transform 0.2s',
-              '&:hover': {
-                transform: 'translateY(-3px)'
-              }
+              fontSize: { xs: '3rem', md: '5rem', lg: '7rem' },
+              fontWeight: 900,
+              letterSpacing: '0.1em',
+              mb: 2,
+              background: 'linear-gradient(45deg, #ffffff 30%, #f0f0f0 90%)',
+              backgroundClip: 'text',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              textShadow: '0 0 30px rgba(255, 255, 255, 0.3)',
             }}
           >
-            Download CV
-          </Button>
+            YE MYAT MOE
+          </Typography>
+          
+          {/* Subtitle */}
+          <Typography 
+            variant="h3" 
+            sx={{ 
+              fontSize: { xs: '1.2rem', md: '1.8rem' },
+              fontWeight: 300,
+              letterSpacing: '0.2em',
+              mb: 4,
+              opacity: 0.8,
+              textTransform: 'uppercase',
+            }}
+          >
+            FULL-STACK DEVELOPER
+          </Typography>
+          
+          {/* Description */}
+          <Typography 
+            variant="body1" 
+            sx={{ 
+              fontSize: { xs: '1rem', md: '1.2rem' },
+              maxWidth: 800,
+              mx: 'auto',
+              mb: 6,
+              lineHeight: 1.8,
+              opacity: 0.9,
+            }}
+          >
+            Computer Science undergraduate with expertise in machine learning, full-stack development, 
+            and game development. Passionate about creating innovative solutions that solve real-world challenges.
+          </Typography>
+          
+          {/* Action Buttons */}
+          <Stack 
+            direction={{ xs: 'column', sm: 'row' }} 
+            spacing={3} 
+            justifyContent="center"
+            sx={{ mb: 8, width: '100%', maxWidth: 500, mx: 'auto' }}
+          >
+            <Button
+              variant="contained"
+              size="large"
+              startIcon={<Download />}
+              component="a"
+              href="https://drive.google.com/uc?export=download&id=176iJckVsdumU_Y6lMIS3Pofh-BYrB2TJ"
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{ 
+                px: { xs: 2, sm: 4 },
+                py: { xs: 1, sm: 2 },
+                fontSize: { xs: '1rem', sm: '1.1rem' },
+                fontWeight: 600,
+                letterSpacing: '0.1em',
+                minWidth: { xs: '100%', sm: 200 },
+                width: { xs: '100%', sm: 'auto' },
+              }}
+            >
+              DOWNLOAD CV
+            </Button>
 
             <Button
               variant="outlined"
-              color="secondary"
+              size="large"
               endIcon={<ArrowForward />}
               onClick={() => navigate('/contact')}
               sx={{ 
-                px: 3, 
-                py: 1.2,
-                borderRadius: theme.shape.borderRadius * 1,
-                transition: 'all 0.2s',
-                '&:hover': {
-                  transform: 'translateY(-3px)'
-                }
+                px: { xs: 2, sm: 4 },
+                py: { xs: 1, sm: 2 },
+                fontSize: { xs: '1rem', sm: '1.1rem' },
+                fontWeight: 600,
+                letterSpacing: '0.1em',
+                minWidth: { xs: '100%', sm: 200 },
+                width: { xs: '100%', sm: 'auto' },
+                borderWidth: 2,
               }}
             >
-              Contact Me
+              CONTACT ME
+            </Button>
+          </Stack>
+        </MotionBox>
+        
+        {/* Expertise Section */}
+        <MotionBox
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.3 }}
+          sx={{ mb: 8 }}
+        >
+          <Typography 
+            variant="h2" 
+            sx={{ 
+              textAlign: 'center',
+              mb: 6,
+              fontSize: { xs: '2rem', md: '3rem' },
+              fontWeight: 700,
+              letterSpacing: '0.1em',
+            }}
+          >
+            EXPERTISE
+          </Typography>
+          
+          <Grid container spacing={4}>
+            <Grid item xs={12} md={4}>
+              <Box 
+                sx={{ 
+                  p: 4,
+                  border: '1px solid #fff',
+                  textAlign: 'center',
+                  transition: 'all 0.3s ease',
+                }}
+              >
+                <Typography 
+                  variant="h4" 
+                  sx={{ 
+                    mb: 2,
+                    fontWeight: 600,
+                    letterSpacing: '0.1em',
+                  }}
+                >
+                  MACHINE LEARNING
+                </Typography>
+                <Typography 
+                  variant="body1" 
+                  sx={{ 
+                    opacity: 0.8,
+                    lineHeight: 1.8,
+                  }}
+                >
+                  YOLOv5, TensorFlow, OpenCV, Scikit-learn, NLP
+                </Typography>
+              </Box>
+            </Grid>
+            
+            <Grid item xs={12} md={4}>
+              <Box 
+                sx={{ 
+                  p: 4,
+                  border: '1px solid #fff ',
+                  textAlign: 'center',
+                  transition: 'all 0.3s ease',
+                }}
+              >
+                <Typography 
+                  variant="h4" 
+                  sx={{ 
+                    mb: 2,
+                    fontWeight: 600,
+                    letterSpacing: '0.1em',
+                  }}
+                >
+                  FULL-STACK Development
+                </Typography>
+                <Typography 
+                  variant="body1" 
+                  sx={{ 
+                    opacity: 0.8,
+                    lineHeight: 1.8,
+                  }}
+                >
+                  React, Next.js, Node.js, Python, Flask, Firebase, TypeScript
+                </Typography>
+              </Box>
+            </Grid>
+            
+            <Grid item xs={12} md={4}>
+              <Box 
+                sx={{ 
+                  p: 4,
+                  border: '1px solid #fff',
+                  textAlign: 'center',
+                  transition: 'all 0.3s ease',
+                }}
+              >
+                <Typography 
+                  variant="h4" 
+                  sx={{ 
+                    mb: 2,
+                    fontWeight: 600,
+                    letterSpacing: '0.1em',
+                  }}
+                >
+                  GAME DEVELOPMENT
+                </Typography>
+                <Typography 
+                  variant="body1" 
+                  sx={{ 
+                    opacity: 0.8,
+                    lineHeight: 1.8,
+                  }}
+                >
+                  Unity, C#, Real-time Systems, Computer Vision Integration
+                </Typography>
+              </Box>
+            </Grid>
+          </Grid>
+        </MotionBox>
+        
+        {/* Featured Projects Section */}
+        <MotionBox
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.6 }}
+        >
+          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 6 }}>
+            <Typography 
+              variant="h2" 
+              sx={{ 
+                fontSize: { xs: '2rem', md: '3rem' },
+                fontWeight: 700,
+                letterSpacing: '0.1em',
+              }}
+            >
+              FEATURED PROJECTS
+            </Typography>
+            
+            <Button
+              variant="outlined"
+              endIcon={<ArrowForward />}
+              onClick={() => navigate('/projects')}
+              sx={{ 
+                px: 4, 
+                py: 2,
+                fontSize: '1rem',
+                fontWeight: 600,
+                letterSpacing: '0.1em',
+                borderWidth: 2,
+              }}
+            >
+              VIEW ALL
             </Button>
           </Box>
-        </Box>
-      </MotionBox>
-      
-      <Stack 
-        direction={{ xs: 'column', md: 'row' }} 
-        spacing={3}
-        sx={{ mb: 6 }}
-      >
-        <MotionPaper
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          sx={{ 
-            p: 3, 
-            flex: 1,
-            borderRadius: theme.shape.borderRadius * 1.5,
-          }}
-        >
-          <Typography 
-            variant="h5" 
-            component="h2" 
-            gutterBottom
-            sx={{ 
-              fontWeight: 700,
-              color: theme.palette.primary.main,
-              mb: 2
-            }}
-          >
-            About Me
-          </Typography>
           
-          <Typography variant="body1" paragraph>
-            I'm a Computer Science undergraduate with a strong interest in solving real-world challenges through technology. I’ve had hands-on experience in areas like machine learning, NLP, and ...
-          </Typography>
-          
-          <Button
-            variant="text"
-            color="primary"
-            endIcon={<ArrowForward />}
-            onClick={() => navigate('/about')}
-            sx={{ mt: 1 }}
-          >
-            Learn more
-          </Button>
-        </MotionPaper>
-        
-        <MotionPaper
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          sx={{ 
-            p: 3, 
-            flex: 1,
-            borderRadius: theme.shape.borderRadius * 1.5,
-          }}
-        >
-          <Typography 
-            variant="h5" 
-            component="h2" 
-            gutterBottom
-            sx={{ 
-              fontWeight: 700,
-              color: theme.palette.primary.main,
-              mb: 2
-            }}
-          >
-            My Expertise
-          </Typography>
-          
-          <Box sx={{ mb: 2 }}>
-            <Typography variant="body1" fontWeight={600}>
-              Machine Learning & CV
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              YOLOv5, TensorFlow, OpenCV, Scikit-learn, NLP
-            </Typography>
-          </Box>
-          
-          <Divider sx={{ my: 1.5 }} />
-          
-          <Box sx={{ mb: 2 }}>
-            <Typography variant="body1" fontWeight={600}>
-              Full-Stack Development
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              React, Next.js, Node.js, Python, Flask, Firebase
-            </Typography>
-          </Box>
-          
-          <Divider sx={{ my: 1.5 }} />
-          
-          <Box sx={{ mb: 2 }}>
-            <Typography variant="body1" fontWeight={600}>
-              Game Development
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Unity, C#, Real-time Systems, Computer Vision
-            </Typography>
-          </Box>
-        </MotionPaper>
-      </Stack>
-      
-      <MotionPaper
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.3 }}
-        sx={{ 
-          p: 3, 
-          borderRadius: theme.shape.borderRadius * 1.5,
-          mb: 6
-        }}
-      >
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
-          <Typography 
-            variant="h5" 
-            component="h2"
-            sx={{ 
-              fontWeight: 700,
-              color: theme.palette.primary.main,
-            }}
-          >
-            Featured Projects
-          </Typography>
-          
-          <Button
-            variant="text"
-            color="primary"
-            endIcon={<ArrowForward />}
-            onClick={() => navigate('/projects')}
-          >
-            View all projects
-          </Button>
-        </Box>
-        
-        <Box 
-          sx={{ 
-            display: 'flex',
-            flexDirection: { xs: 'column', md: 'row' },
-            gap: 3
-          }}
-        >
-          <Box 
-            sx={{ 
-              flex: 1, 
-              borderRadius: theme.shape.borderRadius,
-              overflow: 'hidden',
-              position: 'relative',
-              height: 200,
-              '&:hover img': {
-                transform: 'scale(1.05)',
-              },
-              '&:hover .overlay': {
-                opacity: 1,
-              }
-            }}
-          >
-            <Box 
-              component="img"
-              src="https://i.imgur.com/xBrxQ00.png"
-              alt="Samsarent"
-              sx={{ 
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                transition: 'transform 0.5s ease',
-              }}
-            />
-            <Box 
-              className="overlay"
-              sx={{ 
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                bgcolor: 'rgba(0, 0, 0, 0.7)',
-                color: 'white',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-                opacity: 0,
-                transition: 'opacity 0.3s ease',
-                p: 2,
-                textAlign: 'center',
-              }}
-            >
-              <Typography variant="h6" gutterBottom>Samsarent</Typography>
-              <Button 
-                variant="outlined" 
-                size="small"
-                onClick={() => navigate('/projects/samsarent')}
-                sx={{ 
-                  color: 'white', 
-                  borderColor: 'white',
-                  '&:hover': {
-                    borderColor: 'white',
-                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                  }
-                }}
-              >
-                View Details
-              </Button>
-            </Box>
-          </Box>
-          
-          <Box 
-            sx={{ 
-              flex: 1, 
-              borderRadius: theme.shape.borderRadius,
-              overflow: 'hidden',
-              position: 'relative',
-              height: 200,
-              '&:hover img': {
-                transform: 'scale(1.05)',
-              },
-              '&:hover .overlay': {
-                opacity: 1,
-              }
-            }}
-          >
-            <Box 
-              component="img"
-              src="https://i.ibb.co/ZqzRjnJ/Screenshot-2025-07-05-142917.png"
-              alt="NarrateNow"
-              sx={{ 
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                transition: 'transform 0.5s ease',
-              }}
-            />
-            <Box 
-              className="overlay"
-              sx={{ 
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                bgcolor: 'rgba(0, 0, 0, 0.7)',
-                color: 'white',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-                opacity: 0,
-                transition: 'opacity 0.3s ease',
-                p: 2,
-                textAlign: 'center',
-              }}
-            >
-              <Typography variant="h6" gutterBottom>Real-Time Anime Face Stylization</Typography>
-              <Button 
-                variant="outlined" 
-                size="small"
-                onClick={() => navigate('/projects/anime-face-stylization')}
-                sx={{ 
-                  color: 'white', 
-                  borderColor: 'white',
-                  '&:hover': {
-                    borderColor: 'white',
-                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                  }
-                }}
-              >
-                View Details
-              </Button>
-            </Box>
-          </Box>
-        </Box>
-      </MotionPaper>
-      
-      {/* Certificates Section */}
-      <MotionPaper
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.4 }}
-        sx={{ 
-          p: 3, 
-          borderRadius: theme.shape.borderRadius * 1.5,
-          mb: 6
-        }}
-      >
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
-          <Typography 
-            variant="h5" 
-            component="h2"
-            sx={{ 
-              fontWeight: 700,
-              color: theme.palette.primary.main,
-            }}
-          >
-            Certificates
-          </Typography>
-          
-          <Button
-            variant="text"
-            color="primary"
-            endIcon={<ArrowForward />}
-            onClick={() => navigate('/about')}
-          >
-            View all certificates
-          </Button>
-        </Box>
-        
-        <Box 
-          sx={{ 
-            display: 'flex',
-            flexDirection: { xs: 'column', md: 'row' },
-            gap: 3
-          }}
-        >
-          <Box 
-            sx={{ 
-              flex: 1, 
-              borderRadius: theme.shape.borderRadius,
-              overflow: 'hidden',
-              position: 'relative',
-              height: 200,
-              '&:hover img': {
-                transform: 'scale(1.05)',
-              },
-              '&:hover .overlay': {
-                opacity: 1,
-              }
-            }}
-          >
-            <Box 
-              component="img"
-              src="https://i.ibb.co/HL5QcYPV/aws.png"
-              alt="AWS Cloud Foundation Certificate"
-              sx={{ 
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                transition: 'transform 0.5s ease',
-              }}
-            />
-            <Box 
-              className="overlay"
-              sx={{ 
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                bgcolor: 'rgba(0, 0, 0, 0.7)',
-                color: 'white',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-                opacity: 0,
-                transition: 'opacity 0.3s ease',
-                p: 2,
-                textAlign: 'center',
-              }}
-            >
-              <Typography variant="h6" gutterBottom>AWS Cloud Foundation</Typography>
-              <Typography variant="body2" gutterBottom>Amazon Web Services</Typography>
-              <Typography variant="caption">September 20, 2023</Typography>
-            </Box>
-          </Box>
-          
-          <Box 
-            sx={{ 
-              flex: 1, 
-              borderRadius: theme.shape.borderRadius,
-              overflow: 'hidden',
-              position: 'relative',
-              height: 200,
-              '&:hover img': {
-                transform: 'scale(1.05)',
-              },
-              '&:hover .overlay': {
-                opacity: 1,
-              }
-            }}
-          >
-            <Box 
-              component="img"
-              src="https://i.ibb.co/qFNZRFrc/unity.png"
-              alt="Unity Essentials Pathway Certificate"
-              sx={{ 
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                transition: 'transform 0.5s ease',
-              }}
-            />
-            <Box 
-              className="overlay"
-              sx={{ 
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                bgcolor: 'rgba(0, 0, 0, 0.7)',
-                color: 'white',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-                opacity: 0,
-                transition: 'opacity 0.3s ease',
-                p: 2,
-                textAlign: 'center',
-              }}
-            >
-              <Typography variant="h6" gutterBottom>Unity Essentials Pathway</Typography>
-              <Typography variant="body2" gutterBottom>Unity Technologies</Typography>
-              <Typography variant="caption">June 30, 2025</Typography>
-            </Box>
-          </Box>
-        </Box>
-      </MotionPaper>
-    </Box>
+          <Grid container spacing={4}>
+            {projects.filter(project => project.featured).slice(0, 3).map((project) => (
+              <Grid item xs={12} md={4} key={project.id}>
+                <Box 
+                  sx={{ 
+                    height: 300,
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    transition: 'all 0.3s ease',
+                    cursor: 'pointer',
+                    '&:hover': {
+                      transform: 'scale(1.02)',
+                    }
+                  }}
+                  onClick={() => navigate(`/projects/${project.slug}`)}
+                >
+                  <Box
+                    component="img"
+                    src={project.image}
+                    alt={project.title}
+                    sx={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                    }}
+                  />
+                </Box>
+              </Grid>
+            ))}
+          </Grid>
+        </MotionBox>
+      </Box>
     </>
   );
 };

@@ -11,6 +11,7 @@ export interface Project {
   longDescription?: string;
   features?: string[];
   youtubeLink?: string;
+  featured?: boolean;
 }
 
 export interface NavItem {
