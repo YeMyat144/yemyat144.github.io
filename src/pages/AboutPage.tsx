@@ -73,7 +73,7 @@ const AboutPage: React.FC = () => {
                 Languages & Frameworks
               </Typography>
               <Typography variant="body2" >
-                Python, JavaScript, TypeScript, React.js, Next.js, Node.js, Express.js, C#
+                Python, JavaScript, TypeScript, React.js, Next.js, Node.js, Express.js, Angular.js, C#, .NET
               </Typography>
             </Box>
 
@@ -161,7 +161,7 @@ const AboutPage: React.FC = () => {
           </Typography>
 
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
-            {/* AWS Certificate */}
+            {/* Foundation C# wiht Microsoft */}
             <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 2, alignItems: { xs: 'flex-start', md: 'center' }, position: 'relative' }}>
               <Box 
                 sx={{ 
@@ -173,13 +173,13 @@ const AboutPage: React.FC = () => {
                   position: 'relative',
                   cursor: 'pointer',
                 }}
-                onClick={() => setEnlargedImgSrc('https://i.ibb.co/HL5QcYPV/aws.png')}
+                onClick={() => setEnlargedImgSrc('https://i.ibb.co/m78Fvw1/Screenshot-2025-07-31-124022.png')}
                 title="Click to enlarge"
               >
                 <Box 
                   component="img"
-                  src="https://i.ibb.co/HL5QcYPV/aws.png"
-                  alt="AWS Cloud Foundation Certificate"
+                  src="https://i.ibb.co/m78Fvw1/Screenshot-2025-07-31-124022.png"
+                  alt="Foundation C# with Microsoft Certificate"
                   sx={{ 
                     width: '100%',
                     height: '100%',
@@ -190,14 +190,14 @@ const AboutPage: React.FC = () => {
               </Box>
               <Box sx={{ flex: 1 }}>
                 <Typography variant="body1" fontWeight={600}>
-                  AWS Academy Graduate - AWS Academy Cloud Foundations
+                  Foundation C# with Microsoft
                 </Typography>
                 <Typography variant="body2"  gutterBottom>
-                  Amazon Web Services • September 20, 2023
+                  Microsoft • July 31, 2025
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Completed comprehensive cloud computing fundamentals course covering AWS services, 
-                  security, architecture, and best practices for cloud deployment and management.
+                  Gained foundational knowledge in C# programming language, covering syntax, data structures, 
+                  and object-oriented programming principles.
                 </Typography>
               </Box>
             </Box>
@@ -239,6 +239,47 @@ const AboutPage: React.FC = () => {
                 <Typography variant="body2" color="text.secondary">
                   Mastered Unity game development fundamentals including scripting, physics, 
                   animation, and project management for creating interactive 3D applications.
+                </Typography>
+              </Box>
+            </Box>
+
+            {/* AWS Certificate */}
+            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 2, alignItems: { xs: 'flex-start', md: 'center' }, position: 'relative' }}>
+              <Box 
+                sx={{ 
+                  width: { xs: '100%', md: 200 }, 
+                  height: { xs: 150, md: 120 },
+                  borderRadius: theme.shape.borderRadius,
+                  overflow: 'hidden',
+                  flexShrink: 0,
+                  position: 'relative',
+                  cursor: 'pointer',
+                }}
+                onClick={() => setEnlargedImgSrc('https://i.ibb.co/HL5QcYPV/aws.png')}
+                title="Click to enlarge"
+              >
+                <Box 
+                  component="img"
+                  src="https://i.ibb.co/HL5QcYPV/aws.png"
+                  alt="AWS Cloud Foundation Certificate"
+                  sx={{ 
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    transition: 'transform 0.3s ease',
+                  }}
+                />
+              </Box>
+              <Box sx={{ flex: 1 }}>
+                <Typography variant="body1" fontWeight={600}>
+                  AWS Academy Graduate - AWS Academy Cloud Foundations
+                </Typography>
+                <Typography variant="body2"  gutterBottom>
+                  Amazon Web Services • September 20, 2023
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Completed comprehensive cloud computing fundamentals course covering AWS services, 
+                  security, architecture, and best practices for cloud deployment and management.
                 </Typography>
               </Box>
             </Box>
