@@ -82,7 +82,7 @@ const AboutPage: React.FC = () => {
                 ML & CV Tools
               </Typography>
               <Typography variant="body2" >
-                YOLOv5, Scikit-learn, OpenCV, NLTK, spaCy, TensorFlow, PyTorch
+                TensorFlow, PyTorch, OpenCV, Scikit-learn, YOLOv5
               </Typography>
             </Box>
 
@@ -106,10 +106,10 @@ const AboutPage: React.FC = () => {
 
             <Box>
               <Typography variant="body1" fontWeight={600}>
-                Others
+                Soft Skills
               </Typography>
               <Typography variant="body2" >
-                Tailwind CSS, Material UI (MUI), NLP, Resume Parsing, Game Development, Responsive Design
+                Problem-Solving, Team Collaboration, Adaptability, Communication, Project Management
               </Typography>
             </Box>
 
@@ -117,6 +117,34 @@ const AboutPage: React.FC = () => {
 
           <Divider sx={{ my: 3 }} />
         
+        {/* Experience Section */}
+        <Typography 
+          variant="h5" 
+          component="h2" 
+          gutterBottom
+          sx={{ 
+            fontWeight: 700,
+            color: theme.palette.primary.main,
+            mb: 3
+          }}
+        >
+          Experience
+        </Typography>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+          <Box>
+            <Typography variant="body1" fontWeight={600}>
+              Web Development and Uploading Intern
+            </Typography>
+            <Typography variant="body2" gutterBottom>
+              GAOTek Inc. • August 2025 - Present
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              Redesigned website using WordPress Elementor and managed content uploads to enhance site appearance and user experience.
+            </Typography>
+          </Box>
+        </Box>
+
+        <Divider sx={{ my: 3 }} /> 
 
         {/* Education Section */}
         

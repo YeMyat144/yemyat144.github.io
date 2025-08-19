@@ -41,8 +41,7 @@ const Layout: React.FC = () => {
         <Box
           sx={{
             position: 'fixed',
-            top: 16,
-            left: 16,
+            backgroundColor: '#252525',
             zIndex: 1400,
             display: { xs: 'block', sm: 'block', md: 'none' },
           }}
@@ -68,7 +67,6 @@ const Layout: React.FC = () => {
       <Box
         sx={{
           position: 'fixed',
-          top: 16,
           right: 16,
           zIndex: 1400,
           display: { xs: 'block', sm: 'block', md: 'none' },
