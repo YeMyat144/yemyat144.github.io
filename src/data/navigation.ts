@@ -1,7 +1,6 @@
 import { NavItem, SocialLink } from '../types';
 import { 
   DetailsOutlined, 
-  InfoOutlined, 
   FolderOpenOutlined, 
   FolderSharedOutlined,
   GitHub,
@@ -19,11 +18,6 @@ export const navItems: NavItem[] = [
     title: 'Profile',
     path: '/',
     icon: DetailsOutlined,
-  },
-  {
-    title: 'About',
-    path: '/about',
-    icon: InfoOutlined,
   },
   {
     title: 'Project',
