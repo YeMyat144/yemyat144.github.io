@@ -245,25 +245,24 @@ const ProfilePage: React.FC = () => {
                 {/* Company Logo */}
                 <Box
                   component="img"
-                  src="https://i.ibb.co/Pzz84H61/GAOTekplaceholder.png"
-                  alt="GAOTek Logo"
+                  src="https://i.ibb.co/gLbpc5rB/logo.png"
                   sx={{ width: 160 }}
                 />
 
                 {/* Job Info */}
                 <Box>
                   <Typography variant="body1" fontWeight={600}>
-                    Web Development and Uploading Intern
+                    Web Developer 
                   </Typography>
                   <Typography variant="body2" gutterBottom>
-                    GAOTek Inc. • August 2025 – Present
+                    NetMonitoringTech.com • August 2025 – September 2025
                   </Typography>
                   <Typography variant="body2" gutterBottom>
                     United States • Remote
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    Redesigned website using WordPress Elementor and managed content
-                    uploads to enhance site appearance and user experience.
+                     Collaborated on a 3-week live project NetMonitoringTech.com, a platform focused on network performance
+ monitoring and diagnostics. Built and formatted web pages using WordPress and Elementor
                   </Typography>
                 </Box>
               </Box>
