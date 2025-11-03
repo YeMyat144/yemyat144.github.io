@@ -43,8 +43,8 @@ const ProjectsPage: React.FC = () => {
           display: 'grid',
           gridTemplateColumns: {
             xs: '1fr',
-            sm: 'repeat(2, 1fr)',
-            md: 'repeat(2, 1fr)'
+            sm: 'repeat(3, 1fr)',
+            md: 'repeat(3, 1fr)'
           },
           gap: 5,
         }}>
@@ -57,7 +57,7 @@ const ProjectsPage: React.FC = () => {
               onClick={() => navigate(`/projects/${project.slug}`)}
               sx={{
                 position: 'relative',
-                height: { xs: 300, md: 400 },
+                height: { xs: 200, md: 300 },
                 overflow: 'hidden',
                 borderRadius: theme.shape.borderRadius * 2,
                 cursor: 'pointer',
