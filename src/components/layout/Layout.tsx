@@ -28,7 +28,7 @@ const Layout: React.FC = () => {
           width: '100vw',
           height: '100vh',
           zIndex: 0,
-          backgroundImage: 'url(https://github.com/YeMyat144/yemyat144.github.io/blob/main/public/ff.png?raw=true)',
+          backgroundImage: 'url(./ff.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',

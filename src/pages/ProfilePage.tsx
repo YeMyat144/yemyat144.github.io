@@ -6,6 +6,7 @@ import {
   Stack,
   Grid,
   useTheme,
+  Link,
   Divider,
 } from '@mui/material';
 import { motion } from 'framer-motion';
@@ -83,7 +84,7 @@ const ProfilePage: React.FC = () => {
               textTransform: 'uppercase',
             }}
           >
-            FULL-STACK DEVELOPER
+            SOFTWARE ENGINEER
           </Typography>
 
           {/* Description */}
@@ -98,8 +99,7 @@ const ProfilePage: React.FC = () => {
               opacity: 0.9,
             }}
           >
-            Computer Science undergraduate with expertise in machine learning, full-stack development,
-            and game development. Passionate about creating innovative solutions that solve real-world challenges.
+            I’m a passionate Software Engineer with a strong background in Computer Science. I enjoy solving real-world problems through technology. 
           </Typography>
 
           {/* Action Buttons */}
@@ -114,7 +114,7 @@ const ProfilePage: React.FC = () => {
               size="large"
               startIcon={<Download />}
               component="a"
-              href="https://drive.google.com/uc?export=download&id=100rN2_O5yh0gxuETDANi7RC4jyKerZmV"
+              href="https://drive.google.com/uc?export=download&id=1QYWyrrZg_jUvFxSDDDJ2H8--1-Fr9aOk"
               target="_blank"
               rel="noopener noreferrer"
               sx={{
@@ -233,6 +233,42 @@ const ProfilePage: React.FC = () => {
               Experience
             </Typography>
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+
+              <Box
+                sx={{
+                  display: 'flex',
+                  gap: 2,
+                  alignItems: { xs: 'center', sm: 'flex-start' }, // center on mobile
+                  flexDirection: { xs: 'column', sm: 'row' }, // column on mobile, row on larger screens
+                  textAlign: { xs: 'center', sm: 'left' }, // center text on mobile
+                }}
+              >
+                {/* Company Logo */}
+                <Box
+                  component="img"
+                  src="/sumo.png"
+                  sx={{ width: 200 }}
+                />
+
+                {/* Job Info */}
+                <Box>
+                  <Typography variant="body1" fontWeight={600}>
+                    Software Engineer
+                  </Typography>
+                  <Typography variant="body2" gutterBottom>
+                    <Link href="https://foodloft.me" target="_blank" rel="noopener noreferrer" underline="hover">
+                      foodloft.me
+                    </Link>
+                    {" • July 2025 – October 2025"}
+                  </Typography>
+                  <Typography variant="body2" gutterBottom>
+                    Thailand • Contract
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    Built a SaaS restaurant management platform featuring interactive 3D floor planning. Developed advanced booking system implementing LINE bot integration, optimistic concurrency control and and dual payment processing.
+                  </Typography>
+                </Box>
+              </Box>
               <Box
                 sx={{
                   display: 'flex',
@@ -246,23 +282,26 @@ const ProfilePage: React.FC = () => {
                 <Box
                   component="img"
                   src="https://i.ibb.co/gLbpc5rB/logo.png"
-                  sx={{ width: 160 }}
+                  sx={{ width: 200 }}
                 />
 
                 {/* Job Info */}
                 <Box>
                   <Typography variant="body1" fontWeight={600}>
-                    Web Developer 
+                    WordPress Developer
                   </Typography>
                   <Typography variant="body2" gutterBottom>
-                    NetMonitoringTech.com • August 2025 – September 2025
+                    <Link href="https://NetMonitoringTech.com" target="_blank" rel="noopener noreferrer" underline="hover">
+                      NetMonitoringTech.com
+                    </Link>
+                    {" • August 2025 – September 2025"}
                   </Typography>
                   <Typography variant="body2" gutterBottom>
                     United States • Remote
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                     Collaborated on a 3-week live project NetMonitoringTech.com, a platform focused on network performance
- monitoring and diagnostics. Built and formatted web pages using WordPress and Elementor
+                    Collaborated on a 3-week live project NetMonitoringTech.com, a platform focused on network performance
+                    monitoring and diagnostics. Built and formatted web pages using WordPress and Elementor
                   </Typography>
                 </Box>
               </Box>
@@ -292,7 +331,7 @@ const ProfilePage: React.FC = () => {
                 Bachelor of Computer Science
               </Typography>
               <Typography variant="body2" gutterBottom>
-                Assumption University of Thailand • June 2022 - Present
+                Assumption University of Thailand • June 2022 - Oct 2025
               </Typography>
             </Box>
 

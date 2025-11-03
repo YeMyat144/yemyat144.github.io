@@ -74,7 +74,7 @@ const SidebarPermanent: React.FC<SidebarPermanentProps> = ({ drawerWidth }) => {
           letterSpacing: '0.1em',
         }}
       >
-        FULL-STACK DEVELOPER
+        SOFTWARE ENGINEER
       </Typography>
 
       {/* Navigation Links - Centered */}

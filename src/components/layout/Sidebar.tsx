@@ -84,7 +84,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
           letterSpacing: '0.1em',
         }}
       >
-        FULL-STACK DEVELOPER
+        SOFTWARE ENGINEER
       </Typography>
 
       {/* Navigation Links - Centered */}
