@@ -22,7 +22,7 @@ const ProjectsPage: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          sx={{ mb: 3 }}
+          sx={{ mb: 6 }}
         >
           <Typography
             variant="h4"
@@ -31,6 +31,7 @@ const ProjectsPage: React.FC = () => {
             sx={{
               fontWeight: 700,
               color: theme.palette.primary.main,
+              textAlign: "center",
             }}
           >
             A collection of my work

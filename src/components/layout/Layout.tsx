@@ -6,6 +6,7 @@ import SidebarPermanent from './SidebarPermanent';
 import Sidebar from './Sidebar';
 import { Outlet } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import Cursor from '../cursor/Cursor';
 
 const MotionBox = motion(Box);
 
@@ -19,8 +20,8 @@ const Layout: React.FC = () => {
 
   return (
     <Box sx={{ display: 'flex', minHeight: '100vh', position: 'relative' }}>
-      {/* Background image */}
-      <Box
+      <Cursor />
+      {/* Background image */}      <Box
         sx={{
           position: 'fixed',
           top: 0,
