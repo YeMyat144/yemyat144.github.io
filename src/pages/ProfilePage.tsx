@@ -246,7 +246,7 @@ const ProfilePage: React.FC = () => {
                 {/* Company Logo */}
                 <Box
                   component="img"
-                  src="/sumo.png"
+                  src="logos/sumo.png"
                   sx={{ width: 200 }}
                 />
 
@@ -281,7 +281,7 @@ const ProfilePage: React.FC = () => {
                 {/* Company Logo */}
                 <Box
                   component="img"
-                  src="https://i.ibb.co/gLbpc5rB/logo.png"
+                  src="logos/netmonitoring.png"
                   sx={{ width: 200 }}
                 />
 
@@ -366,12 +366,12 @@ const ProfilePage: React.FC = () => {
                     position: 'relative',
                     cursor: 'pointer',
                   }}
-                  onClick={() => setEnlargedImgSrc('https://i.ibb.co/m78Fvw1/Screenshot-2025-07-31-124022.png')}
+                  onClick={() => setEnlargedImgSrc('certificates/microsoft.png')}
                   title="Click to enlarge"
                 >
                   <Box
                     component="img"
-                    src="https://i.ibb.co/m78Fvw1/Screenshot-2025-07-31-124022.png"
+                    src="certificates/microsoft.png"
                     alt="Foundation C# with Microsoft Certificate"
                     sx={{
                       width: '100%',
@@ -407,12 +407,12 @@ const ProfilePage: React.FC = () => {
                     position: 'relative',
                     cursor: 'pointer',
                   }}
-                  onClick={() => setEnlargedImgSrc('https://i.ibb.co/qFNZRFrc/unity.png')}
+                  onClick={() => setEnlargedImgSrc('certificates/unity.png')}
                   title="Click to enlarge"
                 >
                   <Box
                     component="img"
-                    src="https://i.ibb.co/qFNZRFrc/unity.png"
+                    src="certificates/unity.png"
                     alt="Unity Essentials Pathway Certificate"
                     sx={{
                       width: '100%',
@@ -448,12 +448,12 @@ const ProfilePage: React.FC = () => {
                     position: 'relative',
                     cursor: 'pointer',
                   }}
-                  onClick={() => setEnlargedImgSrc('https://i.ibb.co/HL5QcYPV/aws.png')}
+                  onClick={() => setEnlargedImgSrc('certificates/aws.png')}
                   title="Click to enlarge"
                 >
                   <Box
                     component="img"
-                    src="https://i.ibb.co/HL5QcYPV/aws.png"
+                    src="certificates/aws.png"
                     alt="AWS Cloud Foundation Certificate"
                     sx={{
                       width: '100%',
@@ -489,12 +489,12 @@ const ProfilePage: React.FC = () => {
                     position: 'relative',
                     cursor: 'pointer',
                   }}
-                  onClick={() => setEnlargedImgSrc('https://i.ibb.co/ycXRdPHg/Screenshot-2025-07-15-012954.png')}
+                  onClick={() => setEnlargedImgSrc('certificates/parami.png')}
                   title="Click to enlarge"
                 >
                   <Box
                     component="img"
-                    src="https://i.ibb.co/ycXRdPHg/Screenshot-2025-07-15-012954.png"
+                    src="certificates/parami.png"
                     alt="Parami Management Skills Certificate"
                     sx={{
                       width: '100%',
@@ -530,12 +530,12 @@ const ProfilePage: React.FC = () => {
                     position: 'relative',
                     cursor: 'pointer',
                   }}
-                  onClick={() => setEnlargedImgSrc('https://i.ibb.co/sd3JWmzq/parami.png')}
+                  onClick={() => setEnlargedImgSrc('certificates/physics.png')}
                   title="Click to enlarge"
                 >
                   <Box
                     component="img"
-                    src="https://i.ibb.co/sd3JWmzq/parami.png"
+                    src="certificates/physics.png"
                     alt="Physics behind Internet Certificate"
                     sx={{
                       width: '100%',
