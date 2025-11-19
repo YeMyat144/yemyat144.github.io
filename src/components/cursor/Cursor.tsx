@@ -12,6 +12,25 @@ const Cursor = () => {
     };
 
     window.addEventListener("mousemove", handleMouseMove);
+    // touch support for mobile devices
+    const handleTouchMove = (e: TouchEvent) => {
+      if (e.touches && e.touches[0]) {
+        mouse.current.x = e.touches[0].clientX;
+        mouse.current.y = e.touches[0].clientY;
+      }
+    };
+
+    const handleTouchStart = (e: TouchEvent) => {
+      if (e.touches && e.touches[0]) {
+        mouse.current.x = e.touches[0].clientX;
+        mouse.current.y = e.touches[0].clientY;
+      }
+      // make sure the cursor is visible on touch
+      if (cursorRef.current) cursorRef.current.style.display = 'block';
+    };
+
+    window.addEventListener('touchstart', handleTouchStart, { passive: true });
+    window.addEventListener('touchmove', handleTouchMove, { passive: true });
 
     const followMouse = () => {
       // lerp for smooth delay
@@ -30,6 +49,8 @@ const Cursor = () => {
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchmove', handleTouchMove);
     };
   }, []);
 
