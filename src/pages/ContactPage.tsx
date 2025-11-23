@@ -6,15 +6,8 @@ import {
   useTheme,
   List,
   ListItem,
-  ListItemIcon,
   ListItemText,
 } from '@mui/material';
-import { 
-  Email as EmailIcon, 
-  Phone as PhoneIcon,
-  LocationOn as LocationIcon,
-  YouTube,
-} from '@mui/icons-material';
 import ContactForm from '../components/contact/ContactForm';
 import { Helmet } from 'react-helmet';
 
@@ -79,11 +72,7 @@ const ContactPage: React.FC = () => {
                   flexWrap: "wrap",
                 }}
               >
-                <ListItemIcon sx={{ minWidth: 40 }}>
-                  <EmailIcon />
-                </ListItemIcon>
                 <ListItemText
-                  primary="Email"
                   secondary={
                     <Typography
                       component="a"
@@ -109,11 +98,7 @@ const ContactPage: React.FC = () => {
                   flexWrap: "wrap",
                 }}
               >
-                <ListItemIcon sx={{ minWidth: 40 }}>
-                  <PhoneIcon />
-                </ListItemIcon>
                 <ListItemText
-                  primary="Phone"
                   secondary={
                     <Typography
                       component="a"
@@ -139,11 +124,7 @@ const ContactPage: React.FC = () => {
                   flexWrap: "wrap",
                 }}
               >
-                <ListItemIcon sx={{ minWidth: 40 }}>
-                  <LocationIcon />
-                </ListItemIcon>
                 <ListItemText
-                  primary="Location"
                   secondary={
                     <Typography
                       color="text.primary"
@@ -165,11 +146,7 @@ const ContactPage: React.FC = () => {
                   flexWrap: "wrap",
                 }}
               >
-                <ListItemIcon sx={{ minWidth: 40 }}>
-                  <YouTube />
-                </ListItemIcon>
                 <ListItemText
-                  primary="YouTube"
                   secondary={
                     <Typography
                       color="text.primary"
@@ -178,7 +155,7 @@ const ContactPage: React.FC = () => {
                         wordBreak: "break-word",
                       }}
                     >
-                      I share my project videos on{" "}
+                      I share my projects on{" "}
                       <Typography
                         component="a"
                         href="https://www.youtube.com/@yemyatlabs"
