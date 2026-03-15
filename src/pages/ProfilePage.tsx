@@ -99,7 +99,7 @@ const ProfilePage: React.FC = () => {
               opacity: 0.9,
             }}
           >
-            I’m a passionate Software Engineer with a strong background in Computer Science. I enjoy solving real-world problems through technology. 
+            I’m a software engineer who likes building real products, from AI automations to web apps. Right now I work as a Prompt Engineer intern at SalesMind AI and a Software Developer intern at TechCreative LTD, where I help design workflows, ship features, and improve core product functionality.
           </Typography>
 
           {/* Action Buttons */}
@@ -233,6 +233,70 @@ const ProfilePage: React.FC = () => {
               Experience
             </Typography>
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+
+              {/* SalesMind AI */}
+              <Box
+                sx={{
+                  display: 'flex',
+                  gap: 2,
+                  alignItems: { xs: 'center', sm: 'flex-start' },
+                  flexDirection: { xs: 'column', sm: 'row' },
+                  textAlign: { xs: 'center', sm: 'left' },
+                }}
+              >
+                <Box
+                  component="img"
+                  src="logos/salesmind_ai_logo.jpeg"
+                  sx={{ width: 200 }}
+                />
+
+                <Box>
+                  <Typography variant="body1" fontWeight={600}>
+                    Prompt Engineer (Intern)
+                  </Typography>
+                  <Typography variant="body2" gutterBottom>
+                    SalesMind AI • January 2026 – Present
+                  </Typography>
+                  <Typography variant="body2" gutterBottom>
+                    Hybrid • Internship
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    Working on AI-driven automation and internal tools, designing n8n workflows, writing JavaScript for custom automations, and connecting LLMs with CRMs through APIs and webhooks, with a strong focus on prompt design and testing.
+                  </Typography>
+                </Box>
+              </Box>
+
+              {/* TechCreative LTD */}
+              <Box
+                sx={{
+                  display: 'flex',
+                  gap: 2,
+                  alignItems: { xs: 'center', sm: 'flex-start' },
+                  flexDirection: { xs: 'column', sm: 'row' },
+                  textAlign: { xs: 'center', sm: 'left' },
+                }}
+              >
+                <Box
+                  component="img"
+                  src="logos/tech_creative_ltd.png"
+                  sx={{ width: 200 }}
+                />
+
+                <Box>
+                  <Typography variant="body1" fontWeight={600}>
+                    Software Developer (Intern)
+                  </Typography>
+                  <Typography variant="body2" gutterBottom>
+                    TechCreative LTD • November 2025 – Present
+                  </Typography>
+                  <Typography variant="body2" gutterBottom>
+                    Remote • Internship
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    Supporting a core product in a flexible, project-based role through feature development, research, testing, and iteration, working directly with the company to ship and improve real product functionality.
+                  </Typography>
+                </Box>
+              </Box>
 
               <Box
                 sx={{

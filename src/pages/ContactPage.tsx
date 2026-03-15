@@ -1,14 +1,13 @@
 import React from 'react';
-import { 
-  Box, 
-  Typography, 
-  Stack, 
+import {
+  Box,
+  Typography,
+  Stack,
   useTheme,
   List,
   ListItem,
   ListItemText,
 } from '@mui/material';
-import ContactForm from '../components/contact/ContactForm';
 import { Helmet } from 'react-helmet';
 
 const ContactPage: React.FC = () => {
@@ -22,29 +21,17 @@ const ContactPage: React.FC = () => {
 
       <Box sx={{ maxWidth: 1200, mx: 'auto', p: { xs: 2, sm: 4 } }}>
         <Stack
-          direction={{ xs: 'column', md: 'row' }}
-          spacing={{ xs: 3, md: 8 }}
+          direction="column"
+          spacing={{ xs: 3, md: 4 }}
           sx={{
             mb: { xs: 4, md: 6 },
-            width: "100%",
+            width: '100%',
           }}
         >
-          {/* LEFT SIDE - CONTACT FORM */}
+          {/* CONTACT INFO ONLY */}
           <Box
             sx={{
-              flex: 1,
-              width: "100%",
-              minWidth: 0,
-            }}
-          >
-            <ContactForm />
-          </Box>
-
-          {/* RIGHT SIDE - CONTACT INFO */}
-          <Box
-            sx={{
-              flex: 1,
-              width: "100%",
+              width: '100%',
               minWidth: 0,
               mt: { xs: 1, md: 0 },
             }}
@@ -63,7 +50,7 @@ const ContactPage: React.FC = () => {
               Contact Information
             </Typography>
 
-            <List disablePadding sx={{ width: "100%" }}>
+            <List disablePadding sx={{ width: '100%' }}>
 
               {/* EMAIL */}
               <ListItem
@@ -92,31 +79,6 @@ const ContactPage: React.FC = () => {
               </ListItem>
 
               {/* PHONE */}
-              <ListItem
-                sx={{
-                  py: 2,
-                  flexWrap: "wrap",
-                }}
-              >
-                <ListItemText
-                  secondary={
-                    <Typography
-                      component="a"
-                      href="tel:+66617406702"
-                      color="text.primary"
-                      sx={{
-                        textDecoration: "none",
-                        fontWeight: 500,
-                        wordBreak: "break-word",
-                        "&:hover": { color: theme.palette.primary.main },
-                      }}
-                    >
-                      +66 61-740-6702
-                    </Typography>
-                  }
-                />
-              </ListItem>
-
               {/* LOCATION */}
               <ListItem
                 sx={{

@@ -2,46 +2,6 @@ import { Project } from '../types';
 
 export const projects: Project[] = [
   {
-    id: 1,
-    title: 'YOLO Thai Invoices Detection System',
-    description: 'A computer vision system for detecting and extracting key information from Thai invoices and receipts using YOLO object detection.',
-    longDescription: 'A computer vision system for detecting and extracting key information from Thai invoices and receipts using YOLO object detection. This system can extract fields like total price, date, and company information in real-time.',
-    image: 'projects/yolo.png',
-    techStack: ['Python', 'YOLOv5', 'OpenCV', 'Flask'],
-    repoLink: 'https://github.com/yemyat144/yolo-invoice',
-    liveLink: '',
-    youtubeLink: '',
-    slug: 'yolo-thai-invoices',
-    featured: true,
-    features: [
-      'Collected and annotated a custom dataset of 200 Thai invoices for training and evaluation',
-      'Trained and fine-tuned YOLOv5 model on Thai invoice datasets',
-      'Extracted fields like total price, date, and company info in real-time',
-      'Computer vision-based document processing',
-      'Real-time detection and information extraction'
-    ],
-  },
-  {
-    id: 2,
-    title: 'Bot Detection on Social Media (X)',
-    contributors: ['Kaung Myat Min', 'Sithu Kyaw Zin Linn', 'Ye Myat Moe'],
-    description: 'Research-based project to detect malicious Twitter bots using ML models',
-    longDescription: 'Research-based project to detect malicious Twitter bots using machine learning models. Built Random Forest classifier for detecting bots based on tweet metadata with integrated model explainability using SHAP and LIME.',
-    image: 'projects/bot.jpg',
-    techStack: ['Scikit-learn', 'SHAP', 'LIME', 'Streamlit', 'pandas', 'seaborn'],
-    repoLink: 'https://github.com/YeMyat144/bot-detection-x',
-    liveLink: '',
-    youtubeLink: '',
-    slug: 'bot-detection',
-    featured: true,
-    features: [
-      'Built Random Forest classifier for detecting bots based on tweet metadata',
-      'Integrated model explainability using SHAP and LIME',
-      'Interactive Streamlit dashboard for analysis',
-      'Data visualization with pandas and seaborn'
-    ],
-  },
-  {
     id: 3,
     title: 'Samsarent',
     description: 'A peer-to-peer item borrowing and swapping platform',
