@@ -1,60 +1,76 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef } from 'react';
 
 const Cursor = () => {
   const cursorRef = useRef<HTMLDivElement | null>(null);
+  const coordRef = useRef<HTMLSpanElement | null>(null);
   const pos = useRef({ x: 0, y: 0 });
-  const mouse = useRef({ x: 0, y: 0 });
+  const target = useRef({ x: 0, y: 0 });
+  const raf = useRef<number | null>(null);
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      mouse.current.x = e.clientX;
-      mouse.current.y = e.clientY;
+    const isCoarse = window.matchMedia('(pointer: coarse)').matches;
+    if (isCoarse) return;
+
+    const onMove = (e: MouseEvent) => {
+      target.current.x = e.clientX;
+      target.current.y = e.clientY;
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    // touch support for mobile devices
-    const handleTouchMove = (e: TouchEvent) => {
-      if (e.touches && e.touches[0]) {
-        mouse.current.x = e.touches[0].clientX;
-        mouse.current.y = e.touches[0].clientY;
+    const interactiveSelector =
+      'a, button, [role="button"], input, textarea, select, label, .is-interactive';
+
+    const onOver = (e: Event) => {
+      const el = e.target as HTMLElement | null;
+      if (el && el.closest && el.closest(interactiveSelector)) {
+        cursorRef.current?.classList.add('is-hover');
+      }
+    };
+    const onOut = (e: Event) => {
+      const el = e.target as HTMLElement | null;
+      if (el && el.closest && el.closest(interactiveSelector)) {
+        cursorRef.current?.classList.remove('is-hover');
       }
     };
 
-    const handleTouchStart = (e: TouchEvent) => {
-      if (e.touches && e.touches[0]) {
-        mouse.current.x = e.touches[0].clientX;
-        mouse.current.y = e.touches[0].clientY;
+    window.addEventListener('mousemove', onMove);
+    document.addEventListener('mouseover', onOver);
+    document.addEventListener('mouseout', onOut);
+
+    const loop = () => {
+      pos.current.x += (target.current.x - pos.current.x) * 0.22;
+      pos.current.y += (target.current.y - pos.current.y) * 0.22;
+
+      const node = cursorRef.current;
+      if (node) {
+        node.style.transform = `translate(${pos.current.x}px, ${pos.current.y}px) translate(-50%, -50%)`;
       }
-      // make sure the cursor is visible on touch
-      if (cursorRef.current) cursorRef.current.style.display = 'block';
-    };
-
-    window.addEventListener('touchstart', handleTouchStart, { passive: true });
-    window.addEventListener('touchmove', handleTouchMove, { passive: true });
-
-    const followMouse = () => {
-      // lerp for smooth delay
-      pos.current.x += (mouse.current.x - pos.current.x) * 0.1;
-      pos.current.y += (mouse.current.y - pos.current.y) * 0.1;
-
-      if (cursorRef.current) {
-        cursorRef.current.style.left = `${pos.current.x}px`;
-        cursorRef.current.style.top = `${pos.current.y}px`;
+      const coord = coordRef.current;
+      if (coord) {
+        const x = String(Math.round(pos.current.x)).padStart(4, '0');
+        const y = String(Math.round(pos.current.y)).padStart(4, '0');
+        coord.textContent = `X·${x}  Y·${y}`;
       }
 
-      requestAnimationFrame(followMouse);
+      raf.current = requestAnimationFrame(loop);
     };
-
-    requestAnimationFrame(followMouse);
+    raf.current = requestAnimationFrame(loop);
 
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener('touchstart', handleTouchStart);
-      window.removeEventListener('touchmove', handleTouchMove);
+      window.removeEventListener('mousemove', onMove);
+      document.removeEventListener('mouseover', onOver);
+      document.removeEventListener('mouseout', onOut);
+      if (raf.current) cancelAnimationFrame(raf.current);
     };
   }, []);
 
-  return <div className="custom-cursor" ref={cursorRef} />;
+  return (
+    <div className="ymm-cursor" ref={cursorRef}>
+      <span className="cx" />
+      <span className="cy" />
+      <span className="dot" />
+      <span className="coord" ref={coordRef}>X·0000  Y·0000</span>
+    </div>
+  );
 };
 
 export default Cursor;

@@ -1,225 +1,316 @@
-import React from 'react';
-import { Box, Typography, useTheme } from '@mui/material';
-import { motion } from 'framer-motion';
-import { projects } from '../data/projects';
-import { GitHub, Language, YouTube } from '@mui/icons-material';
-import { Helmet } from 'react-helmet';
+import React, { useState } from 'react';
+import { Box, Typography, Chip } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+import { motion, AnimatePresence } from 'framer-motion';
+import { projects } from '../data/projects';
 
-const MotionBox = motion(Box);
+const MotionImg = motion('img');
 
 const ProjectsPage: React.FC = () => {
-  const theme = useTheme();
   const navigate = useNavigate();
+  const [hoverId, setHoverId] = useState<number | null>(null);
+
+  const active = projects.find((p) => p.id === hoverId) ?? projects[0];
 
   return (
     <>
       <Helmet>
-        <title>Ye Myat Moe | Projects</title>
+        <title>Ye Myat Moe — Field Notes / §02 Work</title>
       </Helmet>
-      <Box sx={{ maxWidth: 1200, mx: 'auto', p: 3 }}>
-        <MotionBox
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          sx={{ mb: 6 }}
+
+      <Box
+        sx={{
+          maxWidth: 1400,
+          mx: 'auto',
+          px: { xs: 2, md: 4 },
+          py: { xs: 4, md: 6 },
+        }}
+      >
+        {/* Kicker */}
+        <Box
+          sx={{
+            display: 'grid',
+            gridTemplateColumns: { xs: '1fr', md: '1fr 320px' },
+            gap: 3,
+            alignItems: 'end',
+            pb: { xs: 3, md: 5 },
+            borderBottom: '1px solid var(--ink)',
+          }}
         >
-          <Typography
-            variant="h4"
-            component="h1"
-            gutterBottom
-            sx={{
-              fontWeight: 700,
-              color: theme.palette.primary.main,
-              textAlign: "center",
-            }}
-          >
-            A collection of my work
-          </Typography>
-
-
-        </MotionBox>
-
-        <Box sx={{
-          display: 'grid',
-          gridTemplateColumns: {
-            xs: '1fr',
-            sm: 'repeat(3, 1fr)',
-            md: 'repeat(3, 1fr)'
-          },
-          gap: 5,
-        }}>
-          {projects.map((project, index) => (
-            <MotionBox
-              key={project.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              onClick={() => navigate(`/projects/${project.slug}`)}
+          <Box>
+            <Typography
               sx={{
-                position: 'relative',
-                height: { xs: 200, md: 300 },
-                overflow: 'hidden',
-                borderRadius: theme.shape.borderRadius * 2,
-                cursor: 'pointer',
-                '&:hover .project-content': {
-                  opacity: 1,
-                  transform: 'translateY(0)',
-                },
-                '&:hover img': {
-                  transform: 'scale(1.1)',
-                },
+                fontFamily: 'JetBrains Mono, monospace',
+                fontSize: '0.72rem',
+                letterSpacing: '0.2em',
+                textTransform: 'uppercase',
+                color: 'var(--signal)',
+                mb: 2,
               }}
             >
-              <Box
-                component="img"
-                src={project.image}
-                alt={project.title}
-                sx={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  transition: 'transform 0.6s ease',
-                }}
-              />
+              §02 / The Index
+            </Typography>
+            <Typography
+              sx={{
+                fontFamily: 'Fraunces, serif',
+                fontSize: { xs: '3rem', md: '6rem', lg: '7rem' },
+                lineHeight: 0.88,
+                letterSpacing: '-0.035em',
+                fontWeight: 300,
+                fontVariationSettings: '"opsz" 144, "SOFT" 80',
+              }}
+            >
+              A catalog of{' '}
+              <Box component="em" sx={{ fontStyle: 'italic', color: 'var(--signal)' }}>
+                things
+              </Box>{' '}
+              made.
+            </Typography>
+          </Box>
 
-              <Box
-                className="project-content"
-                sx={{
-                  position: 'absolute',
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  bgcolor: 'rgba(0, 0, 0, 0.80)',
-                  color: 'white',
-                  p: 3,
-                  opacity: 0,
-                  transform: 'translateY(20px)',
-                  transition: 'all 0.4s ease',
-                  backdropFilter: 'blur(5px)',
-                }}
-              >
-                <Typography
-                  variant="h5"
-                  component="h3"
-                  gutterBottom
+          <Box>
+            <Typography
+              sx={{
+                fontFamily: 'Fraunces, serif',
+                fontSize: { xs: '1.05rem', md: '1.15rem' },
+                fontStyle: 'italic',
+                fontWeight: 300,
+                lineHeight: 1.55,
+              }}
+            >
+              A running log of projects — shipped, experimental, and in-between.
+              Hover a row to peek; click to read the full entry.
+            </Typography>
+            <Typography
+              variant="caption"
+              sx={{
+                display: 'block',
+                mt: 2,
+                color: 'var(--ink-soft)',
+              }}
+            >
+              TOTAL · {String(projects.length).padStart(2, '0')} ENTRIES
+            </Typography>
+          </Box>
+        </Box>
+
+        {/* Index */}
+        <Box
+          sx={{
+            display: 'grid',
+            gridTemplateColumns: { xs: '1fr', md: '1fr 360px' },
+            gap: { xs: 0, md: 6 },
+            mt: { xs: 4, md: 6 },
+            alignItems: 'start',
+          }}
+        >
+          {/* List */}
+          <Box>
+            {projects.map((project, i) => {
+              const isActive = hoverId === project.id;
+              return (
+                <Box
+                  key={project.id}
+                  onMouseEnter={() => setHoverId(project.id)}
+                  onFocus={() => setHoverId(project.id)}
+                  onClick={() => navigate(`/projects/${project.slug}`)}
+                  className="is-interactive"
+                  tabIndex={0}
+                  role="button"
                   sx={{
-                    fontWeight: 700,
-                    color: theme.palette.primary.light,
+                    cursor: 'none',
+                    py: { xs: 2.5, md: 3 },
+                    borderTop: '1px solid var(--ink)',
+                    borderBottom: i === projects.length - 1 ? '1px solid var(--ink)' : 0,
+                    display: 'grid',
+                    gridTemplateColumns: { xs: '46px 1fr auto', md: '60px 1fr auto' },
+                    gap: { xs: 2, md: 3 },
+                    alignItems: 'center',
+                    position: 'relative',
+                    transition: 'color 160ms ease, background 160ms ease, padding-left 220ms ease',
+                    color: isActive ? 'var(--signal)' : 'var(--ink)',
+                    pl: { md: isActive ? 3 : 0 },
+                    '&:hover::before': { opacity: 1, transform: 'translateX(0)' },
+                    '&::before': {
+                      content: '""',
+                      position: 'absolute',
+                      left: -8,
+                      top: '50%',
+                      width: 24,
+                      height: 1,
+                      background: 'var(--signal)',
+                      transform: 'translateX(-12px)',
+                      opacity: 0,
+                      transition: 'transform 260ms ease, opacity 260ms ease',
+                    },
                   }}
                 >
-                  {project.title}
-                </Typography>
-
-                <Typography
-                  variant="body2"
-                  sx={{
-                    mb: 2,
-                    opacity: 0.9,
-                    display: '-webkit-box',
-                    WebkitLineClamp: 2,
-                    WebkitBoxOrient: 'vertical',
-                    overflow: 'hidden',
-                  }}
-                >
-                  {project.description}
-                </Typography>
-
-                <Box sx={{ mb: 2, display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-                  {project.techStack.map((tech) => (
-                    <Typography
-                      key={tech}
-                      variant="caption"
-                      sx={{
-                        px: 1.5,
-                        py: 0.5,
-                        bgcolor: `${theme.palette.primary.main}40`,
-                        borderRadius: 20,
-                        color: theme.palette.primary.light,
-                        fontWeight: 500,
-                      }}
-                    >
-                      {tech}
-                    </Typography>
-                  ))}
-                </Box>
-
-                <Box sx={{ display: 'flex', gap: 2, mt: 'auto' }}>
-                  <Box
-                    component="a"
-                    href={project.repoLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Typography
                     sx={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: 1,
-                      color: 'white',
-                      textDecoration: 'none',
-                      transition: 'color 0.2s',
-                      '&:hover': {
-                        color: theme.palette.primary.light,
-                      }
+                      fontFamily: 'JetBrains Mono, monospace',
+                      fontSize: { xs: '0.75rem', md: '0.85rem' },
+                      letterSpacing: '0.1em',
+                      opacity: 0.65,
                     }}
                   >
-                    <GitHub fontSize="small" />
-                    <Typography variant="body2" fontWeight={500}>
-                      Repository
+                    {String(i + 1).padStart(3, '0')}
+                  </Typography>
+
+                  <Box sx={{ minWidth: 0 }}>
+                    <Typography
+                      sx={{
+                        fontFamily: 'Fraunces, serif',
+                        fontSize: { xs: '1.6rem', sm: '2rem', md: '2.6rem' },
+                        lineHeight: 1,
+                        fontWeight: 400,
+                        letterSpacing: '-0.015em',
+                        fontStyle: isActive ? 'italic' : 'normal',
+                        fontVariationSettings: isActive
+                          ? '"opsz" 144, "SOFT" 100, "WONK" 1'
+                          : '"opsz" 144',
+                        transition: 'font-style 160ms ease',
+                      }}
+                    >
+                      {project.title}
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        mt: 0.5,
+                        color: isActive ? 'var(--signal)' : 'var(--ink-soft)',
+                        fontSize: { xs: '0.85rem', md: '0.95rem' },
+                      }}
+                    >
+                      {project.description}
                     </Typography>
                   </Box>
 
-                  {project.liveLink && (
+                  <Box
+                    sx={{
+                      display: { xs: 'none', sm: 'flex' },
+                      flexWrap: 'wrap',
+                      gap: 0.5,
+                      maxWidth: { sm: 180, md: 220 },
+                      justifyContent: 'flex-end',
+                    }}
+                  >
+                    {project.techStack.slice(0, 3).map((t) => (
+                      <Chip
+                        key={t}
+                        label={t}
+                        size="small"
+                        sx={{
+                          borderColor: isActive ? 'var(--signal)' : 'var(--ink)',
+                          color: 'inherit',
+                          height: 22,
+                          '& .MuiChip-label': {
+                            fontSize: '0.65rem',
+                            px: 1,
+                          },
+                        }}
+                      />
+                    ))}
+                  </Box>
+
+                  {/* Mobile thumb */}
+                  <Box
+                    sx={{
+                      gridColumn: '1 / -1',
+                      display: { xs: 'block', md: 'none' },
+                      mt: 1,
+                    }}
+                  >
                     <Box
-                      component="a"
-                      href={project.liveLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      component="img"
+                      src={project.image}
+                      alt={project.title}
                       sx={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: 1,
-                        color: 'white',
-                        textDecoration: 'none',
-                        transition: 'color 0.2s',
-                        '&:hover': {
-                          color: theme.palette.primary.light,
-                        }
+                        width: '100%',
+                        maxHeight: 180,
+                        objectFit: 'cover',
+                        border: '1px solid var(--ink)',
+                        filter: 'grayscale(1)',
                       }}
-                    >
-                      <Language sx={{fontSize: 22}} />
-                      <Typography variant="body2" fontWeight={500}>
-                        Live
-                      </Typography>
-                    </Box>
-                  )}
-                  {project.youtubeLink && (
-                    <Box
-                      component="a"
-                      href={project.youtubeLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      sx={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: 1,
-                        color: 'white',
-                        textDecoration: 'none',
-                        transition: 'color 0.2s',
-                        '&:hover': {
-                          color: theme.palette.primary.light,
-                        }
-                      }}
-                    >
-                      <YouTube sx={{ color: 'inherit', fontSize: 27 }} />
-                      <Typography variant="body2" fontWeight={500}>
-                        Demo
-                      </Typography>
-                    </Box>
-                  )}
+                    />
+                  </Box>
                 </Box>
-              </Box>
-            </MotionBox>
-          ))}
+              );
+            })}
+          </Box>
+
+          {/* Sticky preview (desktop) */}
+          <Box
+            sx={{
+              display: { xs: 'none', md: 'block' },
+              position: 'sticky',
+              top: 170,
+              alignSelf: 'start',
+            }}
+          >
+            <Box
+              className="corner-brackets"
+              sx={{
+                position: 'relative',
+                aspectRatio: '4 / 5',
+                border: '1px solid var(--ink)',
+                overflow: 'hidden',
+                background: 'var(--paper-deep)',
+              }}
+            >
+              <AnimatePresence mode="wait">
+                <MotionImg
+                  key={active.id}
+                  src={active.image}
+                  alt={active.title}
+                  initial={{ opacity: 0, scale: 1.03 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 1.02 }}
+                  transition={{ duration: 0.35, ease: [0.2, 0.8, 0.2, 1] }}
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    filter: 'grayscale(1) contrast(1.03)',
+                  }}
+                />
+              </AnimatePresence>
+            </Box>
+
+            <Box
+              sx={{
+                mt: 2,
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'baseline',
+              }}
+            >
+              <Typography variant="caption" sx={{ color: 'var(--signal)' }}>
+                NOW VIEWING
+              </Typography>
+              <Typography variant="caption" sx={{ opacity: 0.7 }}>
+                №{String(projects.findIndex((p) => p.id === active.id) + 1).padStart(3, '0')}
+              </Typography>
+            </Box>
+            <Typography
+              sx={{
+                fontFamily: 'Fraunces, serif',
+                fontSize: '1.6rem',
+                lineHeight: 1.1,
+                fontStyle: 'italic',
+                mt: 0.5,
+              }}
+            >
+              {active.title}
+            </Typography>
+            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, mt: 1.5 }}>
+              {active.techStack.map((t) => (
+                <Chip key={t} label={t} size="small" />
+              ))}
+            </Box>
+          </Box>
         </Box>
       </Box>
     </>
