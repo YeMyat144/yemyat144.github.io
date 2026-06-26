@@ -11,7 +11,7 @@ import { socialLinks } from '../../data/navigation';
 const MotionBox = motion(Box);
 
 const MARQUEE_ITEMS = [
-  'Previously — Prompt Engineering @ SalesMind AI',
+  'Previously — AI Automation Engineer @ SalesMind AI',
   'Also building — TechCreative LTD',
   'Based in Bangkok — open to remote',
   'Writes code · breaks things · writes prompts',
