@@ -1,3 +1,5 @@
+export type ProjectCategory = 'Full-Stack' | 'AR' | 'Game';
+
 export interface Project {
   id: number;
   title: string;
@@ -12,6 +14,10 @@ export interface Project {
   features?: string[];
   youtubeLink?: string;
   featured?: boolean;
+  category: ProjectCategory;
+  client?: string;
+  role?: string;
+  private?: boolean;
 }
 
 export interface NavItem {

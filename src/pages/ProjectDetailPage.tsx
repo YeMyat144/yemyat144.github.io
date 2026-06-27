@@ -145,15 +145,17 @@ const ProjectDetailPage: React.FC = () => {
             </Typography>
 
             <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap sx={{ mt: 2.5 }}>
-              <Button
-                variant="contained"
-                startIcon={<GitHub />}
-                href={project.repoLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Repo
-              </Button>
+              {project.repoLink && (
+                <Button
+                  variant="contained"
+                  startIcon={<GitHub />}
+                  href={project.repoLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Repo
+                </Button>
+              )}
               {project.liveLink && (
                 <Button
                   variant="outlined"

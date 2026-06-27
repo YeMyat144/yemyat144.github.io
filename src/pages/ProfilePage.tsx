@@ -122,18 +122,7 @@ const certificates = [
   },
 ];
 
-type ProjectFilter = 'All' | 'AI & Automation' | 'Full-Stack' | 'ML';
-
-const projectCategoryMap: Record<string, 'Full-Stack' | 'ML'> = {
-  samsarent: 'Full-Stack',
-  algovithm: 'Full-Stack',
-  'ticket-tango': 'Full-Stack',
-  'anime-face-stylization': 'ML',
-  'the-decider': 'Full-Stack',
-  'draw-guess': 'Full-Stack',
-  signology: 'Full-Stack',
-  narratenow: 'Full-Stack',
-};
+type ProjectFilter = 'All' | 'AI & Automation' | 'Full-Stack' | 'AR' | 'Game';
 
 const aiProjects = [
   {
@@ -359,7 +348,7 @@ const ProfilePage: React.FC = () => {
 
           {/* Filter tabs */}
           <Box sx={{ display: 'flex', gap: 1, mb: 3.5, flexWrap: 'wrap' }}>
-            {(['All', 'AI & Automation', 'Full-Stack', 'ML'] as const).map((tab) => (
+            {(['All', 'AI & Automation', 'Full-Stack', 'AR', 'Game'] as const).map((tab) => (
               <Button
                 key={tab}
                 size="small"
@@ -678,8 +667,8 @@ const ProfilePage: React.FC = () => {
             </Box>
           )}
 
-          {/* ── FULL-STACK & ML CARDS ── */}
-          {(projectFilter === 'All' || projectFilter === 'Full-Stack' || projectFilter === 'ML') && (
+          {/* ── FULL-STACK / AR / GAME CARDS ── */}
+          {(projectFilter === 'All' || projectFilter === 'Full-Stack' || projectFilter === 'AR' || projectFilter === 'Game') && (
             <Box>
               {projectFilter === 'All' && (
                 <Typography
@@ -692,18 +681,17 @@ const ProfilePage: React.FC = () => {
                     mb: 2,
                   }}
                 >
-                  Full-Stack &amp; ML
+                  Full-Stack · AR · Game
                 </Typography>
               )}
 
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
                 {projects
                   .filter((p) => {
-                    if (projectFilter === 'Full-Stack') return projectCategoryMap[p.slug] === 'Full-Stack';
-                    if (projectFilter === 'ML') return projectCategoryMap[p.slug] === 'ML';
-                    return true;
+                    if (projectFilter === 'All') return true;
+                    return p.category === projectFilter;
                   })
-                  .slice(0, projectFilter === 'All' ? 3 : 5)
+                  .slice(0, projectFilter === 'All' ? 4 : 10)
                   .map((project) => (
                     <Box
                       key={project.id}
@@ -731,19 +719,43 @@ const ProfilePage: React.FC = () => {
                           width: '100%',
                           aspectRatio: '16/9',
                           objectFit: 'cover',
-                          filter: 'grayscale(0.3)',
+                          filter: 'grayscale(1) contrast(1.05)',
                           display: { xs: 'none', sm: 'block' },
                         }}
                       />
                       <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-                        <Typography sx={{ fontWeight: 700, fontSize: '1.05rem', lineHeight: 1.3 }}>
-                          {project.title}
-                        </Typography>
+                        {/* Title row */}
+                        <Box sx={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 1, flexWrap: 'wrap' }}>
+                          <Typography sx={{ fontWeight: 700, fontSize: '1.05rem', lineHeight: 1.3 }}>
+                            {project.title}
+                          </Typography>
+                          <Box sx={{ display: 'flex', gap: 0.75, flexShrink: 0 }}>
+                            {project.private && (
+                              <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.4, border: '1px solid var(--rule-strong)', px: 0.75, py: 0.3, borderRadius: '4px' }}>
+                                <Lock sx={{ fontSize: '0.65rem', color: 'var(--ink-soft)' }} />
+                                <Typography sx={{ fontSize: '0.65rem', color: 'var(--ink-soft)', fontFamily: 'JetBrains Mono, monospace' }}>
+                                  Private
+                                </Typography>
+                              </Box>
+                            )}
+                            <Chip
+                              label={project.category}
+                              size="small"
+                              sx={{ fontSize: '0.65rem', height: 20, bgcolor: 'transparent', border: '1px solid var(--signal)', color: 'var(--signal)', borderRadius: '4px' }}
+                            />
+                          </Box>
+                        </Box>
+                        {/* Role / Client */}
+                        {(project.role || project.client) && (
+                          <Typography sx={{ fontSize: '0.78rem', color: 'var(--ink-soft)', fontFamily: 'JetBrains Mono, monospace' }}>
+                            {[project.role, project.client].filter(Boolean).join(' · ')}
+                          </Typography>
+                        )}
                         <Typography sx={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'var(--ink-soft)' }}>
                           {project.description}
                         </Typography>
                         <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.75, mt: 'auto', pt: 1 }}>
-                          {project.techStack.slice(0, 4).map((tech) => (
+                          {project.techStack.slice(0, 5).map((tech) => (
                             <Chip
                               key={tech}
                               label={tech}
@@ -897,7 +909,7 @@ const ProfilePage: React.FC = () => {
                     width: '100%',
                     height: 110,
                     objectFit: 'cover',
-                    filter: 'grayscale(0.4)',
+                    filter: 'grayscale(1) contrast(1.05)',
                     display: 'block',
                   }}
                 />
