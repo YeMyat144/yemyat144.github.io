@@ -72,8 +72,7 @@ const experience: ExpItem[] = [
   {
     logo: 'logos/sumo.png',
     title: 'Software Engineer',
-    org: 'foodloft.me',
-    link: 'https://foodloft.me',
+    org: 'Sumo Shabu Buffet',
     period: 'Jul 2025 — Oct 2025',
     mode: 'Thailand · Contract',
     body: 'Built a SaaS restaurant management platform featuring interactive 3D floor planning. Developed an advanced booking system with LINE bot integration, optimistic concurrency control, and dual payment processing.',
@@ -216,21 +215,32 @@ const ProfilePage: React.FC = () => {
             }}
           >
             I build production-grade AI pipelines and full-stack web apps.
-    title: ' Intern',
-            Previously a AI Automation Engineer intern at <strong style={{ color: 'inherit' }}>SalesMind AI</strong> and
+            Previously an AI Automation Engineer intern at <strong style={{ color: 'inherit' }}>SalesMind AI</strong> and
             Software Developer intern at <strong style={{ color: 'inherit' }}>TechCreative LTD</strong>.
             Based in Bangkok, open to opportunities.
           </Typography>
 
-          <Stack direction="row" spacing={2} flexWrap="wrap" gap={1.5}>
+          <Stack
+            direction={{ xs: 'column', sm: 'row' }}
+            spacing={{ xs: 1.25, sm: 2 }}
+            sx={{ width: '100%', maxWidth: { xs: '100%', sm: 480 } }}
+          >
             <Button
               variant="contained"
               startIcon={<Download />}
               component="a"
-              href="https://drive.google.com/uc?export=download&id=1Rb-0uCEHEL278yQRpIXE6AgAd6bJm4O-"
+              href="https://drive.google.com/uc?export=download&id=1NFh6luF_bK4WeE1zBss5iFQAKm-u3mbQ"
               target="_blank"
               rel="noopener noreferrer"
-              size="large"
+              sx={{
+                width: { xs: '100%', sm: 'auto' },
+                flex: { sm: 1 },
+                justifyContent: 'center',
+                py: { xs: 1.35, sm: 1.5 },
+                px: { xs: 2.5, sm: 3 },
+                fontSize: { xs: '0.72rem', sm: '0.78rem' },
+                letterSpacing: { xs: '0.1em', sm: '0.12em' },
+              }}
             >
               Download CV
             </Button>
@@ -238,7 +248,15 @@ const ProfilePage: React.FC = () => {
               variant="outlined"
               endIcon={<ArrowForward />}
               onClick={() => navigate('/contact')}
-              size="large"
+              sx={{
+                width: { xs: '100%', sm: 'auto' },
+                flex: { sm: 1 },
+                justifyContent: 'center',
+                py: { xs: 1.35, sm: 1.5 },
+                px: { xs: 2.5, sm: 3 },
+                fontSize: { xs: '0.72rem', sm: '0.78rem' },
+                letterSpacing: { xs: '0.1em', sm: '0.12em' },
+              }}
             >
               Get in touch
             </Button>
