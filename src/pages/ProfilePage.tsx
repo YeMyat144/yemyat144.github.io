@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { Box, Typography, Button, Stack, Link, Chip, Collapse } from '@mui/material';
+import { Box, Typography, Button, Stack, Link, Chip, Collapse, Portal } from '@mui/material';
 import { Download, ArrowForward, OpenInNew, KeyboardArrowDown, KeyboardArrowUp, Lock } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
@@ -945,34 +945,36 @@ const ProfilePage: React.FC = () => {
         </Box>
       </Box>
 
-      {/* Image modal */}
+      {/* Image modal — rendered in a Portal so it sits above all stacking contexts */}
       {enlargedImgSrc && (
-        <Box
-          onClick={() => setEnlargedImgSrc(null)}
-          sx={{
-            position: 'fixed',
-            inset: 0,
-            bgcolor: 'rgba(0,0,0,0.85)',
-            zIndex: 2000,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            cursor: 'pointer',
-          }}
-        >
+        <Portal>
           <Box
-            component="img"
-            src={enlargedImgSrc}
-            alt="Certificate"
-            onClick={(e) => e.stopPropagation()}
+            onClick={() => setEnlargedImgSrc(null)}
             sx={{
-              maxWidth: '90vw',
-              maxHeight: '88vh',
-              background: '#fff',
-              cursor: 'default',
+              position: 'fixed',
+              inset: 0,
+              bgcolor: 'rgba(0,0,0,0.85)',
+              zIndex: 9999,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer',
             }}
-          />
-        </Box>
+          >
+            <Box
+              component="img"
+              src={enlargedImgSrc}
+              alt="Certificate"
+              onClick={(e) => e.stopPropagation()}
+              sx={{
+                maxWidth: '90vw',
+                maxHeight: '88vh',
+                background: '#fff',
+                cursor: 'default',
+              }}
+            />
+          </Box>
+        </Portal>
       )}
     </>
   );

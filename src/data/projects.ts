@@ -16,6 +16,7 @@ export const projects: Project[] = [
     category: 'Full-Stack',
     client: 'Sumo Shabu Buffet — ABAC Restaurant',
     role: 'Software Engineer · Contract',
+    contributors: ['Ahkar Min Oo', 'Hpone Pyae Khine', 'Ye Myat Moe'],
     features: [
       'Interactive 3D floor plan editor — drag-and-drop tables, save layouts per restaurant',
       'Booking system with soft-lock and conflict-resolution to prevent double-booking',

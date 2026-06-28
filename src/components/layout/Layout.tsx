@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Typography, IconButton } from '@mui/material';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Outlet, useLocation } from 'react-router-dom';
@@ -12,16 +12,20 @@ const MotionBox = motion(Box);
 
 const MARQUEE_ITEMS = [
   'Previously — AI Automation Engineer @ SalesMind AI',
-  'Also building — TechCreative LTD',
+  'Currently learning — DevOps',
   'Based in Bangkok — open to remote',
   'Writes code · breaks things · writes prompts',
   'Reach: yemyatmoe.tetee@gmail.com',
-  'Now playing — n8n workflows, LLM pipelines, 3D floor plans',
+  'Now playing — n8n workflows, LLM pipelines',
 ];
 
 const Layout: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   return (
     <Box
