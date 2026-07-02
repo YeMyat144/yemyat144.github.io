@@ -1,10 +1,13 @@
 export type ProjectCategory = 'Full-Stack' | 'AR' | 'Game';
 
+export type ProjectStatus = 'Live' | 'Completed' | 'In Development';
+
 export interface Project {
   id: number;
   title: string;
   contributors?: string[];
   description: string;
+  impact?: string;
   image: string;
   techStack: string[];
   repoLink: string;
@@ -18,6 +21,8 @@ export interface Project {
   client?: string;
   role?: string;
   private?: boolean;
+  year?: string;
+  status?: ProjectStatus;
 }
 
 export interface NavItem {

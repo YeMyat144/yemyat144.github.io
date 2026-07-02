@@ -4,9 +4,10 @@ export const projects: Project[] = [
   {
     id: 1,
     title: 'FoodLoft',
-    description: 'SaaS restaurant management platform with interactive 3D floor planning and LINE bot integration',
+    impact: 'A real client replaced pen-and-paper table management — customers now book via LINE, owners see their floor in 3D, and Stripe handles subscriptions. Delivered as a team project.',
+    description: 'SaaS restaurant management platform with interactive 3D floor planning, LINE bot reservations, and Stripe subscription billing — built for a real client as a team.',
     longDescription:
-      'A multi-tenant SaaS platform built for real restaurant operations. Restaurants get their own workspace with interactive 3D floor planning, a smart booking system with soft-lock concurrency control, a LINE bot for customer self-service reservations, Stripe subscription billing, staff management, and real-time notifications — all under a single admin dashboard.',
+      'A multi-tenant SaaS platform built as a team for real restaurant operations. Restaurants get their own workspace with interactive 3D floor planning, a smart booking system with soft-lock concurrency control, a LINE bot for customer self-service reservations, Stripe subscription billing, staff management, and real-time notifications — all under a single admin dashboard.',
     image: 'projects/foodloft.png',
     techStack: ['Next.js', 'Firebase', 'Stripe', 'LINE LIFF', 'Tailwind CSS', 'Three.js'],
     repoLink: '',
@@ -16,6 +17,8 @@ export const projects: Project[] = [
     category: 'Full-Stack',
     client: 'Sumo Shabu Buffet — ABAC Restaurant',
     role: 'Software Engineer · Contract',
+    year: '2025',
+    status: 'Live',
     contributors: ['Ahkar Min Oo', 'Hpone Pyae Khine', 'Ye Myat Moe'],
     features: [
       'Interactive 3D floor plan editor — drag-and-drop tables, save layouts per restaurant',
@@ -31,7 +34,8 @@ export const projects: Project[] = [
   {
     id: 2,
     title: 'LinkUp',
-    description: 'Private social app for close circles — group chat, events, daily updates, and media sharing with no ad clutter',
+    impact: 'A private social app for families and close groups — real-time chat, shared calendars, and media sharing, all without ads or algorithmic feeds. Built and shipped for iOS.',
+    description: 'Private mobile social app for close circles — group chat, events, daily updates, and media sharing with no ads or algorithmic feed.',
     longDescription:
       'A mobile-first social platform designed for tight-knit groups (families, teams, friend circles). Built with Ionic + Capacitor for native iOS/Android deployment. Features group chat, shared event calendars, daily check-in updates, and media sharing — all in a low-noise environment with no algorithmic feed or ads. Developed as a private internship project.',
     image: 'projects/linkup.png',
@@ -42,6 +46,8 @@ export const projects: Project[] = [
     category: 'Full-Stack',
     private: true,
     role: 'Software Developer Intern · TechCreative LTD',
+    year: '2026',
+    status: 'Completed',
     features: [
       'Group chat with real-time messaging via Firestore',
       'Shared event calendar — create, RSVP, and get reminders',
@@ -55,7 +61,8 @@ export const projects: Project[] = [
   {
     id: 3,
     title: 'AR MG Car Showroom',
-    description: 'Augmented reality car showcase app presented at the ABAC × MG – SAIC Motor R&D Center Opening Ceremony',
+    impact: 'Built an AR experience that was showcased live at an official ABAC × MG – SAIC Motor industry event — point your phone at any flat surface and a life-size MG EV appears.',
+    description: 'AR mobile app presented at the ABAC × MG – SAIC Motor R&D Center Opening Ceremony — 6 car models, real-time colour and tyre customisation in augmented reality.',
     longDescription:
       'An AR mobile app built in Unity that places life-size MG car models into the real world via AR plane detection. Users can switch between MG3 EV, MG4, MG5, Cyberster, Hector, and ZS models, customise body colour, tyre style, and headlight configuration in real time — all without leaving the AR view. Presented live at the ABAC × MG – SAIC Motor R&D Center Opening Ceremony on 17 January 2026.',
     image: 'projects/mg.png',
@@ -67,6 +74,8 @@ export const projects: Project[] = [
     category: 'AR',
     client: 'Honey Yuzu · ABAC × MG – SAIC Motor',
     role: 'Lead Developer',
+    year: '2026',
+    status: 'Completed',
     contributors: ['Ye Myat Moe (Lead Developer)', 'Yel Lin (Software Design)', 'Lut Lat Aung (QA)'],
     features: [
       'AR plane detection — car models spawn and anchor to real-world surfaces',
@@ -80,7 +89,8 @@ export const projects: Project[] = [
   {
     id: 4,
     title: 'VMES Tour',
-    description: '3D platformer that guides prospective students through engineering and CS majors via gameplay and interactive quizzes',
+    impact: 'A 3D game that helps university prospects figure out whether Engineering or CS suits them better — answer questions while running through an obstacle course, playable in the browser.',
+    description: '3D platformer where players explore academic pathways at VMES through gameplay and quizzes — available to play in the browser on itch.io.',
     longDescription:
       'VMES Tour is a 3D obstacle-course platformer set inside a virtual version of the Vincent Mary School of Engineering, Science and Technology (VMES) at Assumption University. Players climb moving platforms and clear hazards while answering field-of-study questions. At the end, the game recommends a major — Engineering or Computer Science / IT — based on their answers. Built in Unity; Ye Myat Moe designed and built the level geometry, platforms, and obstacle course.',
     image: 'projects/vmestour.png',
@@ -89,6 +99,8 @@ export const projects: Project[] = [
     liveLink: 'https://lut-lat-aung.itch.io/vmes-tour',
     slug: 'vmes-tour',
     category: 'Game',
+    year: '2024',
+    status: 'Completed',
     contributors: ['Lut Lat Aung (Lead Developer)', 'Ye Myat Moe (Level Design)', 'Yel Lin (QA)', 'Sithu Kyaw Zin Linn (3D Modeling)'],
     features: [
       '3D obstacle platformer — moving platforms, hazards, parkour sections',

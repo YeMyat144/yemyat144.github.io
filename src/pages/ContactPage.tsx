@@ -62,6 +62,39 @@ const ContactPage: React.FC = () => {
           </Typography>
         </Box>
 
+        {/* About Me */}
+        <Box sx={{ mt: { xs: 4, md: 5 }, maxWidth: 640 }}>
+          <Typography
+            sx={{
+              fontFamily: 'JetBrains Mono, monospace',
+              fontSize: '0.65rem',
+              letterSpacing: '0.14em',
+              textTransform: 'uppercase',
+              color: 'var(--ink-soft)',
+              mb: 1.5,
+              opacity: 0.7,
+            }}
+          >
+            About
+          </Typography>
+          <Typography
+            sx={{
+              fontSize: { xs: '0.95rem', md: '1.05rem' },
+              lineHeight: 1.8,
+              color: 'var(--ink-soft)',
+            }}
+          >
+            I'm a Computer Science graduate from Assumption University of Thailand with hands-on experience
+            building AI automation pipelines and full-stack web products — at companies like{' '}
+            <Box component="span" sx={{ color: 'var(--ink)', fontWeight: 600 }}>SalesMind AI</Box> and{' '}
+            <Box component="span" sx={{ color: 'var(--ink)', fontWeight: 600 }}>TechCreative LTD</Box>.
+            I've shipped things that real people actually use: a restaurant booking system running live for a client,
+            an AR experience presented at an official industry event, and an LLM pipeline that cut manual lead review
+            time significantly. I move fast, care about clean output, and I'm currently open to full-time roles,
+            contracts, and freelance projects — especially in AI, automation, or product engineering.
+          </Typography>
+        </Box>
+
         <Box
           sx={{
             mt: { xs: 4, md: 6 },
