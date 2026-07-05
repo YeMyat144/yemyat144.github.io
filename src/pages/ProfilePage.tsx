@@ -53,27 +53,29 @@ const skills: { label: string; items: string[] }[] = [
   { label: 'Languages & Frameworks', items: ['Python', 'JavaScript', 'TypeScript', 'React', 'Next.js', 'Node', 'Express', 'Angular', 'C#', '.NET'] },
   { label: 'ML & Computer Vision', items: ['TensorFlow', 'PyTorch', 'OpenCV', 'Scikit-learn', 'YOLOv5'] },
   { label: 'Databases', items: ['MongoDB', 'Firestore', 'PostgreSQL'] },
-  { label: 'Tools & Platforms', items: ['Git', 'WebSocket', 'Flask', 'Streamlit', 'Unity', 'Supabase', 'Vercel', 'Firebase', 'Docker', 'n8n'] },
+  { label: 'Tools & Platforms', items: ['Git', 'WebSocket', 'Flask', 'Streamlit', 'Unity', 'Vercel', 'Firebase', 'Docker', 'n8n', 'Make'] },
 ];
 
-type ExpItem = { logo: string; title: string; org: string; period: string; mode: string; body: string; link?: string };
+type ExpItem = { logo: string; title: string; org: string; period: string; mode: string; body: string; link?: string; badge?: string };
 
 const experience: ExpItem[] = [
   {
+    logo: 'logos/salesmind_ai_logo.jpeg',
+    title: 'AI Automation Engineer',
+    org: 'SalesMind AI',
+    period: 'Jan 2026 — Jun 2026',
+    mode: 'Hybrid · Completed',
+    badge: 'Intern → Full-time',
+    body: 'Designed n8n workflows, wrote JavaScript for custom automations, and connected LLMs with CRMs through APIs and webhooks — with a strong focus on prompt design and testing. Continued in a full-time role scaling lead intelligence pipelines, refining prompt systems, and integrating AI tools with CRM infrastructure.',
+  },
+  {
     logo: 'logos/tech_creative_ltd.png',
-    title: 'Software Developer Intern',
+    title: 'Software Developer',
     org: 'TechCreative LTD',
     period: 'Nov 2025 — Apr 2026',
     mode: 'Remote · Completed',
+    badge: 'Intern',
     body: 'Contributed to a core product through feature development, research, testing, and iteration — shipping and improving real product functionality across the engagement.',
-  },
-  {
-    logo: 'logos/salesmind_ai_logo.jpeg',
-    title: 'AI Automation Engineer Intern',
-    org: 'SalesMind AI',
-    period: 'Jan 2026 — Mar 2026',
-    mode: 'Hybrid · Completed',
-    body: 'Designed n8n workflows, wrote JavaScript for custom automations, connected LLMs with CRMs through APIs and webhooks — with a strong focus on prompt design and testing.',
   },
   {
     logo: 'logos/sumo.png',
@@ -110,7 +112,7 @@ const aiProjects = [
     title: 'SalesMind AI — Lead Intelligence Automation',
     impact: 'Saved the sales team hours of manual lead review every day — an AI pipeline now scores, classifies, and routes every inbound lead automatically, cutting wrong classifications and LLM costs by ~30%.',
     summary: 'Multi-stage LLM pipeline for lead scoring, classification, and AI-generated buyer/seller microsites — integrated into a live CRM via webhooks.',
-    role: 'AI Automation Engineer Intern · Jan 2026 – Mar 2026',
+    role: 'AI Automation Engineer · Jan 2026 – Jun 2026',
     stack: ['n8n', 'Google Vertex AI (Gemini)', 'JavaScript', 'GHL CRM APIs', 'Webhooks'],
     confidential: true,
     year: '2026',
@@ -186,7 +188,7 @@ const ProfilePage: React.FC = () => {
 
           <Typography sx={{ fontSize: { xs: '0.95rem', md: '1rem' }, lineHeight: 1.75, maxWidth: 580, color: 'var(--ink-soft)', mb: 4.5 }}>
             I build production-grade AI pipelines and full-stack web apps.
-            Previously an AI Automation Engineer intern at <strong style={{ color: 'var(--ink)', fontWeight: 600 }}>SalesMind AI</strong> and
+            Previously an AI Automation Engineer at <strong style={{ color: 'var(--ink)', fontWeight: 600 }}>SalesMind AI</strong> and
             Software Developer intern at <strong style={{ color: 'var(--ink)', fontWeight: 600 }}>TechCreative LTD</strong>.
             Open to full-time roles, contracts, and freelance projects.
           </Typography>
@@ -196,7 +198,7 @@ const ProfilePage: React.FC = () => {
               variant="contained"
               startIcon={<Download />}
               component="a"
-              href="https://drive.google.com/uc?export=download&id=1d88wLkuxdcryji-eyBe3VhZxZ9T7bIsD"
+              href="https://drive.google.com/uc?export=download&id=1c_tt5AwgSuW1zuJqUPRugBzfDf0m6_E9"
               target="_blank"
               rel="noopener noreferrer"
               sx={{ width: { xs: '100%', sm: 'auto' }, flex: { sm: 1 }, justifyContent: 'center', py: 1.5, px: 3, fontSize: '0.72rem', letterSpacing: '0.1em' }}
@@ -301,9 +303,18 @@ const ProfilePage: React.FC = () => {
                 <Box>
                   <Box sx={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 1, flexWrap: 'wrap', mb: 0.75 }}>
                     <Box>
-                      <Typography sx={{ fontWeight: 700, fontSize: '1rem', lineHeight: 1.3, letterSpacing: '-0.01em' }}>
-                        {e.title}
-                      </Typography>
+                      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, flexWrap: 'wrap' }}>
+                        <Typography sx={{ fontWeight: 700, fontSize: '1rem', lineHeight: 1.3, letterSpacing: '-0.01em' }}>
+                          {e.title}
+                        </Typography>
+                        {e.badge && (
+                          <Box sx={{ display: 'inline-flex', alignItems: 'center', px: 1, py: 0.25, border: '1px solid var(--signal)', bgcolor: 'rgba(var(--signal-rgb, 180,120,0),0.07)' }}>
+                            <Typography sx={{ fontSize: '0.62rem', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--signal)', fontWeight: 600, lineHeight: 1.4 }}>
+                              {e.badge}
+                            </Typography>
+                          </Box>
+                        )}
+                      </Box>
                       <Typography sx={{ fontWeight: 500, fontSize: '0.9rem', color: 'var(--signal)', mt: 0.25 }}>
                         {e.link ? (
                           <Link href={e.link} target="_blank" rel="noopener noreferrer" underline="hover" color="inherit">
@@ -332,7 +343,7 @@ const ProfilePage: React.FC = () => {
 
         {/* ── LETTER OF RECOMMENDATION ─────────────────────────────────────── */}
         <Box sx={{ mb: { xs: 8, md: 10 } }}>
-          <SectionTitle>Letter of Recommendation</SectionTitle>
+          <SectionTitle>Testimonial</SectionTitle>
           <Box sx={{ border: '1px solid var(--rule-strong)', p: { xs: 2.5, md: 3 } }}>
             {/* Header */}
             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 1, pb: 2, mb: 2.5, borderBottom: '1px solid var(--rule-strong)' }}>
