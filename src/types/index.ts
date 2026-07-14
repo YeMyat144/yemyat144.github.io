@@ -1,3 +1,5 @@
+import type { SvgIconComponent } from '@mui/icons-material';
+
 export type ProjectCategory = 'Full-Stack' | 'AR' | 'Game';
 
 export type ProjectStatus = 'Live' | 'Completed' | 'In Development';
@@ -28,12 +30,12 @@ export interface Project {
 export interface NavItem {
   title: string;
   path: string;
-  icon: React.ElementType;
+  icon: SvgIconComponent;
 }
 
 export interface SocialLink {
   name: string;
-  icon: React.ElementType;
+  icon: SvgIconComponent;
   url: string;
 }
 

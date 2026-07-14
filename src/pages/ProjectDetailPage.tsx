@@ -1,14 +1,12 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Box, Typography, Button, Chip, Stack } from '@mui/material';
-import { motion } from 'framer-motion';
+import { Box, Typography, Button, Stack } from '@mui/material';
 import { Helmet } from 'react-helmet';
 import { projects } from '../data/projects';
 import { YouTube, GitHub, Language } from '@mui/icons-material';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-
-const MotionBox = motion(Box);
+import { Reveal } from '../components/motion/Reveal';
 
 const ProjectDetailPage: React.FC = () => {
   const { projectSlug } = useParams();
@@ -19,23 +17,10 @@ const ProjectDetailPage: React.FC = () => {
 
   if (!project) {
     return (
-      <Box sx={{ maxWidth: 900, mx: 'auto', p: 6, textAlign: 'center' }}>
-        <Typography
-          sx={{
-            fontFamily: 'Fraunces, serif',
-            fontSize: '3rem',
-            fontStyle: 'italic',
-            mb: 2,
-          }}
-        >
-          Not in the index.
-        </Typography>
-        <Button
-          variant="contained"
-          onClick={() => navigate('/projects')}
-          startIcon={<ArrowBackIosNewIcon />}
-        >
-          Back to Work
+      <Box className="page-shell" sx={{ py: 8, textAlign: 'center' }}>
+        <Typography sx={{ fontSize: '1.5rem', fontWeight: 600, mb: 2 }}>Project not found</Typography>
+        <Button variant="contained" onClick={() => navigate('/projects')} startIcon={<ArrowBackIosNewIcon />}>
+          Back to work
         </Button>
       </Box>
     );
@@ -46,329 +31,150 @@ const ProjectDetailPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Ye Myat Moe — {project.title}</title>
+        <title>{project.title} · Ye Myat Moe</title>
       </Helmet>
 
-      <MotionBox
-        initial={{ opacity: 0, y: 14 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4 }}
-        sx={{
-          maxWidth: 1200,
-          mx: 'auto',
-          px: { xs: 2, md: 4 },
-          py: { xs: 4, md: 6 },
-        }}
-      >
-        {/* Breadcrumb */}
-        <Box
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            pb: 3,
-            borderBottom: '1px dashed var(--rule-strong)',
-          }}
-        >
+      <Box className="page-shell" sx={{ py: { xs: 5, md: 8 } }}>
+        <Reveal>
           <Button
-            variant="outlined"
+            variant="text"
             onClick={() => navigate('/projects')}
             startIcon={<ArrowBackIosNewIcon />}
-            sx={{ borderRadius: 999 }}
+            sx={{ mb: 4, px: 0, color: 'var(--muted)', '&:hover': { color: 'var(--fg)' } }}
           >
-            Back to Index
+            Back to work
           </Button>
-          <Typography
-            variant="caption"
-            sx={{ color: 'var(--signal)' }}
-          >
-            §02 / ENTRY №{String(index + 1).padStart(3, '0')}
+
+          <Typography className="text-label" sx={{ mb: 1.5 }}>
+            {project.category} · {String(index + 1).padStart(2, '0')}
           </Typography>
-        </Box>
+          <Typography
+            component="h1"
+            className="text-display"
+            sx={{ fontSize: { xs: '2.25rem', md: '3.5rem' }, maxWidth: 900, mb: 2 }}
+          >
+            {project.title}
+          </Typography>
+          <Typography sx={{ fontSize: '1.05rem', lineHeight: 1.65, color: 'var(--muted)', maxWidth: 640, mb: 3 }}>
+            {project.description}
+          </Typography>
 
-        {/* Title block */}
-        <Box
-          sx={{
-            display: 'grid',
-            gridTemplateColumns: { xs: '1fr', md: '1fr 280px' },
-            gap: { xs: 3, md: 6 },
-            alignItems: 'end',
-            py: { xs: 4, md: 7 },
-            borderBottom: '1px solid var(--ink)',
-          }}
-        >
-          <Box>
-            <Typography
-              variant="caption"
-              sx={{ display: 'block', mb: 1.5, opacity: 0.7 }}
-            >
-              Project study
-            </Typography>
-            <Typography
-              component="h1"
-              sx={{
-                fontFamily: 'Fraunces, serif',
-                fontSize: { xs: '2.6rem', sm: '4rem', md: '6rem' },
-                lineHeight: 0.9,
-                letterSpacing: '-0.03em',
-                fontWeight: 300,
-                fontVariationSettings: '"opsz" 144, "SOFT" 80',
-              }}
-            >
-              {project.title.split(' ').map((word, i, arr) =>
-                i === arr.length - 1 ? (
-                  <Box
-                    key={i}
-                    component="em"
-                    sx={{ fontStyle: 'italic', color: 'var(--signal)' }}
-                  >
-                    {word}
-                  </Box>
-                ) : (
-                  <span key={i}>{word} </span>
-                ),
-              )}
-            </Typography>
-          </Box>
+          <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
+            {project.repoLink && (
+              <Button variant="contained" startIcon={<GitHub />} href={project.repoLink} target="_blank" rel="noopener noreferrer">
+                Repo
+              </Button>
+            )}
+            {project.liveLink && (
+              <Button variant="outlined" startIcon={<Language />} href={project.liveLink} target="_blank" rel="noopener noreferrer">
+                Live
+              </Button>
+            )}
+            {project.youtubeLink && (
+              <Button variant="outlined" startIcon={<YouTube />} href={project.youtubeLink} target="_blank" rel="noopener noreferrer">
+                Demo
+              </Button>
+            )}
+          </Stack>
+        </Reveal>
 
-          <Box>
-            <Typography
-              sx={{
-                fontFamily: 'Fraunces, serif',
-                fontStyle: 'italic',
-                fontWeight: 300,
-                fontSize: { xs: '1.05rem', md: '1.15rem' },
-                lineHeight: 1.55,
-              }}
-            >
-              {project.description}
-            </Typography>
-
-            <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap sx={{ mt: 2.5 }}>
-              {project.repoLink && (
-                <Button
-                  variant="contained"
-                  startIcon={<GitHub />}
-                  href={project.repoLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Repo
-                </Button>
-              )}
-              {project.liveLink && (
-                <Button
-                  variant="outlined"
-                  startIcon={<Language />}
-                  href={project.liveLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Live
-                </Button>
-              )}
-              {project.youtubeLink && (
-                <Button
-                  variant="outlined"
-                  startIcon={<YouTube />}
-                  href={project.youtubeLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Demo
-                </Button>
-              )}
-            </Stack>
-          </Box>
-        </Box>
-
-        {/* Hero image */}
-        <Box
-          sx={{
-            mt: { xs: 4, md: 6 },
-            border: '1px solid var(--ink)',
-            background: 'var(--paper-deep)',
-            overflow: 'hidden',
-            aspectRatio: { xs: '4 / 3', md: '16 / 9' },
-          }}
-        >
+        <Reveal delay={0.08}>
           <Box
-            component="img"
-            src={project.image}
-            alt={project.title}
+            className="surface-card"
             sx={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              filter: 'grayscale(1) contrast(1.02)',
+              mt: 5,
+              overflow: 'hidden',
+              p: 0,
+              aspectRatio: { xs: '4/3', md: '16/9' },
             }}
-          />
-        </Box>
-
-        {/* Body grid */}
-        <Box
-          sx={{
-            mt: { xs: 5, md: 8 },
-            display: 'grid',
-            gridTemplateColumns: { xs: '1fr', md: '160px 1fr' },
-            gap: { xs: 3, md: 6 },
-          }}
-        >
-          <Box>
-            <Typography variant="caption" sx={{ color: 'var(--signal)' }}>
-              § Summary
-            </Typography>
+          >
+            <Box component="img" src={project.image} alt={project.title} sx={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
           </Box>
-          <Box>
-            {project.longDescription && (
-              <Typography
-                sx={{
-                  fontFamily: 'Fraunces, serif',
-                  fontSize: { xs: '1.15rem', md: '1.35rem' },
-                  lineHeight: 1.55,
-                  fontWeight: 300,
-                  columnCount: { xs: 1, md: 1 },
-                  maxWidth: 800,
-                }}
-              >
+        </Reveal>
+
+        {project.longDescription && (
+          <Reveal delay={0.1}>
+            <Box sx={{ mt: 8, maxWidth: 720 }}>
+              <Typography className="text-label" sx={{ mb: 2 }}>Overview</Typography>
+              <Typography sx={{ fontSize: '1.05rem', lineHeight: 1.75, color: 'var(--fg-secondary)' }}>
                 {project.longDescription}
               </Typography>
-            )}
-
-            {project.contributors && project.contributors.length > 0 && (
-              <Box sx={{ mt: 4 }}>
-                <Typography variant="caption" sx={{ color: 'var(--ink-soft)' }}>
-                  Co-conspirators
-                </Typography>
-                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mt: 1 }}>
-                  {project.contributors.map((c) => (
-                    <Chip key={c} label={c} />
-                  ))}
-                </Box>
-              </Box>
-            )}
-          </Box>
-        </Box>
-
-        {/* Tech */}
-        <Box
-          sx={{
-            mt: { xs: 5, md: 8 },
-            display: 'grid',
-            gridTemplateColumns: { xs: '1fr', md: '160px 1fr' },
-            gap: { xs: 3, md: 6 },
-            pt: 4,
-            borderTop: '1px solid var(--rule-strong)',
-          }}
-        >
-          <Box>
-            <Typography variant="caption" sx={{ color: 'var(--signal)' }}>
-              § Stack
-            </Typography>
-          </Box>
-          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-            {project.techStack.map((t) => (
-              <Chip key={t} label={t} />
-            ))}
-          </Box>
-        </Box>
-
-        {/* Features */}
-        {project.features && (
-          <Box
-            sx={{
-              mt: { xs: 5, md: 8 },
-              display: 'grid',
-              gridTemplateColumns: { xs: '1fr', md: '160px 1fr' },
-              gap: { xs: 3, md: 6 },
-              pt: 4,
-              borderTop: '1px solid var(--rule-strong)',
-            }}
-          >
-            <Box>
-              <Typography variant="caption" sx={{ color: 'var(--signal)' }}>
-                § Notable
-              </Typography>
             </Box>
-            <Box>
-              {project.features.map((f, i) => (
-                <Box
-                  key={i}
-                  sx={{
-                    display: 'grid',
-                    gridTemplateColumns: '40px 1fr',
-                    alignItems: 'baseline',
-                    gap: 2,
-                    py: 1.5,
-                    borderBottom: '1px dashed var(--rule-strong)',
-                  }}
-                >
-                  <Typography
-                    sx={{
-                      fontFamily: 'JetBrains Mono, monospace',
-                      fontSize: '0.75rem',
-                      letterSpacing: '0.12em',
-                      color: 'var(--signal)',
-                    }}
-                  >
-                    {String(i + 1).padStart(2, '0')}
-                  </Typography>
-                  <Typography
-                    sx={{
-                      fontFamily: 'Fraunces, serif',
-                      fontSize: { xs: '1.05rem', md: '1.15rem' },
-                      lineHeight: 1.45,
-                      fontWeight: 400,
-                    }}
-                  >
-                    {f}
-                  </Typography>
-                </Box>
+          </Reveal>
+        )}
+
+        <Reveal delay={0.12}>
+          <Box sx={{ mt: 8, pt: 4, borderTop: '1px solid var(--border)' }}>
+            <Typography className="text-label" sx={{ mb: 2 }}>Stack</Typography>
+            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.75 }}>
+              {project.techStack.map((t) => (
+                <span key={t} className="chip">{t}</span>
               ))}
             </Box>
           </Box>
+        </Reveal>
+
+        {project.features && (
+          <Reveal delay={0.14}>
+            <Box sx={{ mt: 6 }}>
+              <Typography className="text-label" sx={{ mb: 2 }}>Highlights</Typography>
+              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
+                {project.features.map((f, i) => (
+                  <Box
+                    key={i}
+                    sx={{
+                      py: 1.75,
+                      borderTop: '1px solid var(--border)',
+                      borderBottom: i === project.features!.length - 1 ? '1px solid var(--border)' : 0,
+                      display: 'grid',
+                      gridTemplateColumns: '32px 1fr',
+                      gap: 2,
+                    }}
+                  >
+                    <Typography sx={{ fontSize: '0.8125rem', color: 'var(--muted)', fontWeight: 500 }}>
+                      {String(i + 1).padStart(2, '0')}
+                    </Typography>
+                    <Typography sx={{ fontSize: '0.975rem', lineHeight: 1.6, color: 'var(--fg-secondary)' }}>{f}</Typography>
+                  </Box>
+                ))}
+              </Box>
+            </Box>
+          </Reveal>
         )}
 
-        {/* Next */}
         <Box
           onClick={() => navigate(`/projects/${next.slug}`)}
-          className="is-interactive"
           sx={{
-            mt: { xs: 6, md: 10 },
-            pt: 3,
-            pb: 6,
-            borderTop: '1px solid var(--ink)',
-            cursor: 'none',
+            mt: 8,
+            pt: 4,
+            borderTop: '1px solid var(--border)',
+            cursor: 'pointer',
             display: 'flex',
             flexDirection: { xs: 'column', md: 'row' },
-            alignItems: { md: 'baseline' },
+            alignItems: { md: 'center' },
             justifyContent: 'space-between',
             gap: 2,
-            '&:hover .nextTitle': { color: 'var(--signal)', fontStyle: 'italic' },
+            '&:hover .next-title': { color: 'var(--highlight)' },
           }}
         >
-          <Typography variant="caption" sx={{ opacity: 0.7 }}>
-            ↳ Next entry
-          </Typography>
+          <Typography className="text-label">Next project</Typography>
           <Typography
-            className="nextTitle"
+            className="next-title"
             sx={{
-              fontFamily: 'Fraunces, serif',
-              fontSize: { xs: '2rem', md: '3rem' },
-              lineHeight: 1,
-              fontWeight: 400,
+              fontSize: { xs: '1.35rem', md: '1.75rem' },
+              fontWeight: 600,
               letterSpacing: '-0.02em',
-              transition: 'color 160ms ease, font-style 160ms ease',
               display: 'flex',
               alignItems: 'center',
-              gap: 2,
+              gap: 1,
+              transition: 'color 160ms ease',
             }}
           >
             {next.title}
-            <ArrowForwardIcon fontSize="inherit" />
+            <ArrowForwardIcon fontSize="small" />
           </Typography>
         </Box>
-      </MotionBox>
+      </Box>
     </>
   );
 };

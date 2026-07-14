@@ -19,8 +19,8 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({ open, onClose }) => {
         display: { xs: 'block', md: 'none' },
         '& .MuiDrawer-paper': {
           width: '100vw',
-          height: '100vh',
-          backgroundColor: 'var(--paper)',
+          maxWidth: 420,
+          backgroundColor: 'var(--bg)',
           p: 0,
         },
       }}
@@ -31,31 +31,18 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({ open, onClose }) => {
           alignItems: 'center',
           justifyContent: 'space-between',
           px: 2,
-          py: 1.25,
-          borderBottom: '1px solid var(--ink)',
+          py: 1.5,
+          borderBottom: '1px solid var(--border)',
         }}
       >
-        <Typography variant="caption" sx={{ fontFamily: 'JetBrains Mono, monospace' }}>
-          INDEX · §
-        </Typography>
-        <IconButton
-          onClick={onClose}
-          sx={{ border: '1px solid var(--ink)', borderRadius: 0, width: 40, height: 40 }}
-        >
-          <CloseIcon />
+        <Typography sx={{ fontWeight: 600, fontSize: '0.9375rem' }}>Menu</Typography>
+        <IconButton onClick={onClose} sx={{ width: 40, height: 40 }}>
+          <CloseIcon fontSize="small" />
         </IconButton>
       </Box>
 
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          px: 3,
-          py: 5,
-          gap: 0,
-        }}
-      >
-        {navItems.map((item, i) => (
+      <Box sx={{ display: 'flex', flexDirection: 'column', px: 2.5, py: 3, gap: 0.5 }}>
+        {navItems.map((item) => (
           <NavLink
             key={item.title}
             to={item.path}
@@ -66,63 +53,27 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({ open, onClose }) => {
             {({ isActive }) => (
               <Box
                 sx={{
-                  py: 2.5,
-                  borderBottom: '1px solid var(--rule-strong)',
-                  display: 'flex',
-                  alignItems: 'baseline',
-                  gap: 2,
+                  py: 1.5,
+                  px: 1.25,
+                  borderRadius: 'var(--radius-md)',
+                  fontSize: '1.125rem',
+                  fontWeight: isActive ? 600 : 500,
+                  color: isActive ? 'var(--fg)' : 'var(--muted)',
+                  bgcolor: isActive ? 'var(--bg-subtle)' : 'transparent',
                 }}
               >
-                <Typography
-                  variant="caption"
-                  sx={{ fontFamily: 'JetBrains Mono, monospace', opacity: 0.6 }}
-                >
-                  0{i + 1}
-                </Typography>
-                <Typography
-                  sx={{
-                    fontFamily: 'Fraunces, serif',
-                    fontSize: '2.25rem',
-                    fontWeight: 400,
-                    fontStyle: isActive ? 'italic' : 'normal',
-                    color: isActive ? 'var(--signal)' : 'var(--ink)',
-                    letterSpacing: '-0.02em',
-                    flex: 1,
-                  }}
-                >
-                  {item.title === 'Project' ? 'Work' : item.title}
-                </Typography>
-                <Typography
-                  sx={{
-                    fontFamily: 'JetBrains Mono, monospace',
-                    fontSize: '0.7rem',
-                    letterSpacing: '0.14em',
-                  }}
-                >
-                  →
-                </Typography>
+                {item.title === 'Project' ? 'Work' : item.title}
               </Box>
             )}
           </NavLink>
         ))}
       </Box>
 
-      <Box
-        sx={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          right: 0,
-          px: 3,
-          py: 3,
-          borderTop: '1px solid var(--ink)',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 2,
-        }}
-      >
-        <Typography variant="caption">FOLLOW / ELSEWHERE</Typography>
-        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2 }}>
+      <Box sx={{ px: 2.5, py: 3, mt: 'auto', borderTop: '1px solid var(--border)' }}>
+        <Typography className="text-label" sx={{ mb: 1.5 }}>
+          Elsewhere
+        </Typography>
+        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
           {socialLinks.map((s) => (
             <Typography
               key={s.name}
@@ -131,17 +82,13 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({ open, onClose }) => {
               target="_blank"
               rel="noopener noreferrer"
               sx={{
-                fontFamily: 'JetBrains Mono, monospace',
-                fontSize: '0.75rem',
-                letterSpacing: '0.12em',
-                textTransform: 'uppercase',
-                color: 'var(--ink)',
-                textDecoration: 'underline',
-                textUnderlineOffset: '4px',
-                '&:hover': { color: 'var(--signal)' },
+                fontSize: '0.8125rem',
+                color: 'var(--muted)',
+                textDecoration: 'none',
+                '&:hover': { color: 'var(--fg)' },
               }}
             >
-              ↗ {s.name}
+              {s.name}
             </Typography>
           ))}
         </Box>
