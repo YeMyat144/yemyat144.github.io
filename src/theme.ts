@@ -5,7 +5,7 @@ const bgSubtle = '#f4f4f5';
 const fg = '#09090b';
 const muted = '#71717a';
 const border = 'rgba(9, 9, 11, 0.08)';
-const highlight = '#2563eb';
+const highlight = '#0891b2';
 
 const display = '"Instrument Serif", Georgia, serif';
 const body = '"Inter", system-ui, sans-serif';

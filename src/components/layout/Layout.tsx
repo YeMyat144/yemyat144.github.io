@@ -132,7 +132,13 @@ const Layout: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={s.name}
-                    sx={{ width: 36, height: 36 }}
+                    sx={{
+                      width: 36,
+                      height: 36,
+                      color: 'var(--muted)',
+                      transition: 'color 160ms ease',
+                      '&:hover': { color: 'var(--fg)', bgcolor: 'transparent' },
+                    }}
                   >
                     <Icon fontSize="small" />
                   </IconButton>

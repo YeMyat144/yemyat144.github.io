@@ -1,7 +1,8 @@
 import React, { useState, useCallback, useEffect, Suspense } from 'react';
 import { Box, Typography, Button, Stack, Link, Collapse, Portal } from '@mui/material';
-import { Download, ArrowForward, OpenInNew, KeyboardArrowDown, KeyboardArrowUp, Lock } from '@mui/icons-material';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link as RouterLink } from 'react-router-dom';
+import { Download, ArrowForward, OpenInNew, KeyboardArrowDown, KeyboardArrowUp, Lock, Campaign } from '@mui/icons-material';
+import type { SvgIconComponent } from '@mui/icons-material';
 import { Helmet } from 'react-helmet';
 import { motion, AnimatePresence } from 'framer-motion';
 import { projects } from '../data/projects';
@@ -29,18 +30,28 @@ const skills: { label: string; items: string[] }[] = [
   { label: 'Tools & Platforms', items: ['Git', 'WebSocket', 'Flask', 'Streamlit', 'Unity', 'Vercel', 'Firebase', 'Docker', 'n8n', 'Make'] },
 ];
 
-type ExpItem = { logo?: string; title: string; org: string; period: string; mode: string; body: string; link?: string; badge?: string };
+type ExpItem = {
+  logo?: string;
+  icon?: SvgIconComponent;
+  title: string;
+  org: string;
+  period: string;
+  mode: string;
+  body: string;
+  link?: string;
+  badge?: string;
+};
 
 const experience: ExpItem[] = [
   {
-    logo: 'logos/gs_icon.png',
+    icon: Campaign,
     title: 'Guest Speaker / Workshop Instructor',
     org: 'RiseUp Organization',
     period: 'Jul 11–12, 2026',
     mode: 'Virtual · Zoom',
     badge: 'n8n Playground',
     body: 'Day 1: shared knowledge on AI automation and career pathways to 75–100 participants. Day 2: led a hands-on n8n workshop building AI-powered workflows from scratch.',
-    link: 'https://www.facebook.com/RiseUpOrgMyanmar',
+    link: 'https://www.linkedin.com/posts/riseuporganization_riseupabrorg-yourabrtimeabrtoabrriseup-n8nabrplayground-activity-7479749951959347201-Boid?utm_source=share&utm_medium=member_desktop&rcm=ACoAADmuL14BLsFZUZ2R3ugDUx08896T41kbYY4',
   },
   {
     logo: 'logos/salesmind_ai_logo.jpeg',
@@ -102,6 +113,25 @@ const aiProjects = [
       'Built execution tracker logging token cost per workflow run',
     ],
     result: 'Reduced misclassified leads and improved CRM handover quality with structured, consistent lead context.',
+  },
+];
+
+const testimonials = [
+  {
+    quote:
+      'Ye Myat Moe was assigned tasks related to prompt design and AI-related workflows. Throughout his internship, he maintained a professional attitude and communicated appropriately with team members.',
+    source: 'Letter of Recommendation, SalesMind AI',
+    note: 'Full document available — ',
+  },
+  {
+    quote:
+      'The Day-2 session gave me valuable hands-on experience with n8n. I learned how to build workflows, connect different tools, and automate tasks. It increased my confidence in using n8n for real-world projects.',
+    source: 'Workshop participant, n8n Playground',
+  },
+  {
+    quote:
+      'I learned to build a simple automation system that can reply to people in my DMs. It is really effective since I have a lot of repetitive messages that I cannot manage on my own.',
+    source: 'Workshop participant, n8n Playground',
   },
 ];
 
@@ -191,7 +221,7 @@ const ProfilePage: React.FC = () => {
               className="text-display"
               sx={{ fontSize: { xs: '3rem', sm: '4.5rem', md: '5.75rem' }, maxWidth: 900, mb: 2 }}
             >
-              Building AI systems people actually rely on.
+              Building systems that people actually rely on.
             </Typography>
           </Reveal>
 
@@ -260,29 +290,35 @@ const ProfilePage: React.FC = () => {
                   alignItems: 'start',
                 }}
               >
-                {e.logo ? (
-                  <Box
-                    sx={{
-                      width: 48,
-                      height: 48,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      borderRadius: 'var(--radius-sm)',
-                      border: '1px solid var(--border)',
-                      bgcolor: 'var(--bg-subtle)',
-                      p: 0.75,
-                    }}
-                  >
-                    <Box component="img" src={e.logo} alt="" sx={{ width: '100%', height: '100%', objectFit: 'contain' }} />
-                  </Box>
-                ) : (
-                  <Box sx={{ width: 48, height: 48, borderRadius: 'var(--radius-sm)', border: '1px solid var(--border)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <Typography sx={{ fontSize: '0.65rem', fontWeight: 600, color: 'var(--muted)' }}>
-                      {e.org.split(' ').map((w) => w[0]).join('').slice(0, 3)}
-                    </Typography>
-                  </Box>
-                )}
+                {(() => {
+                  const Icon = e.icon;
+                  return (
+                    <Box
+                      sx={{
+                        width: 48,
+                        height: 48,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        borderRadius: 'var(--radius-sm)',
+                        border: '1px solid var(--border)',
+                        bgcolor: 'var(--bg-subtle)',
+                        p: 0.75,
+                        color: 'var(--fg)',
+                      }}
+                    >
+                      {Icon ? (
+                        <Icon sx={{ fontSize: '1.35rem' }} />
+                      ) : e.logo ? (
+                        <Box component="img" src={e.logo} alt="" sx={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                      ) : (
+                        <Typography sx={{ fontSize: '0.65rem', fontWeight: 600, color: 'var(--muted)' }}>
+                          {e.org.split(' ').map((w) => w[0]).join('').slice(0, 3)}
+                        </Typography>
+                      )}
+                    </Box>
+                  );
+                })()}
 
                 <Box>
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, flexWrap: 'wrap', mb: 0.5 }}>
@@ -314,34 +350,57 @@ const ProfilePage: React.FC = () => {
       {/* Testimonial */}
       <Box component="section" className="section-block page-shell">
         <Reveal>
-          <SectionHeader label="Testimonial" title="What teams say" />
-          <Box
-            sx={{
-              p: { xs: 3, md: 4 },
-              borderRadius: 'var(--radius-lg)',
-              bgcolor: 'var(--bg-subtle)',
-              border: '1px solid var(--border)',
-              maxWidth: 720,
-            }}
-          >
-            <Typography
-              sx={{
-                fontFamily: 'var(--font-display)',
-                fontSize: { xs: '1.35rem', md: '1.65rem' },
-                lineHeight: 1.55,
-                letterSpacing: '-0.02em',
-                color: 'var(--fg)',
-                mb: 2.5,
-              }}
-            >
-              &ldquo;Ye Myat Moe was assigned tasks related to prompt design and AI-related workflows. Throughout his internship, he maintained a professional attitude and communicated appropriately with team members.&rdquo;
-            </Typography>
-            <Typography sx={{ fontSize: '0.875rem', color: 'var(--muted)' }}>
-              Excerpt from Letter of Recommendation, SalesMind AI
-            </Typography>
-            <Typography sx={{ fontSize: '0.8125rem', color: 'var(--muted)', mt: 1, opacity: 0.8 }}>
-              Full document available upon request.
-            </Typography>
+          <SectionHeader
+            label="Testimonial"
+            title="What teams and participants say"
+            description="From production work at SalesMind AI to guest speaking at RiseUp's n8n Playground workshop."
+          />
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+            {testimonials.map((t) => (
+              <Box
+                key={t.source + t.quote.slice(0, 24)}
+                sx={{
+                  p: { xs: 3, md: 3.5 },
+                  borderRadius: 'var(--radius-lg)',
+                  bgcolor: 'var(--bg-subtle)',
+                  border: '1px solid var(--border)',
+                }}
+              >
+                <Typography
+                  sx={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: { xs: '1.2rem', md: '1.4rem' },
+                    lineHeight: 1.55,
+                    letterSpacing: '-0.02em',
+                    color: 'var(--fg)',
+                    mb: 2,
+                  }}
+                >
+                  &ldquo;{t.quote}&rdquo;
+                </Typography>
+                <Typography sx={{ fontSize: '0.875rem', color: 'var(--muted)' }}>
+                  {t.source}
+                </Typography>
+                {t.note && (
+                  <Typography sx={{ fontSize: '0.8125rem', color: 'var(--muted)', mt: 1, opacity: 0.8 }}>
+                    {t.note}
+                    <Box
+                      component={RouterLink}
+                      to="/contact"
+                      sx={{
+                        color: 'var(--highlight)',
+                        textDecoration: 'none',
+                        fontWeight: 500,
+                        '&:hover': { textDecoration: 'underline' },
+                      }}
+                    >
+                      reach out
+                    </Box>
+                    .
+                  </Typography>
+                )}
+              </Box>
+            ))}
           </Box>
         </Reveal>
       </Box>
@@ -562,7 +621,7 @@ const ProfilePage: React.FC = () => {
                 >
                   <Box component="img" src={c.img} alt={c.title} sx={{ width: '100%', height: 100, objectFit: 'cover', display: 'block' }} />
                   <Box sx={{ p: 1.5 }}>
-                    <Typography sx={{ fontWeight: 600, fontSize: '0.875rem', lineHeight: 1.35 }}>{c.title}</Typography>
+                    <Typography sx={{ fontWeight: 600, fontSize: '0.875rem', lineHeight: 1.35, color: 'var(--fg)' }}>{c.title}</Typography>
                     <Typography sx={{ fontSize: '0.8125rem', color: 'var(--muted)', mt: 0.35 }}>{c.org}</Typography>
                   </Box>
                 </Box>

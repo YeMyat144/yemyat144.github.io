@@ -115,7 +115,15 @@ const ContactPage: React.FC = () => {
                   >
                     <Typography sx={{ fontWeight: 500, fontSize: '1.05rem' }}>{s.name}</Typography>
                     <Typography sx={{ fontSize: '0.8125rem', color: 'var(--muted)' }}>Open</Typography>
-                    <IconButton component="span" sx={{ width: 36, height: 36, pointerEvents: 'none' }}>
+                    <IconButton
+                      component="span"
+                      sx={{
+                        width: 36,
+                        height: 36,
+                        pointerEvents: 'none',
+                        color: 'inherit',
+                      }}
+                    >
                       <Icon fontSize="small" />
                     </IconButton>
                   </Box>

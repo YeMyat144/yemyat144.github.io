@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Typography, IconButton } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { navItems } from '../../data/navigation';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import { useColorMode } from '../../hooks/useColorMode';
+import { ColorModeToggle } from '../ui/ColorModeToggle';
 
 interface MastheadProps {
   onToggleMenu: () => void;
@@ -13,6 +15,7 @@ interface MastheadProps {
 
 const Masthead: React.FC<MastheadProps> = ({ onToggleMenu, mobileOpen }) => {
   const [scrolled, setScrolled] = useState(false);
+  const { isDark, toggle } = useColorMode();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -20,6 +23,10 @@ const Masthead: React.FC<MastheadProps> = ({ onToggleMenu, mobileOpen }) => {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  const navBg = scrolled
+    ? isDark ? 'rgba(12, 12, 14, 0.88)' : 'rgba(250, 250, 250, 0.88)'
+    : isDark ? 'rgba(12, 12, 14, 0.55)' : 'rgba(250, 250, 250, 0.55)';
 
   return (
     <Box
@@ -32,10 +39,10 @@ const Masthead: React.FC<MastheadProps> = ({ onToggleMenu, mobileOpen }) => {
         display: 'flex',
         alignItems: 'center',
         borderBottom: scrolled ? '1px solid var(--border)' : '1px solid transparent',
-        backgroundColor: scrolled ? 'rgba(250, 250, 250, 0.82)' : 'rgba(250, 250, 250, 0.65)',
+        backgroundColor: navBg,
         backdropFilter: 'blur(14px)',
         WebkitBackdropFilter: 'blur(14px)',
-        transition: 'border-color 200ms ease, background-color 200ms ease',
+        transition: 'border-color 220ms ease, background-color 220ms ease',
       }}
     >
       <Box
@@ -48,6 +55,7 @@ const Masthead: React.FC<MastheadProps> = ({ onToggleMenu, mobileOpen }) => {
           gap: 2,
         }}
       >
+        {/* Logo */}
         <Typography
           component={NavLink}
           to="/"
@@ -58,12 +66,14 @@ const Masthead: React.FC<MastheadProps> = ({ onToggleMenu, mobileOpen }) => {
             letterSpacing: '-0.02em',
             color: 'var(--fg)',
             textDecoration: 'none',
+            transition: 'color 160ms ease',
             '&:hover': { color: 'var(--highlight)' },
           }}
         >
           Ye Myat Moe
         </Typography>
 
+        {/* Desktop nav */}
         <Box
           component="nav"
           aria-label="Primary"
@@ -109,7 +119,9 @@ const Masthead: React.FC<MastheadProps> = ({ onToggleMenu, mobileOpen }) => {
           ))}
         </Box>
 
+        {/* Right cluster */}
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+          {/* Availability pill — desktop only */}
           <Box
             sx={{
               display: { xs: 'none', sm: 'inline-flex' },
@@ -122,6 +134,7 @@ const Masthead: React.FC<MastheadProps> = ({ onToggleMenu, mobileOpen }) => {
               py: 0.65,
               borderRadius: '999px',
               border: '1px solid var(--border)',
+              transition: 'border-color 220ms ease, color 120ms ease',
             }}
           >
             <Box
@@ -132,22 +145,40 @@ const Masthead: React.FC<MastheadProps> = ({ onToggleMenu, mobileOpen }) => {
                 borderRadius: '50%',
                 bgcolor: 'var(--success)',
                 flexShrink: 0,
+                transition: 'background-color 220ms ease',
               }}
             />
             Available · Jul 2026
           </Box>
 
-          <IconButton
+          {/* Solar eclipse toggle */}
+          <ColorModeToggle isDark={isDark} onToggle={toggle} />
+
+          {/* Mobile menu button */}
+          <Box
+            component="button"
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             onClick={onToggleMenu}
             sx={{
-              display: { xs: 'inline-flex', md: 'none' },
-              width: 40,
-              height: 40,
+              display: { xs: 'flex', md: 'none' },
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: 36,
+              height: 36,
+              borderRadius: '999px',
+              border: '1px solid var(--border)',
+              background: 'none',
+              cursor: 'pointer',
+              color: 'var(--fg)',
+              transition: 'border-color 160ms ease',
+              '&:hover': { borderColor: 'var(--border-strong)' },
             }}
           >
-            {mobileOpen ? <CloseIcon fontSize="small" /> : <MenuIcon fontSize="small" />}
-          </IconButton>
+            {mobileOpen
+              ? <CloseIcon sx={{ fontSize: '1.1rem' }} />
+              : <MenuIcon sx={{ fontSize: '1.1rem' }} />
+            }
+          </Box>
         </Box>
       </Box>
     </Box>

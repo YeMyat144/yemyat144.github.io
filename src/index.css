@@ -11,8 +11,8 @@
   --border-strong: rgba(9, 9, 11, 0.14);
   --accent: #18181b;
   --accent-soft: #3f3f46;
-  --highlight: #2563eb;
-  --highlight-muted: rgba(37, 99, 235, 0.08);
+  --highlight: #0891b2;
+  --highlight-muted: rgba(8, 145, 178, 0.08);
   --success: #16a34a;
   --radius-sm: 6px;
   --radius-md: 10px;
@@ -33,6 +33,35 @@
   --rule: var(--border);
   --rule-strong: var(--border-strong);
   --signal: var(--highlight);
+}
+
+/* ── Dark mode ──────────────────────────────────────────────────────── */
+html.dark {
+  --bg: #0c0c0e;
+  --bg-elevated: #111113;
+  --bg-subtle: #19191d;
+  --fg: #f4f4f5;
+  --fg-secondary: #e4e4e7;
+  --muted: #71717a;
+  --border: rgba(255, 255, 255, 0.06);
+  --border-strong: rgba(255, 255, 255, 0.12);
+  --highlight: #22d3ee;
+  --highlight-muted: rgba(34, 211, 238, 0.08);
+  --success: #4ade80;
+}
+
+/* Smooth color transitions on theme switch */
+html {
+  transition: background-color 220ms ease;
+}
+body,
+.surface-card,
+.chip,
+.chip-active {
+  transition:
+    background-color 220ms ease,
+    border-color 220ms ease,
+    color 120ms ease;
 }
 
 html,
@@ -61,7 +90,7 @@ html.lenis body {
 }
 
 ::selection {
-  background: rgba(37, 99, 235, 0.18);
+  background: rgba(8, 145, 178, 0.18);
   color: var(--fg);
 }
 
