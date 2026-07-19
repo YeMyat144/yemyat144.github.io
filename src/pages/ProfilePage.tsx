@@ -127,11 +127,7 @@ const testimonials = [
     quote:
       'The Day-2 session gave me valuable hands-on experience with n8n. I learned how to build workflows, connect different tools, and automate tasks. It increased my confidence in using n8n for real-world projects.',
     source: 'Workshop participant, n8n Playground',
-  },
-  {
-    quote:
-      'I learned to build a simple automation system that can reply to people in my DMs. It is really effective since I have a lot of repetitive messages that I cannot manage on my own.',
-    source: 'Workshop participant, n8n Playground',
+    note: 'Full workshop feedback available — ',
   },
 ];
 
