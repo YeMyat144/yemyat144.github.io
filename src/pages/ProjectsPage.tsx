@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import { Seo } from '../components/seo/Seo';
 import { motion, AnimatePresence } from 'framer-motion';
 import { projects } from '../data/projects';
 import { Reveal } from '../components/motion/Reveal';
@@ -16,9 +16,11 @@ const ProjectsPage: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Work · Ye Myat Moe</title>
-      </Helmet>
+      <Seo
+        title="Work"
+        description="Selected projects by Ye Myat Moe: production SaaS, AI automation, AR, and games."
+        path="/work"
+      />
 
       <Box className="page-shell" sx={{ py: { xs: 5, md: 8 } }}>
         <Reveal>
@@ -46,8 +48,8 @@ const ProjectsPage: React.FC = () => {
                   key={project.id}
                   onMouseEnter={() => setHoverId(project.id)}
                   onFocus={() => setHoverId(project.id)}
-                  onClick={() => navigate(`/projects/${project.slug}`)}
-                  onKeyDown={(e) => e.key === 'Enter' && navigate(`/projects/${project.slug}`)}
+                  onClick={() => navigate(`/work/${project.slug}`)}
+                  onKeyDown={(e) => e.key === 'Enter' && navigate(`/work/${project.slug}`)}
                   tabIndex={0}
                   role="link"
                   sx={{

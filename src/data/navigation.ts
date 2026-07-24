@@ -16,8 +16,8 @@ export const navItems: NavItem[] = [
     icon: DetailsOutlined,
   },
   {
-    title: 'Project',
-    path: '/projects',
+    title: 'Work',
+    path: '/work',
     icon: FolderOpenOutlined,
   },
   {

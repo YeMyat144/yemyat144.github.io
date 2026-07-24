@@ -97,7 +97,7 @@ const Masthead: React.FC<MastheadProps> = ({ onToggleMenu, mobileOpen }) => {
                     '&:hover': { color: 'var(--fg)' },
                   }}
                 >
-                  {item.title === 'Project' ? 'Work' : item.title}
+                  {item.title}
                   {isActive && (
                     <Box
                       component={motion.span}

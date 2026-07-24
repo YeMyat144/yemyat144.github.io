@@ -95,7 +95,7 @@ const Layout: React.FC = () => {
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.75 }}>
                 {[
                   { label: 'Profile', path: '/' },
-                  { label: 'Work', path: '/projects' },
+                  { label: 'Work', path: '/work' },
                   { label: 'Contact', path: '/contact' },
                 ].map((item) => (
                   <Typography

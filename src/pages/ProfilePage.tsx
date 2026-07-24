@@ -3,9 +3,9 @@ import { Box, Typography, Button, Stack, Link, Collapse, Portal } from '@mui/mat
 import { useNavigate, Link as RouterLink } from 'react-router-dom';
 import { Download, ArrowForward, OpenInNew, KeyboardArrowDown, KeyboardArrowUp, Lock, Campaign } from '@mui/icons-material';
 import type { SvgIconComponent } from '@mui/icons-material';
-import { Helmet } from 'react-helmet';
 import { motion, AnimatePresence } from 'framer-motion';
 import { projects } from '../data/projects';
+import { Seo } from '../components/seo/Seo';
 import { Reveal, Stagger, StaggerItem } from '../components/motion/Reveal';
 import { SectionHeader } from '../components/ui/SectionHeader';
 
@@ -39,6 +39,7 @@ type ExpItem = {
   mode: string;
   body: string;
   link?: string;
+  certificate?: string;
   badge?: string;
 };
 
@@ -51,7 +52,7 @@ const experience: ExpItem[] = [
     mode: 'Virtual · Zoom',
     badge: 'n8n Playground',
     body: 'Day 1: shared knowledge on AI automation and career pathways to 75–100 participants. Day 2: led a hands-on n8n workshop building AI-powered workflows from scratch.',
-    link: 'https://www.linkedin.com/posts/riseuporganization_riseupabrorg-yourabrtimeabrtoabrriseup-n8nabrplayground-activity-7479749951959347201-Boid?utm_source=share&utm_medium=member_desktop&rcm=ACoAADmuL14BLsFZUZ2R3ugDUx08896T41kbYY4',
+    certificate: 'certificates/Certificate for Guest Speaker.jpg',
   },
   {
     logo: 'logos/salesmind_ai_logo.jpeg',
@@ -157,10 +158,12 @@ const ProfilePage: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Ye Myat Moe</title>
-        <meta name="description" content="AI automation engineer building production LLM workflows and full-stack products." />
-      </Helmet>
+      <Seo
+        title="Ye Myat Moe"
+        description="AI automation engineer in Bangkok building production LLM workflows, n8n systems, and full-stack products."
+        path="/"
+        type="profile"
+      />
 
       {/* Hero */}
       <Box
@@ -324,7 +327,26 @@ const ProfilePage: React.FC = () => {
                     {e.badge && <span className="chip">{e.badge}</span>}
                   </Box>
                   <Typography sx={{ fontSize: '0.9375rem', color: 'var(--highlight)', fontWeight: 500, mb: 1 }}>
-                    {e.link ? (
+                    {e.certificate ? (
+                      <Link
+                        component="button"
+                        type="button"
+                        onClick={() => setEnlargedImgSrc(encodeURI(e.certificate!))}
+                        underline="hover"
+                        color="inherit"
+                        sx={{
+                          font: 'inherit',
+                          fontWeight: 500,
+                          cursor: 'pointer',
+                          background: 'none',
+                          border: 0,
+                          p: 0,
+                          verticalAlign: 'baseline',
+                        }}
+                      >
+                        {e.org} <OpenInNew sx={{ fontSize: '0.75rem', verticalAlign: 'middle' }} />
+                      </Link>
+                    ) : e.link ? (
                       <Link href={e.link} target="_blank" rel="noopener noreferrer" underline="hover" color="inherit">
                         {e.org} <OpenInNew sx={{ fontSize: '0.75rem', verticalAlign: 'middle' }} />
                       </Link>
@@ -408,7 +430,7 @@ const ProfilePage: React.FC = () => {
             label="Selected work"
             title="Projects"
             action={
-              <Button variant="text" endIcon={<ArrowForward />} onClick={() => navigate('/projects')} sx={{ color: 'var(--muted)', '&:hover': { color: 'var(--fg)' } }}>
+              <Button variant="text" endIcon={<ArrowForward />} onClick={() => navigate('/work')} sx={{ color: 'var(--muted)', '&:hover': { color: 'var(--fg)' } }}>
                 View all
               </Button>
             }
@@ -509,7 +531,7 @@ const ProfilePage: React.FC = () => {
                       component={motion.div}
                       whileHover={{ y: -2 }}
                       transition={{ duration: 0.2 }}
-                      onClick={() => navigate(`/projects/${project.slug}`)}
+                      onClick={() => navigate(`/work/${project.slug}`)}
                       className="surface-card"
                       sx={{
                         display: 'grid',

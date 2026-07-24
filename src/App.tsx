@@ -10,8 +10,8 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<ProfilePage />} />
-        <Route path="projects" element={<ProjectsPage />} />
-        <Route path="projects/:projectSlug" element={<ProjectDetailPage />} />
+        <Route path="work" element={<ProjectsPage />} />
+        <Route path="work/:projectSlug" element={<ProjectDetailPage />} />
         <Route path="contact" element={<ContactPage />} />
       </Route>
     </Routes>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Box, Typography, Button, Stack } from '@mui/material';
-import { Helmet } from 'react-helmet';
+import { Seo } from '../components/seo/Seo';
 import { projects } from '../data/projects';
 import { YouTube, GitHub, Language } from '@mui/icons-material';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
@@ -19,7 +19,7 @@ const ProjectDetailPage: React.FC = () => {
     return (
       <Box className="page-shell" sx={{ py: 8, textAlign: 'center' }}>
         <Typography sx={{ fontSize: '1.5rem', fontWeight: 600, mb: 2 }}>Project not found</Typography>
-        <Button variant="contained" onClick={() => navigate('/projects')} startIcon={<ArrowBackIosNewIcon />}>
+        <Button variant="contained" onClick={() => navigate('/work')} startIcon={<ArrowBackIosNewIcon />}>
           Back to work
         </Button>
       </Box>
@@ -30,15 +30,19 @@ const ProjectDetailPage: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{project.title} · Ye Myat Moe</title>
-      </Helmet>
+      <Seo
+        title={project.title}
+        description={project.description}
+        path={`/work/${project.slug}`}
+        image={project.image}
+        type="article"
+      />
 
       <Box className="page-shell" sx={{ py: { xs: 5, md: 8 } }}>
         <Reveal>
           <Button
             variant="text"
-            onClick={() => navigate('/projects')}
+            onClick={() => navigate('/work')}
             startIcon={<ArrowBackIosNewIcon />}
             sx={{ mb: 4, px: 0, color: 'var(--muted)', '&:hover': { color: 'var(--fg)' } }}
           >
@@ -143,7 +147,7 @@ const ProjectDetailPage: React.FC = () => {
         )}
 
         <Box
-          onClick={() => navigate(`/projects/${next.slug}`)}
+          onClick={() => navigate(`/work/${next.slug}`)}
           sx={{
             mt: 8,
             pt: 4,

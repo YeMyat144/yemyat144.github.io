@@ -62,7 +62,7 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({ open, onClose }) => {
                   bgcolor: isActive ? 'var(--bg-subtle)' : 'transparent',
                 }}
               >
-                {item.title === 'Project' ? 'Work' : item.title}
+                {item.title}
               </Box>
             )}
           </NavLink>

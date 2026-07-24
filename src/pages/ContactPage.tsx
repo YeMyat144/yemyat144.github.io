@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography, IconButton } from '@mui/material';
-import { Helmet } from 'react-helmet';
+import { Seo } from '../components/seo/Seo';
 import { socialLinks } from '../data/navigation';
 import { Reveal } from '../components/motion/Reveal';
 import { SectionHeader } from '../components/ui/SectionHeader';
@@ -8,9 +8,11 @@ import { SectionHeader } from '../components/ui/SectionHeader';
 const ContactPage: React.FC = () => {
   return (
     <>
-      <Helmet>
-        <title>Contact · Ye Myat Moe</title>
-      </Helmet>
+      <Seo
+        title="Contact"
+        description="Get in touch with Ye Myat Moe for full-time roles, contracts, and freelance work in AI automation and product engineering."
+        path="/contact"
+      />
 
       <Box className="page-shell" sx={{ py: { xs: 5, md: 8 } }}>
         <Reveal>
