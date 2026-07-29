@@ -2,13 +2,48 @@ import { Project } from '../types';
 
 export const projects: Project[] = [
   {
+    id: 5,
+    title: 'Promto',
+    impact: 'Most prompt tools are a blank text box. Promto is a guided wizard that turns fuzzy everyday ideas into sharp, AI-ready prompts and explains why each choice works — no prompt engineering knowledge needed.',
+    description: 'Mobile-first guided wizard that turns everyday ideas into optimised AI prompts, with plain-language explanations of why the prompt works.',
+    longDescription:
+      'Promto helps non-technical users write better AI prompts without knowing prompt engineering. A 4-step conversational wizard collects intent, tone, and target AI (ChatGPT / Claude / Gemini), then generates an optimised prompt with "why this works" reasoning bullets. Prompts can be copied or opened directly in the target AI. History is stored locally (last 10 prompts, no server storage). Dual generation modes: direct Gemini API or an importable n8n workflow for architecture demos. Full bilingual EN/MY (Burmese) support, and a Fog → Focus visual system where the UI sharpens as the user answers each step.',
+    image: '/projects/promto/n8n.png',
+    screenshots: [
+      '/projects/promto/n8n.png',
+      '/projects/promto/promto2.png',
+      '/projects/promto/promto3.png',
+      '/projects/promto/promto4.png',
+      '/projects/promto/promto5.png',
+      '/projects/promto/promto6.png',
+    ],
+    techStack: ['Next.js', 'React 19', 'TypeScript', 'Tailwind CSS 4', 'Gemini API', 'n8n'],
+    repoLink: '',
+    slug: 'promto',
+    featured: true,
+    category: 'AI & Automation',
+    role: 'Solo — Product, Design & Engineering',
+    year: '2026',
+    status: 'Live',
+    features: [
+      '4-step wizard: category chips → description → tone → target AI (ChatGPT / Claude / Gemini)',
+      '"Why this works" explainer bullets generated alongside each prompt',
+      'Copy + Open-in-AI one-click handoff buttons',
+      'Local prompt history — last 10 entries stored in localStorage, nothing on servers',
+      'Fog → Focus visual system: UI elements sharpen as the user completes each step',
+      'Full bilingual EN / Myanmar (Burmese) UI',
+      'Dual generation modes: direct Gemini API or importable n8n webhook workflow',
+      'Privacy-first: no auth, no database, no tracking',
+    ],
+  },
+  {
     id: 1,
     title: 'FoodLoft',
     impact: 'A real client replaced pen-and-paper table management. Customers now book via LINE, owners see their floor in 3D, and Stripe handles subscriptions. Delivered as a team project.',
     description: 'SaaS restaurant management platform with interactive 3D floor planning, LINE bot reservations, and Stripe subscription billing, built for a real client as a team.',
     longDescription:
       'A multi-tenant SaaS platform built as a team for real restaurant operations. Restaurants get their own workspace with interactive 3D floor planning, a smart booking system with soft-lock concurrency control, a LINE bot for customer self-service reservations, Stripe subscription billing, staff management, and real-time notifications, all under a single admin dashboard.',
-    image: 'projects/foodloft.png',
+    image: '/projects/foodloft.png',
     techStack: ['Next.js', 'Firebase', 'Stripe', 'LINE LIFF', 'Tailwind CSS', 'Three.js'],
     repoLink: '',
     liveLink: 'https://foodloft.vercel.app/',
@@ -38,7 +73,7 @@ export const projects: Project[] = [
     description: 'Private mobile social app for close circles: group chat, events, daily updates, and media sharing with no ads or algorithmic feed.',
     longDescription:
       'A mobile-first social platform designed for tight-knit groups (families, teams, friend circles). Built with Ionic + Capacitor for native iOS/Android deployment. Features group chat, shared event calendars, daily check-in updates, and media sharing, all in a low-noise environment with no algorithmic feed or ads. Developed as a private internship project.',
-    image: 'projects/linkup.png',
+    image: '/projects/linkup.png',
     techStack: ['React 19', 'TypeScript', 'Ionic', 'Capacitor', 'Firebase', 'Tailwind CSS'],
     repoLink: '',
     slug: 'linkup',
@@ -65,7 +100,7 @@ export const projects: Project[] = [
     description: 'AR mobile app presented at the ABAC × MG – SAIC Motor R&D Center Opening Ceremony: 6 car models, real-time colour and tyre customisation in augmented reality.',
     longDescription:
       'An AR mobile app built in Unity that places life-size MG car models into the real world via AR plane detection. Users can switch between MG3 EV, MG4, MG5, Cyberster, Hector, and ZS models, customise body colour, tyre style, and headlight configuration in real time, all without leaving the AR view. Presented live at the ABAC × MG – SAIC Motor R&D Center Opening Ceremony on 17 January 2026.',
-    image: 'projects/mg.png',
+    image: '/projects/mg.png',
     techStack: ['Unity', 'AR Foundation', 'XR Toolkit', 'C#', 'ARKit / ARCore'],
     repoLink: '',
     youtubeLink: 'https://www.linkedin.com/posts/honey-yuzu_augmentedreality-ar-unity-activity-7419034795587973121-Fbvw',
@@ -93,7 +128,7 @@ export const projects: Project[] = [
     description: '3D platformer where players explore academic pathways at VMES through gameplay and quizzes, available to play in the browser on itch.io.',
     longDescription:
       'VMES Tour is a 3D obstacle-course platformer set inside a virtual version of the Vincent Mary School of Engineering, Science and Technology (VMES) at Assumption University. Players climb moving platforms and clear hazards while answering field-of-study questions. At the end, the game recommends a major (Engineering or Computer Science / IT) based on their answers. Built in Unity; Ye Myat Moe designed and built the level geometry, platforms, and obstacle course.',
-    image: 'projects/vmestour.png',
+    image: '/projects/vmestour.png',
     techStack: ['Unity', 'C#', '3D Level Design'],
     repoLink: '',
     liveLink: 'https://lut-lat-aung.itch.io/vmes-tour',

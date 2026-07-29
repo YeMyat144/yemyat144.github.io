@@ -96,6 +96,34 @@ const ProjectDetailPage: React.FC = () => {
           </Box>
         </Reveal>
 
+        {project.screenshots && project.screenshots.length > 1 && (
+          <Reveal delay={0.1}>
+            <Box
+              sx={{
+                mt: 3,
+                display: 'grid',
+                gridTemplateColumns: { xs: '1fr 1fr', sm: 'repeat(3, 1fr)' },
+                gap: 1.5,
+              }}
+            >
+              {project.screenshots.slice(1).map((src, i) => (
+                <Box
+                  key={i}
+                  className="surface-card"
+                  sx={{ overflow: 'hidden', p: 0, aspectRatio: '9/16' }}
+                >
+                  <Box
+                    component="img"
+                    src={src}
+                    alt={`${project.title} screenshot ${i + 2}`}
+                    sx={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                  />
+                </Box>
+              ))}
+            </Box>
+          </Reveal>
+        )}
+
         {project.longDescription && (
           <Reveal delay={0.1}>
             <Box sx={{ mt: 8, maxWidth: 720 }}>

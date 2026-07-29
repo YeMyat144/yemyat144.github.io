@@ -1,6 +1,6 @@
 import type { SvgIconComponent } from '@mui/icons-material';
 
-export type ProjectCategory = 'Full-Stack' | 'AR' | 'Game';
+export type ProjectCategory = 'Full-Stack' | 'AI & Automation' | 'AR' | 'Game';
 
 export type ProjectStatus = 'Live' | 'Completed' | 'In Development';
 
@@ -25,6 +25,8 @@ export interface Project {
   private?: boolean;
   year?: string;
   status?: ProjectStatus;
+  screenshots?: string[];
+  liveLink2?: string;
 }
 
 export interface NavItem {

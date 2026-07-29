@@ -52,10 +52,10 @@ const experience: ExpItem[] = [
     mode: 'Virtual · Zoom',
     badge: 'n8n Playground',
     body: 'Day 1: shared knowledge on AI automation and career pathways to 75–100 participants. Day 2: led a hands-on n8n workshop building AI-powered workflows from scratch.',
-    certificate: 'certificates/Certificate for Guest Speaker.jpg',
+    certificate: '/certificates/Certificate for Guest Speaker.jpg',
   },
   {
-    logo: 'logos/salesmind_ai_logo.jpeg',
+    logo: '/logos/salesmind_ai_logo.jpeg',
     title: 'AI Automation Engineer',
     org: 'SalesMind AI',
     period: 'Jan 2026 - Jun 2026',
@@ -64,7 +64,7 @@ const experience: ExpItem[] = [
     body: 'Built n8n workflows, LLM integrations, and CRM automations. Scaled lead intelligence pipelines and refined prompt systems in a full-time role after internship.',
   },
   {
-    logo: 'logos/tech_creative_ltd.png',
+    logo: '/logos/tech_creative_ltd.png',
     title: 'Software Developer',
     org: 'TechCreative LTD',
     period: 'Nov 2025 - Apr 2026',
@@ -73,7 +73,7 @@ const experience: ExpItem[] = [
     body: 'Feature development, research, testing, and iteration on a core product across the full engagement.',
   },
   {
-    logo: 'logos/sumo.png',
+    logo: '/logos/sumo.png',
     title: 'Software Engineer',
     org: 'Sumo Shabu Buffet',
     period: 'Jul 2025 - Oct 2025',
@@ -84,11 +84,11 @@ const experience: ExpItem[] = [
 ];
 
 const certificates = [
-  { img: 'certificates/microsoft.png', title: 'Foundation C# with Microsoft', org: 'Microsoft', date: 'July 31, 2025' },
-  { img: 'certificates/unity.png', title: 'Unity Essentials Pathway', org: 'Unity Technologies', date: 'June 30, 2025' },
-  { img: 'certificates/aws.png', title: 'AWS Academy Cloud Foundations', org: 'Amazon Web Services', date: 'September 20, 2023' },
-  { img: 'certificates/parami.png', title: 'Management Skills', org: 'Parami University', date: 'October 8, 2021' },
-  { img: 'certificates/physics.png', title: 'Physics Behind Internet', org: 'Parami University', date: 'October 8, 2021' },
+  { img: '/certificates/microsoft.png', title: 'Foundation C# with Microsoft', org: 'Microsoft', date: 'July 31, 2025' },
+  { img: '/certificates/unity.png', title: 'Unity Essentials Pathway', org: 'Unity Technologies', date: 'June 30, 2025' },
+  { img: '/certificates/aws.png', title: 'AWS Academy Cloud Foundations', org: 'Amazon Web Services', date: 'September 20, 2023' },
+  { img: '/certificates/parami.png', title: 'Management Skills', org: 'Parami University', date: 'October 8, 2021' },
+  { img: '/certificates/physics.png', title: 'Physics Behind Internet', org: 'Parami University', date: 'October 8, 2021' },
 ];
 
 type ProjectFilter = 'AI & Automation' | 'Full-Stack' | 'AR' | 'Game';
@@ -232,19 +232,26 @@ const ProfilePage: React.FC = () => {
 
           <Reveal delay={0.15}>
             <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1.25} sx={{ mb: 6 }}>
-              <Button
-                variant="contained"
-                startIcon={<Download />}
+              <Box
                 component="a"
                 href="https://drive.google.com/uc?export=download&id=1JGdYT-T3XsmeqMlff0uObBj4N6yh1cil"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="btn-primary"
+                sx={{ display: 'inline-flex', alignItems: 'center', gap: 0.75 }}
               >
+                <Download sx={{ fontSize: '1.1rem' }} />
                 Download CV
-              </Button>
-              <Button variant="outlined" endIcon={<ArrowForward />} onClick={() => navigate('/contact')}>
+              </Box>
+              <Box
+                component="button"
+                onClick={() => navigate('/contact')}
+                className="btn-secondary"
+                sx={{ display: 'inline-flex', alignItems: 'center', gap: 0.75 }}
+              >
                 Get in touch
-              </Button>
+                <ArrowForward sx={{ fontSize: '1.1rem' }} />
+              </Box>
             </Stack>
           </Reveal>
 
@@ -331,7 +338,7 @@ const ProfilePage: React.FC = () => {
                       <Link
                         component="button"
                         type="button"
-                        onClick={() => setEnlargedImgSrc(encodeURI(e.certificate!))}
+                        onClick={() => setEnlargedImgSrc(e.certificate!)}
                         underline="hover"
                         color="inherit"
                         sx={{
@@ -462,9 +469,61 @@ const ProfilePage: React.FC = () => {
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
           >
-            {projectFilter === 'AI & Automation' && (
+            {(projectFilter === 'Full-Stack' || projectFilter === 'AR' || projectFilter === 'Game' || projectFilter === 'AI & Automation') && (
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                {aiProjects.map((ap) => (
+                {/* Regular project cards (filtered from projects.ts) */}
+                {projects
+                  .filter((p) => p.category === projectFilter)
+                  .map((project) => (
+                    <Box
+                      key={project.id}
+                      component={motion.div}
+                      whileHover={{ y: -2 }}
+                      transition={{ duration: 0.2 }}
+                      onClick={() => navigate(`/work/${project.slug}`)}
+                      className="surface-card"
+                      sx={{
+                        display: 'grid',
+                        gridTemplateColumns: { xs: '1fr', sm: '220px 1fr' },
+                        gap: 2.5,
+                        p: 2,
+                        cursor: 'pointer',
+                        overflow: 'hidden',
+                      }}
+                    >
+                      <Box
+                        component="img"
+                        src={project.image}
+                        alt=""
+                        sx={{
+                          width: '100%',
+                          aspectRatio: '16/10',
+                          objectFit: 'cover',
+                          borderRadius: 'var(--radius-md)',
+                          display: { xs: 'none', sm: 'block' },
+                        }}
+                      />
+                      <Box>
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1, flexWrap: 'wrap' }}>
+                          <span className="chip">{project.category}</span>
+                          {project.status && <StatusBadge status={project.status} year={project.year} />}
+                        </Box>
+                        <Typography sx={{ fontWeight: 600, fontSize: '1.125rem', letterSpacing: '-0.02em', mb: 0.75 }}>
+                          {project.title}
+                        </Typography>
+                        {project.impact && (
+                          <Typography sx={{ fontSize: '0.9375rem', lineHeight: 1.65, color: 'var(--fg-secondary)', mb: 1 }}>
+                            {project.impact}
+                          </Typography>
+                        )}
+                        <Typography sx={{ fontSize: '0.875rem', lineHeight: 1.6, color: 'var(--muted)' }}>
+                          {project.description}
+                        </Typography>
+                      </Box>
+                    </Box>
+                  ))}
+                {/* NDA case-study cards (AI & Automation only) */}
+                {projectFilter === 'AI & Automation' && aiProjects.map((ap) => (
                   <Box key={ap.id} className="surface-card" sx={{ p: { xs: 2, md: 3 } }}>
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 1.5, flexWrap: 'wrap' }}>
                       <StatusBadge status={ap.status} year={ap.year} />
@@ -518,61 +577,6 @@ const ProfilePage: React.FC = () => {
                     </Collapse>
                   </Box>
                 ))}
-              </Box>
-            )}
-
-            {(projectFilter === 'Full-Stack' || projectFilter === 'AR' || projectFilter === 'Game') && (
-              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                {projects
-                  .filter((p) => p.category === projectFilter)
-                  .map((project) => (
-                    <Box
-                      key={project.id}
-                      component={motion.div}
-                      whileHover={{ y: -2 }}
-                      transition={{ duration: 0.2 }}
-                      onClick={() => navigate(`/work/${project.slug}`)}
-                      className="surface-card"
-                      sx={{
-                        display: 'grid',
-                        gridTemplateColumns: { xs: '1fr', sm: '220px 1fr' },
-                        gap: 2.5,
-                        p: 2,
-                        cursor: 'pointer',
-                        overflow: 'hidden',
-                      }}
-                    >
-                      <Box
-                        component="img"
-                        src={project.image}
-                        alt=""
-                        sx={{
-                          width: '100%',
-                          aspectRatio: '16/10',
-                          objectFit: 'cover',
-                          borderRadius: 'var(--radius-md)',
-                          display: { xs: 'none', sm: 'block' },
-                        }}
-                      />
-                      <Box>
-                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1, flexWrap: 'wrap' }}>
-                          <span className="chip">{project.category}</span>
-                          {project.status && <StatusBadge status={project.status} year={project.year} />}
-                        </Box>
-                        <Typography sx={{ fontWeight: 600, fontSize: '1.125rem', letterSpacing: '-0.02em', mb: 0.75 }}>
-                          {project.title}
-                        </Typography>
-                        {project.impact && (
-                          <Typography sx={{ fontSize: '0.9375rem', lineHeight: 1.65, color: 'var(--fg-secondary)', mb: 1 }}>
-                            {project.impact}
-                          </Typography>
-                        )}
-                        <Typography sx={{ fontSize: '0.875rem', lineHeight: 1.6, color: 'var(--muted)' }}>
-                          {project.description}
-                        </Typography>
-                      </Box>
-                    </Box>
-                  ))}
               </Box>
             )}
           </motion.div>

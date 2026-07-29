@@ -16,6 +16,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://yemyatmoe.dev/work/promptcraft</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://yemyatmoe.dev/work/foodloft</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
