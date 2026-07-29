@@ -1,7 +1,9 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import Lenis from 'lenis';
 
 export function useLenis(enabled = true) {
+  const lenisRef = useRef<Lenis | null>(null);
+
   useEffect(() => {
     if (!enabled) return;
 
@@ -15,6 +17,8 @@ export function useLenis(enabled = true) {
       touchMultiplier: 1.4,
     });
 
+    lenisRef.current = lenis;
+
     let rafId = 0;
     const raf = (time: number) => {
       lenis.raf(time);
@@ -25,6 +29,17 @@ export function useLenis(enabled = true) {
     return () => {
       cancelAnimationFrame(rafId);
       lenis.destroy();
+      lenisRef.current = null;
     };
   }, [enabled]);
+
+  const scrollToTop = () => {
+    if (lenisRef.current) {
+      lenisRef.current.scrollTo(0, { immediate: true });
+    } else {
+      window.scrollTo(0, 0);
+    }
+  };
+
+  return { scrollToTop };
 }

@@ -12,10 +12,12 @@ const MotionBox = motion(Box);
 const Layout: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
-  useLenis();
+  const { scrollToTop } = useLenis();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    scrollToTop();
+  // scrollToTop is stable (defined outside effect), location.pathname is the real dep
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname]);
 
   useEffect(() => {

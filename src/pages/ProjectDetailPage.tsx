@@ -42,11 +42,11 @@ const ProjectDetailPage: React.FC = () => {
         <Reveal>
           <Button
             variant="text"
-            onClick={() => navigate('/work')}
+            onClick={() => navigate(-1)}
             startIcon={<ArrowBackIosNewIcon />}
             sx={{ mb: 4, px: 0, color: 'var(--muted)', '&:hover': { color: 'var(--fg)' } }}
           >
-            Back to work
+            Back
           </Button>
 
           <Typography className="text-label" sx={{ mb: 1.5 }}>
