@@ -91,7 +91,7 @@ const certificates = [
   { img: '/certificates/physics.png', title: 'Physics Behind Internet', org: 'Parami University', date: 'October 8, 2021' },
 ];
 
-type ProjectFilter = 'AI & Automation' | 'Full-Stack' | 'AR' | 'Game';
+type ProjectFilter = 'AI & Automation' | 'Full-Stack' | 'UX/UI' | 'AR' | 'Game';
 
 const aiProjects = [
   {
@@ -445,7 +445,7 @@ const ProfilePage: React.FC = () => {
         </Reveal>
 
         <Box sx={{ display: 'flex', gap: 0.75, mb: 4, flexWrap: 'wrap' }} role="tablist" aria-label="Project categories">
-          {(['AI & Automation', 'Full-Stack', 'AR', 'Game'] as const).map((tab) => (
+          {(['AI & Automation', 'Full-Stack', 'UX/UI', 'AR', 'Game'] as const).map((tab) => (
             <Box
               key={tab}
               component="button"
@@ -469,7 +469,7 @@ const ProfilePage: React.FC = () => {
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
           >
-            {(projectFilter === 'Full-Stack' || projectFilter === 'AR' || projectFilter === 'Game' || projectFilter === 'AI & Automation') && (
+            {(projectFilter === 'Full-Stack' || projectFilter === 'AR' || projectFilter === 'Game' || projectFilter === 'AI & Automation' || projectFilter === 'UX/UI') && (
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                 {/* Regular project cards (filtered from projects.ts) */}
                 {projects

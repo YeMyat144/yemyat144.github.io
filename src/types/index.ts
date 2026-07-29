@@ -1,6 +1,6 @@
 import type { SvgIconComponent } from '@mui/icons-material';
 
-export type ProjectCategory = 'Full-Stack' | 'AI & Automation' | 'AR' | 'Game';
+export type ProjectCategory = 'Full-Stack' | 'AI & Automation' | 'AR' | 'Game' | 'UX/UI';
 
 export type ProjectStatus = 'Live' | 'Completed' | 'In Development';
 

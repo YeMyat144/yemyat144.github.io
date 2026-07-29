@@ -36,6 +36,16 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://yemyatmoe.dev/work/ar-christmas-tree</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yemyatmoe.dev/work/family-circle</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://yemyatmoe.dev/work/vmes-tour</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
