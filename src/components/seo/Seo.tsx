@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 export const SITE_URL = 'https://yemyatmoe.dev';
 export const SITE_NAME = 'Ye Myat Moe';
 export const DEFAULT_DESCRIPTION =
-  'AI automation engineer in Bangkok building production LLM workflows, n8n systems, and full-stack products.';
+  'Software engineer in Bangkok building full-stack products, LLM workflows, and n8n automation systems.';
 export const DEFAULT_IMAGE = `${SITE_URL}/logos/logo.png`;
 
 type SeoProps = {

@@ -24,10 +24,30 @@ const StatusBadge: React.FC<{ status: string; year?: string }> = ({ status, year
 };
 
 const skills: { label: string; items: string[] }[] = [
-  { label: 'Languages & Frameworks', items: ['Python', 'JavaScript', 'TypeScript', 'React', 'Next.js', 'Node', 'Express', 'Angular', 'C#', '.NET'] },
-  { label: 'ML & Computer Vision', items: ['TensorFlow', 'PyTorch', 'OpenCV', 'Scikit-learn', 'YOLOv5'] },
-  { label: 'Databases', items: ['MongoDB', 'Firestore', 'PostgreSQL'] },
-  { label: 'Tools & Platforms', items: ['Git', 'WebSocket', 'Flask', 'Streamlit', 'Unity', 'Vercel', 'Firebase', 'Docker', 'n8n', 'Make'] },
+  {
+    label: 'Languages',
+    items: ['Python', 'Java', 'JavaScript', 'TypeScript', 'C#', 'HTML', 'CSS'],
+  },
+  {
+    label: 'Frameworks',
+    items: ['React', 'Next.js', 'Node.js', '.NET', 'Spring Boot', 'Express'],
+  },
+  {
+    label: 'AI',
+    items: ['n8n', 'Make', 'Zapier', 'LLM Integration', 'Prompt Engineering'],
+  },
+  {
+    label: 'Databases',
+    items: ['MongoDB', 'PostgreSQL', 'Firestore'],
+  },
+  {
+    label: 'Tools',
+    items: ['Git', 'Docker', 'Firebase', 'Vercel'],
+  },
+  {
+    label: 'Design',
+    items: ['Figma', 'Framer', 'Sketch', 'Blender'],
+  },
 ];
 
 type ExpItem = {
@@ -74,7 +94,7 @@ const experience: ExpItem[] = [
   },
   {
     logo: '/logos/sumo.png',
-    title: 'Software Engineer',
+    title: 'Full-Stack Developer',
     org: 'Sumo Shabu Buffet',
     period: 'Jul 2025 - Oct 2025',
     mode: 'Thailand · Contract',
@@ -99,7 +119,7 @@ const aiProjects = [
     title: 'SalesMind AI: Lead Intelligence Automation',
     impact: 'Cut manual lead review and LLM costs by ~30% with a production pipeline that scores, classifies, and routes inbound leads automatically.',
     summary: 'Multi-stage LLM pipeline for lead scoring, classification, and AI-generated microsites, integrated into a live CRM via webhooks.',
-    role: 'AI Automation Engineer · Jan 2026 – Jun 2026',
+    role: 'Software Engineer · Jan 2026 – Jun 2026',
     stack: ['n8n', 'Google Vertex AI (Gemini)', 'JavaScript', 'GHL CRM APIs', 'Webhooks'],
     confidential: true,
     year: '2026',
@@ -160,7 +180,7 @@ const ProfilePage: React.FC = () => {
     <>
       <Seo
         title="Ye Myat Moe"
-        description="AI automation engineer in Bangkok building production LLM workflows, n8n systems, and full-stack products."
+        description="Software engineer in Bangkok building full-stack products, LLM workflows, and n8n automation systems."
         path="/"
         type="profile"
       />
@@ -226,7 +246,7 @@ const ProfilePage: React.FC = () => {
 
           <Reveal delay={0.1}>
             <Typography sx={{ fontSize: { xs: '1.05rem', md: '1.2rem' }, lineHeight: 1.7, color: 'var(--muted)', maxWidth: 560, mb: 4 }}>
-              I&apos;m Ye Myat Moe, an AI automation engineer in Bangkok. I design LLM pipelines, n8n workflows, and full-stack products for real teams.
+              I&apos;m Ye Myat Moe, a software engineer in Bangkok. I build full-stack products, LLM pipelines, and n8n workflows for real teams.
             </Typography>
           </Reveal>
 

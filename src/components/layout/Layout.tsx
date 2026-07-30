@@ -71,7 +71,7 @@ const Layout: React.FC = () => {
                 Ye Myat Moe
               </Typography>
               <Typography sx={{ fontSize: '0.9375rem', lineHeight: 1.65, color: 'var(--muted)', maxWidth: 360 }}>
-                AI automation engineer building production LLM workflows and full-stack products.
+                Software engineer building full-stack products, LLM workflows, and n8n automation systems.
               </Typography>
               <Typography
                 component="a"

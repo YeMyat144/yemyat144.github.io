@@ -18,7 +18,7 @@ const ProjectsPage: React.FC = () => {
     <>
       <Seo
         title="Work"
-        description="Selected projects by Ye Myat Moe: production SaaS, AI automation, AR, and games."
+        description="Selected projects by Ye Myat Moe: production SaaS, full-stack apps, AI systems, AR, and games."
         path="/work"
       />
 

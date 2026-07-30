@@ -51,7 +51,7 @@ export const projects: Project[] = [
     featured: true,
     category: 'Full-Stack',
     client: 'Sumo Shabu Buffet / ABAC Restaurant',
-    role: 'Software Engineer · Contract',
+    role: 'Full-Stack Developer · Contract',
     year: '2025',
     status: 'Live',
     contributors: ['Ahkar Min Oo', 'Hpone Pyae Khine', 'Ye Myat Moe'],

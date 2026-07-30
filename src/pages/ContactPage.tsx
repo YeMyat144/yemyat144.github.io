@@ -10,7 +10,7 @@ const ContactPage: React.FC = () => {
     <>
       <Seo
         title="Contact"
-        description="Get in touch with Ye Myat Moe for full-time roles, contracts, and freelance work in AI automation and product engineering."
+        description="Get in touch with Ye Myat Moe for full-time roles, contracts, and freelance work in software engineering and product development."
         path="/contact"
       />
 
@@ -19,7 +19,7 @@ const ContactPage: React.FC = () => {
           <SectionHeader
             label="Contact"
             title="Let's build something useful"
-            description="Open to full-time roles, contracts, and freelance work in AI automation and product engineering."
+            description="Open to full-time roles, contracts, and freelance work in software engineering and product development."
           />
         </Reveal>
 
@@ -37,7 +37,7 @@ const ContactPage: React.FC = () => {
                 Ye Myat Moe
               </Typography>
               <Typography sx={{ fontSize: '0.9375rem', color: 'var(--muted)', mb: 4 }}>
-                AI Automation Engineer · Bangkok, Thailand
+                Software Engineer · Bangkok, Thailand
               </Typography>
 
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2.5 }}>
