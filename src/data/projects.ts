@@ -1,204 +1,181 @@
-import { Project } from '../types';
+export type Discipline = 'Frontend' | 'Backend' | 'Infra' | 'Open Source';
+
+export const ALL_DISCIPLINES: Discipline[] = ['Frontend', 'Backend', 'Infra', 'Open Source'];
+
+export interface Project {
+  id: string;
+  title: string;
+  client: string;
+  year: string;
+  disciplines: Discipline[];
+  image: string;
+  alt: string;
+  story: string;
+  role: string;
+  duration: string;
+  result: string;
+  stack: string[];
+  repoLink?: string;
+  liveLink?: string;
+  x: number;
+  y: number;
+  width: number;
+  rotate: number;
+  aspect: string;
+}
+
+export const CANVAS_W = 3400;
+export const CANVAS_H = 2400;
+export const INTRO = { x: 1720, y: 1160 };
+export const INTRO_ORIGIN = { x: 1280, y: 880, width: 860 };
 
 export const projects: Project[] = [
   {
-    id: 5,
+    id: 'promto',
     title: 'Promto',
-    impact: 'Most prompt tools are a blank text box. Promto is a guided wizard that turns fuzzy everyday ideas into sharp, AI-ready prompts and explains why each choice works — no prompt engineering knowledge needed.',
-    description: 'Mobile-first guided wizard that turns everyday ideas into optimised AI prompts, with plain-language explanations of why the prompt works.',
-    longDescription:
-      'Promto helps non-technical users write better AI prompts without knowing prompt engineering. A 4-step conversational wizard collects intent, tone, and target AI (ChatGPT / Claude / Gemini), then generates an optimised prompt with "why this works" reasoning bullets. Prompts can be copied or opened directly in the target AI. History is stored locally (last 10 prompts, no server storage). Dual generation modes: direct Gemini API or an importable n8n workflow for architecture demos. Full bilingual EN/MY (Burmese) support, and a Fog → Focus visual system where the UI sharpens as the user answers each step.',
+    client: 'Solo project',
+    year: '2026',
+    disciplines: ['Frontend', 'Backend', 'Open Source'],
     image: '/projects/promto/n8n.png',
-    screenshots: [
-      '/projects/promto/n8n.png',
-      '/projects/promto/promto2.png',
-      '/projects/promto/promto3.png',
-      '/projects/promto/promto4.png',
-      '/projects/promto/promto5.png',
-      '/projects/promto/promto6.png',
-    ],
-    techStack: ['Next.js', 'React 19', 'TypeScript', 'Tailwind CSS 4', 'Gemini API', 'n8n'],
-    repoLink: '',
-    slug: 'promto',
-    featured: true,
-    category: 'AI & Automation',
-    role: 'Solo — Product, Design & Engineering',
-    year: '2026',
-    status: 'Live',
-    features: [
-      '4-step wizard: category chips → description → tone → target AI (ChatGPT / Claude / Gemini)',
-      '"Why this works" explainer bullets generated alongside each prompt',
-      'Copy + Open-in-AI one-click handoff buttons',
-      'Local prompt history — last 10 entries stored in localStorage, nothing on servers',
-      'Fog → Focus visual system: UI elements sharpen as the user completes each step',
-      'Full bilingual EN / Myanmar (Burmese) UI',
-      'Dual generation modes: direct Gemini API or importable n8n webhook workflow',
-      'Privacy-first: no auth, no database, no tracking',
-    ],
+    alt: 'Promto n8n workflow and guided prompt wizard screens',
+    story:
+      'Most AI tools greet you with a blank box. Promto is a four-step wizard that turns a fuzzy idea into a sharp prompt, then explains every choice in plain language. Dual backends: Gemini direct, or an importable n8n workflow.',
+    role: 'Solo — product, design, engineering',
+    duration: '3 weeks',
+    result: 'Live bilingual EN/MY product with Gemini and n8n generation paths',
+    stack: ['Next.js', 'React 19', 'TypeScript', 'Tailwind', 'Gemini API', 'n8n'],
+    x: 620,
+    y: 360,
+    width: 340,
+    rotate: -3,
+    aspect: '4 / 5',
   },
   {
-    id: 1,
+    id: 'foodloft',
     title: 'FoodLoft',
-    impact: 'A real client replaced pen-and-paper table management. Customers now book via LINE, owners see their floor in 3D, and Stripe handles subscriptions. Delivered as a team project.',
-    description: 'SaaS restaurant management platform with interactive 3D floor planning, LINE bot reservations, and Stripe subscription billing, built for a real client as a team.',
-    longDescription:
-      'A multi-tenant SaaS platform built as a team for real restaurant operations. Restaurants get their own workspace with interactive 3D floor planning, a smart booking system with soft-lock concurrency control, a LINE bot for customer self-service reservations, Stripe subscription billing, staff management, and real-time notifications, all under a single admin dashboard.',
-    image: '/projects/foodloft.png',
-    techStack: ['Next.js', 'Firebase', 'Stripe', 'LINE LIFF', 'Tailwind CSS', 'Three.js'],
-    repoLink: '',
-    liveLink: 'https://foodloft.vercel.app/',
-    slug: 'foodloft',
-    featured: true,
-    category: 'Full-Stack',
-    client: 'Sumo Shabu Buffet / ABAC Restaurant',
-    role: 'Full-Stack Developer · Contract',
+    client: 'Sumo Shabu Buffet',
     year: '2025',
-    status: 'Live',
-    contributors: ['Ahkar Min Oo', 'Hpone Pyae Khine', 'Ye Myat Moe'],
-    features: [
-      'Interactive 3D floor plan editor: drag-and-drop tables, save layouts per restaurant',
-      'Booking system with soft-lock and conflict-resolution to prevent double-booking',
-      'LINE bot integration: customers book, cancel, and receive confirmations via LINE',
-      'Stripe subscription tiers with per-plan booking/table limits enforced server-side',
-      'Staff management with role-based access and real-time push notifications',
-      'Multi-tenant architecture: each restaurant is fully isolated',
-      'Admin super-dashboard for managing all organisations and subscriptions',
-      'Google OAuth + LINE LIFF login for customers',
-    ],
+    disciplines: ['Frontend', 'Backend', 'Infra'],
+    image: '/projects/foodloft.png',
+    alt: 'FoodLoft restaurant floor plan and booking dashboard',
+    story:
+      'A restaurant was still running on pen and paper. We built a multi-tenant SaaS: 3D floor editor, LINE-bot bookings, Stripe billing, and an admin dashboard. Soft-locks stop two hosts grabbing the same table.',
+    role: 'Full-stack developer, contract',
+    duration: '3 months',
+    result: 'Client replaced pen-and-paper ops; Stripe subscriptions live',
+    stack: ['Next.js', 'Firebase', 'Stripe', 'LINE LIFF', 'Three.js'],
+    liveLink: 'https://foodloft.vercel.app/',
+    x: 1480,
+    y: 220,
+    width: 470,
+    rotate: 2,
+    aspect: '4 / 3',
   },
   {
-    id: 2,
+    id: 'linkup',
     title: 'LinkUp',
-    impact: 'A private social app for families and close groups: real-time chat, shared calendars, and media sharing, all without ads or algorithmic feeds. Built and shipped for iOS.',
-    description: 'Private mobile social app for close circles: group chat, events, daily updates, and media sharing with no ads or algorithmic feed.',
-    longDescription:
-      'A mobile-first social platform designed for tight-knit groups (families, teams, friend circles). Built with Ionic + Capacitor for native iOS/Android deployment. Features group chat, shared event calendars, daily check-in updates, and media sharing, all in a low-noise environment with no algorithmic feed or ads. Developed as a private internship project.',
+    client: 'TechCreative LTD',
+    year: '2026',
+    disciplines: ['Frontend', 'Backend'],
     image: '/projects/linkup.png',
-    techStack: ['React 19', 'TypeScript', 'Ionic', 'Capacitor', 'Firebase', 'Tailwind CSS'],
-    repoLink: '',
-    slug: 'linkup',
-    featured: true,
-    category: 'Full-Stack',
-    private: true,
-    role: 'Software Developer Intern · TechCreative LTD',
-    year: '2026',
-    status: 'Completed',
-    features: [
-      'Group chat with real-time messaging via Firestore',
-      'Shared event calendar: create, RSVP, and get reminders',
-      'Daily update feed within private groups (no global timeline)',
-      'Photo and video media sharing with FFmpeg client-side processing',
-      'Google sign-in via Capacitor Firebase Authentication',
-      'Native iOS build via Capacitor 7 with full device API access',
-      'Vitest unit tests and Cypress E2E test suite',
-    ],
+    alt: 'LinkUp private mobile social app screens',
+    story:
+      'A private social app for close circles — no feed, no ads. Group chat, shared calendars, daily updates, and media through Capacitor on iOS. Firestore for live messages, FFmpeg on the client for media.',
+    role: 'Software developer intern',
+    duration: '6 months',
+    result: 'Native iOS build with real-time chat, media processing, and E2E tests',
+    stack: ['React 19', 'TypeScript', 'Ionic', 'Capacitor', 'Firebase'],
+    x: 2420,
+    y: 460,
+    width: 320,
+    rotate: 4,
+    aspect: '3 / 4',
   },
   {
-    id: 3,
-    title: 'AR MG Car Showroom',
-    impact: 'Built an AR experience that was showcased live at an official ABAC × MG – SAIC Motor industry event. Point your phone at any flat surface and a life-size MG EV appears.',
-    description: 'AR mobile app presented at the ABAC × MG – SAIC Motor R&D Center Opening Ceremony: 6 car models, real-time colour and tyre customisation in augmented reality.',
-    longDescription:
-      'An AR mobile app built in Unity that places life-size MG car models into the real world via AR plane detection. Users can switch between MG3 EV, MG4, MG5, Cyberster, Hector, and ZS models, customise body colour, tyre style, and headlight configuration in real time, all without leaving the AR view. Presented live at the ABAC × MG – SAIC Motor R&D Center Opening Ceremony on 17 January 2026.',
+    id: 'ar-mg',
+    title: 'AR MG Showroom',
+    client: 'Honey Yuzu × MG–SAIC',
+    year: '2026',
+    disciplines: ['Frontend'],
     image: '/projects/mg.png',
-    techStack: ['Unity', 'AR Foundation', 'XR Toolkit', 'C#', 'ARKit / ARCore'],
-    repoLink: '',
-    youtubeLink: 'https://www.linkedin.com/posts/honey-yuzu_augmentedreality-ar-unity-activity-7419034795587973121-Fbvw',
-    slug: 'ar-mg-car-showroom',
-    featured: true,
-    category: 'AR',
-    client: 'Honey Yuzu · ABAC × MG – SAIC Motor',
-    role: 'Lead Developer',
-    year: '2026',
-    status: 'Completed',
-    contributors: ['Ye Myat Moe (Lead Developer)', 'Yel Lin (Software Design)', 'Lut Lat Aung (QA)'],
-    features: [
-      'AR plane detection: car models spawn and anchor to real-world surfaces',
-      'Switch between 6 MG models (MG3 EV, MG4, MG5, Cyberster, Hector, ZS) at runtime',
-      'Real-time colour customisation via material swapping on car body',
-      'Tyre style and headlight configuration changeable without reloading the scene',
-      'Gesture-based model rotation and scale via XR Interaction Toolkit',
-      'Presented live at industry–academic event with MG – SAIC Motor executives',
-    ],
+    alt: 'Life-size MG car model placed in augmented reality',
+    story:
+      'Six MG models, colour and tyre swaps, all anchored to a real floor. Built in Unity for the ABAC × MG–SAIC R&D opening and demoed live to executives.',
+    role: 'Lead developer',
+    duration: '2 months',
+    result: 'Demoed live at the official ceremony to MG–SAIC Motor executives',
+    stack: ['Unity', 'AR Foundation', 'C#', 'ARKit / ARCore'],
+    liveLink:
+      'https://www.linkedin.com/posts/honey-yuzu_augmentedreality-ar-unity-activity-7419034795587973121-Fbvw',
+    x: 500,
+    y: 1280,
+    width: 380,
+    rotate: 2,
+    aspect: '1 / 1',
   },
   {
-    id: 6,
+    id: 'ar-christmas',
     title: 'AR Christmas Tree',
-    impact: 'Designed the full UX/UI for an AR mobile app where users place and grow virtual Christmas trees, write messages that orbit the tree, and sync everything live via Firebase.',
-    description: 'UX/UI design for a Unity-based AR mobile app: place virtual Christmas trees in the real world, customize them, and share festive messages with others.',
-    longDescription:
-      'AR Christmas Tree is a Unity-based mobile AR application where users place and grow virtual Christmas trees using image marker tracking, write Christmas messages that orbit the tree in custom styled rings, and view message history and VIP messages — all synced in real-time with Firebase. Contributed as UX/UI designer: user flows, wireframes, and high-fidelity Figma screens.',
+    client: 'Collaborator',
+    year: '2024',
+    disciplines: ['Frontend'],
     image: '/projects/uxui/ar-tree-figma.png',
-    screenshots: [
-      '/projects/uxui/ar-tree-figma.png',
-    ],
-    techStack: ['Figma', 'Unity', 'AR Foundation', 'Firebase'],
-    repoLink: '',
-    slug: 'ar-christmas-tree',
-    category: 'UX/UI',
-    role: 'UX/UI Designer · Collaborator',
-    year: '2024',
-    status: 'Completed',
-    features: [
-      'AR plane + image marker tracking for precise Christmas tree placement',
-      'Grow and customise virtual trees in real-world environments',
-      'Orbiting message rings: write and style festive messages around the tree',
-      'VIP message layer and full message history view',
-      'Real-time Firebase sync for shared family/friend experiences',
-      'Full UX/UI: user flows, wireframes, and high-fidelity Figma screens',
-    ],
+    alt: 'Figma screens for an AR Christmas tree message app',
+    story:
+      'Users grow a virtual tree and send messages that orbit it. Full UX/UI — flows, wireframes, high-fidelity screens — handed to Unity with Firebase sync.',
+    role: 'UX/UI designer',
+    duration: '1 month',
+    result: 'Complete Figma system delivered and handed off to development',
+    stack: ['Figma', 'Unity', 'AR Foundation', 'Firebase'],
+    x: 1240,
+    y: 1620,
+    width: 560,
+    rotate: -1.5,
+    aspect: '16 / 9',
   },
   {
-    id: 7,
+    id: 'family-circle',
     title: 'Family Circle',
-    impact: 'Designed a private social network for families — no ads, no algorithmic noise, just shared daily updates, events, and memories. Own your data, stay connected to the people who matter.',
-    description: 'UX/UI design for a private family social network: daily updates, shared events, and memories — no ads, no algorithmic feed, full data ownership.',
-    longDescription:
-      'Family Circle is a private social network designed for families to share daily life, events, and memories in a calm, ad-free space. The design prioritises intimacy and ease of use over engagement metrics — no public feed, no algorithmic ranking, just your people. Contributed full UX/UI: user flows, low-fidelity wireframes, and high-fidelity Figma designs. The app was later developed with Ionic + Capacitor for iOS/Android.',
-    image: '/projects/uxui/family-wireframing.png',
-    screenshots: [
-      '/projects/uxui/family-wireframing.png',
-      '/projects/uxui/f1.png',
-      '/projects/uxui/f2.png',
-    ],
-    techStack: ['Figma', 'Ionic', 'Capacitor', 'Firebase'],
-    repoLink: '',
-    slug: 'family-circle',
-    category: 'UX/UI',
-    role: 'UX/UI Designer · Collaborator',
+    client: 'Collaborator',
     year: '2024',
-    status: 'Completed',
-    features: [
-      'Private family feed: daily updates visible only to invited members',
-      'Shared event calendar with RSVP and reminders',
-      'Memory timeline: photo and video sharing within the family circle',
-      'No ads, no algorithmic feed — chronological and calm by design',
-      'Full data ownership: no third-party data sharing',
-      'End-to-end UX/UI: user flows, wireframes, and Figma high-fidelity screens',
-    ],
+    disciplines: ['Frontend', 'Backend'],
+    image: '/projects/uxui/family-figma.png',
+    alt: 'Family Circle private social network Figma screens',
+    story:
+      'A private family network: daily updates, shared events, a memory timeline. No algorithm, no ads. Designed end to end, later built with Ionic and Capacitor.',
+    role: 'UX/UI designer',
+    duration: '2 months',
+    result: 'Complete flows, wireframes, and iOS prototype handoff',
+    stack: ['Figma', 'Ionic', 'Capacitor', 'Firebase'],
+    x: 720,
+    y: 1880,
+    width: 300,
+    rotate: -2,
+    aspect: '3 / 4',
   },
   {
-    id: 4,
+    id: 'vmes-tour',
     title: 'VMES Tour',
-    impact: 'A 3D game that helps university prospects figure out whether Engineering or CS suits them better. Answer questions while running through an obstacle course, playable in the browser.',
-    description: '3D platformer where players explore academic pathways at VMES through gameplay and quizzes, available to play in the browser on itch.io.',
-    longDescription:
-      'VMES Tour is a 3D obstacle-course platformer set inside a virtual version of the Vincent Mary School of Engineering, Science and Technology (VMES) at Assumption University. Players climb moving platforms and clear hazards while answering field-of-study questions. At the end, the game recommends a major (Engineering or Computer Science / IT) based on their answers. Built in Unity; Ye Myat Moe designed and built the level geometry, platforms, and obstacle course.',
-    image: '/projects/vmestour.png',
-    techStack: ['Unity', 'C#', '3D Level Design'],
-    repoLink: '',
-    liveLink: 'https://lut-lat-aung.itch.io/vmes-tour',
-    slug: 'vmes-tour',
-    category: 'Game',
+    client: 'VMES / ABAC',
     year: '2024',
-    status: 'Completed',
-    contributors: ['Lut Lat Aung (Lead Developer)', 'Ye Myat Moe (Level Design)', 'Yel Lin (QA)', 'Sithu Kyaw Zin Linn (3D Modeling)'],
-    features: [
-      '3D obstacle platformer: moving platforms, hazards, parkour sections',
-      'Level design and obstacle course built by Ye Myat Moe',
-      'Interactive quiz embedded in gameplay: Engineering vs CS/IT pathways',
-      'Final major recommendation based on cumulative player answers',
-      'Accessible via browser (HTML5) or Windows download on itch.io',
-    ],
+    disciplines: ['Frontend'],
+    image: '/projects/vmestour.png',
+    alt: 'VMES Tour 3D obstacle-course game screenshot',
+    story:
+      'A 3D obstacle course inside Assumption University. Players answer career questions while running platforms. At the finish the game recommends Engineering or CS.',
+    role: 'Level designer',
+    duration: '1 month',
+    result: 'Live on itch.io; used at VMES open days',
+    stack: ['Unity', 'C#', '3D level design'],
+    liveLink: 'https://lut-lat-aung.itch.io/vmes-tour',
+    x: 2340,
+    y: 1440,
+    width: 340,
+    rotate: -3,
+    aspect: '4 / 5',
   },
 ];
+
+export function countByDiscipline(d: Discipline) {
+  return projects.filter((p) => p.disciplines.includes(d)).length;
+}

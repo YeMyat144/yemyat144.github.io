@@ -1,142 +1,51 @@
-import React from 'react';
-import { Box, Typography, IconButton } from '@mui/material';
+import { Link } from 'react-router-dom';
+import { ArrowLeft } from 'lucide-react';
+import { SITE } from '../data/site';
 import { Seo } from '../components/seo/Seo';
-import { socialLinks } from '../data/navigation';
-import { Reveal } from '../components/motion/Reveal';
-import { SectionHeader } from '../components/ui/SectionHeader';
 
-const ContactPage: React.FC = () => {
+export default function ContactPage() {
   return (
     <>
       <Seo
         title="Contact"
-        description="Get in touch with Ye Myat Moe for full-time roles, contracts, and freelance work in software engineering and product development."
+        description="Get in touch with Ye Myat Moe for internships, contracts, and freelance work."
         path="/contact"
       />
+      <div className="min-h-screen bg-canvas text-ink">
+        <div className="mx-auto max-w-xl px-6 py-10">
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2 font-mono text-[11px] text-ink/70 hover:text-ink"
+          >
+            <ArrowLeft className="h-3.5 w-3.5" />
+            Back to desk
+          </Link>
+          <h1 className="mt-10 font-display text-5xl font-semibold leading-[0.92] tracking-[-0.035em] md:text-6xl">
+            {SITE.contactQuestion}
+          </h1>
+          <p className="mt-4 font-mono text-sm text-ink/70">{SITE.availability}</p>
 
-      <Box className="page-shell" sx={{ py: { xs: 5, md: 8 } }}>
-        <Reveal>
-          <SectionHeader
-            label="Contact"
-            title="Let's build something useful"
-            description="Open to full-time roles, contracts, and freelance work in software engineering and product development."
-          />
-        </Reveal>
-
-        <Box
-          sx={{
-            display: 'grid',
-            gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' },
-            gap: { xs: 4, md: 6 },
-            alignItems: 'start',
-          }}
-        >
-          <Reveal>
-            <Box className="surface-card" sx={{ p: { xs: 3, md: 4 } }}>
-              <Typography sx={{ fontWeight: 600, fontSize: '1.25rem', letterSpacing: '-0.02em', mb: 0.5 }}>
-                Ye Myat Moe
-              </Typography>
-              <Typography sx={{ fontSize: '0.9375rem', color: 'var(--muted)', mb: 4 }}>
-                Software Engineer · Bangkok, Thailand
-              </Typography>
-
-              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2.5 }}>
-                <Box>
-                  <Typography className="text-label" sx={{ mb: 0.75 }}>Email</Typography>
-                  <Typography
-                    component="a"
-                    href="mailto:yemyatmoe.tetee@gmail.com"
-                    sx={{
-                      fontSize: '1.05rem',
-                      fontWeight: 500,
-                      color: 'var(--fg)',
-                      textDecoration: 'none',
-                      '&:hover': { color: 'var(--highlight)' },
-                      wordBreak: 'break-all',
-                    }}
-                  >
-                    yemyatmoe.tetee@gmail.com
-                  </Typography>
-                </Box>
-
-                <Box>
-                  <Typography className="text-label" sx={{ mb: 0.75 }}>Location</Typography>
-                  <Typography sx={{ fontSize: '0.9375rem', color: 'var(--muted)', lineHeight: 1.6 }}>
-                    Bang Bo District, Samut Prakan 10270, Thailand
-                  </Typography>
-                </Box>
-
-                <Box>
-                  <Typography className="text-label" sx={{ mb: 0.75 }}>YouTube</Typography>
-                  <Typography
-                    component="a"
-                    href="https://www.youtube.com/@yemyatlabs"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    sx={{
-                      fontSize: '0.9375rem',
-                      color: 'var(--highlight)',
-                      textDecoration: 'none',
-                      '&:hover': { textDecoration: 'underline' },
-                    }}
-                  >
-                    @yemyatlabs
-                  </Typography>
-                </Box>
-              </Box>
-            </Box>
-          </Reveal>
-
-          <Reveal delay={0.08}>
-            <Typography className="text-label" sx={{ mb: 2 }}>
-              Elsewhere
-            </Typography>
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
-              {socialLinks.map((s, i) => {
-                const Icon = s.icon;
-                return (
-                  <Box
-                    key={s.name}
-                    component="a"
-                    href={s.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    sx={{
-                      display: 'grid',
-                      gridTemplateColumns: '1fr auto 36px',
-                      alignItems: 'center',
-                      gap: 2,
-                      py: 2,
-                      borderTop: '1px solid var(--border)',
-                      borderBottom: i === socialLinks.length - 1 ? '1px solid var(--border)' : 0,
-                      color: 'var(--fg)',
-                      textDecoration: 'none',
-                      transition: 'color 160ms ease, padding-left 160ms ease',
-                      '&:hover': { color: 'var(--highlight)', pl: 0.5 },
-                    }}
-                  >
-                    <Typography sx={{ fontWeight: 500, fontSize: '1.05rem' }}>{s.name}</Typography>
-                    <Typography sx={{ fontSize: '0.8125rem', color: 'var(--muted)' }}>Open</Typography>
-                    <IconButton
-                      component="span"
-                      sx={{
-                        width: 36,
-                        height: 36,
-                        pointerEvents: 'none',
-                        color: 'inherit',
-                      }}
-                    >
-                      <Icon fontSize="small" />
-                    </IconButton>
-                  </Box>
-                );
-              })}
-            </Box>
-          </Reveal>
-        </Box>
-      </Box>
+          <div className="mt-12 bg-paper p-6 shadow-print ring-1 ring-ink/10">
+            <p className="font-mono text-[11px] text-ink/70">Email</p>
+            <a
+              href={`mailto:${SITE.email}`}
+              className="mt-2 block font-display text-xl font-semibold tracking-tight"
+            >
+              {SITE.email}
+            </a>
+            <p className="mt-8 font-mono text-[11px] text-ink/70">Elsewhere</p>
+            <ul className="mt-2 space-y-2 font-mono text-sm">
+              {SITE.socials.map((s) => (
+                <li key={s.label}>
+                  <a href={s.href} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                    {s.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
     </>
   );
-};
-
-export default ContactPage;
+}
