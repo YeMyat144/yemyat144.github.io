@@ -23,8 +23,6 @@ export default function ContactPage() {
           <h1 className="mt-10 font-display text-5xl font-semibold leading-[0.92] tracking-[-0.035em] md:text-6xl">
             {SITE.contactQuestion}
           </h1>
-          <p className="mt-4 font-mono text-sm text-ink/70">{SITE.availability}</p>
-
           <div className="mt-12 bg-paper p-6 shadow-print ring-1 ring-ink/10">
             <p className="font-mono text-[11px] text-ink/70">Email</p>
             <a

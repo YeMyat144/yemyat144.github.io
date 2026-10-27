@@ -19,7 +19,7 @@ export function Intro({ hint, className, style }: Props) {
       }}
     >
       <p className="font-mono text-xs text-ink/70">
-        {SITE.name} — {SITE.role}, {SITE.city}
+        {SITE.name} — {SITE.role}
       </p>
       <h1 className="mt-5 font-display text-[44px] font-semibold leading-[0.92] tracking-[-0.035em] text-ink md:text-[88px]">
         {SITE.headlineLead}{' '}

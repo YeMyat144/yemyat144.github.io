@@ -88,11 +88,7 @@ export function DeskNoteItem({ note, className, style }: Props) {
       className={`absolute bg-paper p-6 text-ink shadow-print ring-1 ring-ink/10 ${className ?? ''}`}
       style={pos}
     >
-      <p className="flex items-center gap-2 font-mono text-[11px] text-ink/70">
-        <span className="h-1.5 w-1.5 bg-accent" aria-hidden />
-        {SITE.availability}
-      </p>
-      <p className="mt-4 font-display text-3xl font-semibold leading-[1.05] tracking-tight">
+      <p className="font-display text-3xl font-semibold leading-[1.05] tracking-tight">
         {SITE.contactQuestion}
       </p>
       <a
