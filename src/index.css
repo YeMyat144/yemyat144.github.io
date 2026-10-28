@@ -10,13 +10,6 @@
   --shadow-print: 0 1px 0 rgb(42 62 75 / 0.06), 0 22px 40px -22px rgb(42 62 75 / 0.45);
 }
 
-html.dark {
-  --color-paper: #2a3e4b;
-  --color-canvas: #1e2d37;
-  --color-accent: #7fa6b8;
-  --color-ink: #f7fbfd;
-}
-
 html,
 body,
 #root {
@@ -32,12 +25,13 @@ body,
   box-sizing: border-box;
 }
 
+/* Fixed hex colours so labels stay readable even if a browser forces dark. */
 .desk-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.375rem;
-  background: var(--color-accent);
-  color: var(--color-ink);
+  background: #7fa6b8;
+  color: #2a3e4b;
   font-family: var(--font-mono);
   font-size: 11px;
   line-height: 1;
@@ -49,7 +43,7 @@ body,
 }
 
 .desk-btn:hover {
-  background: var(--color-ink);
+  background: #2a3e4b;
   color: #f7fbfd;
 }
 
@@ -58,7 +52,7 @@ body,
   align-items: center;
   gap: 0.375rem;
   background: #f7fbfd;
-  color: var(--color-ink);
+  color: #2a3e4b;
   font-family: var(--font-mono);
   font-size: 11px;
   line-height: 1;
@@ -70,7 +64,7 @@ body,
 }
 
 .back-btn:hover {
-  background: var(--color-ink);
+  background: #2a3e4b;
   color: #f7fbfd;
 }
 

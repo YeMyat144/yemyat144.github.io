@@ -33,16 +33,23 @@ export function TopBar({ view, onViewChange }: TopBarProps) {
               role="tab"
               aria-selected={view === v}
               onClick={() => onViewChange(v)}
-              className="relative px-3 py-1.5 font-mono text-xs capitalize"
+              className="group relative px-3 py-1.5 font-mono text-xs capitalize"
             >
               {view === v && (
                 <motion.span
                   layoutId="view-pill"
-                  className="absolute inset-0 bg-ink"
+                  className="absolute inset-0"
+                  style={{ background: '#7fa6b8' }}
                   transition={{ duration: 0.2, ease: [0.65, 0, 0.35, 1] }}
                 />
               )}
-              <span className={`relative z-10 ${view === v ? 'text-[#F7FBFD]' : 'text-ink/70'}`}>
+              <span
+                className={`relative z-10 transition-colors duration-200 ${
+                  view === v
+                    ? 'text-[#2a3e4b]'
+                    : 'text-[rgba(42,62,75,0.7)] group-hover:text-[#2a3e4b]'
+                }`}
+              >
                 {v === 'desk' ? 'Desk' : 'Index'}
               </span>
             </button>

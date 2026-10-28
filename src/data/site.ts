@@ -7,10 +7,22 @@ export const SITE = {
   currently:
     'Shipping AI tools and full-stack products from Bangkok.',
   contactQuestion: 'Have something that should exist?',
+  hellos: [
+    'Hello',
+    'မင်္ဂလာပါ',
+    'สวัสดี',
+    'Bonjour',
+    'こんにちは',
+    'Hola',
+    'Ciao',
+    '안녕하세요',
+    'Olá',
+  ],
   stack: [
     'TypeScript → React, Next.js, Ionic',
     'Python → n8n, Gemini, Vertex AI',
     'C# → Unity, AR Foundation',
+    'Automation → n8n, make, AI agents',
     'Firebase / Postgres / Stripe',
   ],
   socials: [

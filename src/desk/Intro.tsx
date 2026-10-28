@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { SITE } from '../data/site';
 import { INTRO_ORIGIN } from '../data/projects';
 
@@ -8,6 +10,15 @@ interface Props {
 }
 
 export function Intro({ hint, className, style }: Props) {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const id = window.setInterval(() => {
+      setIndex((i) => (i + 1) % SITE.hellos.length);
+    }, 2200);
+    return () => window.clearInterval(id);
+  }, []);
+
   return (
     <header
       className={`absolute ${className ?? ''}`}
@@ -18,8 +29,19 @@ export function Intro({ hint, className, style }: Props) {
         ...style,
       }}
     >
-      <p className="font-mono text-xs text-ink/70">
-        {SITE.name} — {SITE.role}
+      <p className="flex items-baseline gap-2 font-mono text-2xl text-ink/70">
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.span
+            key={SITE.hellos[index]}
+            initial={{ opacity: 0, y: 4 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -4 }}
+            transition={{ duration: 0.22, ease: [0.23, 1, 0.32, 1] }}
+            className="inline-block whitespace-nowrap"
+          >
+            {SITE.hellos[index]}
+          </motion.span>
+        </AnimatePresence>
       </p>
       <h1 className="mt-5 font-display text-[44px] font-semibold leading-[0.92] tracking-[-0.035em] text-ink md:text-[88px]">
         {SITE.headlineLead}{' '}

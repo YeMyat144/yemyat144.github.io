@@ -1,6 +1,6 @@
-export type Discipline = 'Frontend' | 'Backend' | 'Infra' | 'Open Source';
+export type Discipline = 'FullStack' | 'UXUI' | 'AR' | 'AI' | 'Game';
 
-export const ALL_DISCIPLINES: Discipline[] = ['Frontend', 'Backend', 'Infra', 'Open Source'];
+export const ALL_DISCIPLINES: Discipline[] = ['FullStack', 'UXUI', 'AR', 'AI', 'Game'];
 
 export interface Project {
   id: string;
@@ -35,7 +35,7 @@ export const projects: Project[] = [
     title: 'Promto',
     client: 'Solo project',
     year: '2026',
-    disciplines: ['Frontend', 'Backend', 'Open Source'],
+    disciplines: ['AI'],
     image: '/projects/promto/n8n.png',
     alt: 'Promto n8n workflow and guided prompt wizard screens',
     story:
@@ -55,7 +55,7 @@ export const projects: Project[] = [
     title: 'FoodLoft',
     client: 'Sumo Shabu Buffet',
     year: '2025',
-    disciplines: ['Frontend', 'Backend', 'Infra'],
+    disciplines: ['FullStack'],
     image: '/projects/foodloft.png',
     alt: 'FoodLoft restaurant floor plan and booking dashboard',
     story:
@@ -76,7 +76,7 @@ export const projects: Project[] = [
     title: 'LinkUp',
     client: 'TechCreative LTD',
     year: '2026',
-    disciplines: ['Frontend', 'Backend'],
+    disciplines: ['FullStack', 'UXUI'],
     image: '/projects/linkup.png',
     alt: 'LinkUp private mobile social app screens',
     story:
@@ -96,7 +96,7 @@ export const projects: Project[] = [
     title: 'AR MG Showroom',
     client: 'Honey Yuzu × MG–SAIC',
     year: '2026',
-    disciplines: ['Frontend'],
+    disciplines: ['AR', 'UXUI'],
     image: '/projects/mg.png',
     alt: 'Life-size MG car model placed in augmented reality',
     story:
@@ -118,7 +118,7 @@ export const projects: Project[] = [
     title: 'AR Christmas Tree',
     client: 'Collaborator',
     year: '2024',
-    disciplines: ['Frontend'],
+    disciplines: ['AR', 'UXUI'],
     image: '/projects/uxui/ar-tree-figma.png',
     alt: 'Figma screens for an AR Christmas tree message app',
     story:
@@ -138,7 +138,7 @@ export const projects: Project[] = [
     title: 'Family Circle',
     client: 'Collaborator',
     year: '2024',
-    disciplines: ['Frontend', 'Backend'],
+    disciplines: ['FullStack'],
     image: '/projects/uxui/family-figma.png',
     alt: 'Family Circle private social network Figma screens',
     story:
@@ -158,7 +158,7 @@ export const projects: Project[] = [
     title: 'VMES Tour',
     client: 'VMES / ABAC',
     year: '2024',
-    disciplines: ['Frontend'],
+    disciplines: ['Game'],
     image: '/projects/vmestour.png',
     alt: 'VMES Tour 3D obstacle-course game screenshot',
     story:

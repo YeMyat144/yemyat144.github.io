@@ -64,13 +64,12 @@
     }
     </script>
 
-    <!-- No-flash theme init: apply stored preference before first paint -->
+    <!-- Clear leftover dark-mode flag from the old toggle (no dark UI anymore) -->
     <script>
       (function () {
         try {
-          if (localStorage.getItem('ymm-mode') === 'dark') {
-            document.documentElement.classList.add('dark');
-          }
+          document.documentElement.classList.remove('dark');
+          localStorage.removeItem('ymm-mode');
         } catch (_) {}
       })();
     </script>
