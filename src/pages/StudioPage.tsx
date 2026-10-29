@@ -21,7 +21,6 @@ import type { Selection } from '../desk/types';
 
 export default function StudioPage() {
   const viewportRef = useRef<HTMLDivElement>(null);
-  const camera = useDeskCamera(viewportRef);
   const [filter, setFilter] = useState<Discipline | 'All'>('All');
   const [view, setView] = useState<ViewMode>('desk');
   const [selection, setSelection] = useState<Selection | null>(null);
@@ -36,6 +35,8 @@ export default function StudioPage() {
     mq.addEventListener('change', sync);
     return () => mq.removeEventListener('change', sync);
   }, []);
+
+  const camera = useDeskCamera(viewportRef, !isPhone);
 
   const visibleIds = useMemo(() => {
     const ids = projects
@@ -62,15 +63,21 @@ export default function StudioPage() {
       >
         <motion.div
           drag
-          dragConstraints={viewportRef}
+          dragConstraints={camera.dragConstraints}
           dragElastic={0.06}
           dragTransition={{ power: 0.25, timeConstant: 220 }}
           onDragStart={camera.onDragStart}
           onDragEnd={camera.onDragEnd}
-          className={`dot-grid absolute left-0 top-0 select-none ${
+          className={`dot-grid absolute left-0 top-0 origin-top-left select-none ${
             camera.grabbing ? 'cursor-grabbing' : 'cursor-grab'
           }`}
-          style={{ x: camera.mvX, y: camera.mvY, width: CANVAS_W, height: CANVAS_H }}
+          style={{
+            x: camera.mvX,
+            y: camera.mvY,
+            scale: camera.mvScale,
+            width: CANVAS_W,
+            height: CANVAS_H,
+          }}
         >
           <Intro hint="Drag anywhere, scroll, or use the map. Click any print to read how it was built." />
 
@@ -109,6 +116,7 @@ export default function StudioPage() {
         <MiniMap
           x={camera.mvX}
           y={camera.mvY}
+          scale={camera.scale}
           viewport={camera.viewport}
           projects={projects}
           visibleIds={visibleIds}
