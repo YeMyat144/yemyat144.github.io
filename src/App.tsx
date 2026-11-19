@@ -1,12 +1,12 @@
-import { Routes, Route } from 'react-router-dom';
-import StudioPage from './pages/StudioPage';
-import ContactPage from './pages/ContactPage';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import HomePage from './pages/HomePage';
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<StudioPage />} />
-      <Route path="/contact" element={<ContactPage />} />
+      <Route path="/" element={<HomePage />} />
+      <Route path="/contact" element={<Navigate to="/#contact" replace />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 }

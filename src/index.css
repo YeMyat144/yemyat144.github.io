@@ -1,23 +1,35 @@
+/* @import url() FONT IMPORTS MUST ALWAYS BE AT THE VERY TOP OF THIS FILE, ABOVE THE TAILWIND IMPORT */
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap');
+
 @import 'tailwindcss';
 
 @theme {
-  --color-paper: #f7fbfd;
-  --color-canvas: #d6e6ef;
-  --color-accent: #7fa6b8;
-  --color-ink: #2a3e4b;
-  --font-display: 'Bricolage Grotesque', system-ui, sans-serif;
-  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
-  --shadow-print: 0 1px 0 rgb(42 62 75 / 0.06), 0 22px 40px -22px rgb(42 62 75 / 0.45);
+  --font-sans: 'Geist', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, monospace;
+  --color-paper: #ffffff;
+  --color-surface: #f3f4f6;
+  --color-ink: #0b0d12;
+  --color-ink-soft: #383c47;
+  --color-muted: #6a6f7b;
+  --color-line: #e6e8ec;
+  --color-accent: var(--accent, #3b4cff);
+  --color-pop: #d7ff3d;
+  --color-ok: #16a34a;
+  --color-signal: #7c3aed;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 html,
 body,
 #root {
-  margin: 0;
   min-height: 100%;
-  background: var(--color-canvas);
+  margin: 0;
+  background: var(--color-paper);
   color: var(--color-ink);
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -25,66 +37,9 @@ body,
   box-sizing: border-box;
 }
 
-/* Fixed hex colours so labels stay readable even if a browser forces dark. */
-.desk-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.375rem;
-  background: #7fa6b8;
-  color: #2a3e4b;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  line-height: 1;
-  padding: 0.5rem 0.75rem;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  transition: background-color 200ms ease, color 200ms ease;
-}
-
-.desk-btn:hover {
-  background: #2a3e4b;
-  color: #f7fbfd;
-}
-
-.back-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.375rem;
-  background: #f7fbfd;
-  color: #2a3e4b;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  line-height: 1;
-  padding: 0.5rem 0.75rem;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  transition: background-color 200ms ease, color 200ms ease;
-}
-
-.back-btn:hover {
-  background: #2a3e4b;
-  color: #f7fbfd;
-}
-
-*:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 3px;
-}
-
 ::selection {
-  background: color-mix(in srgb, var(--color-accent) 40%, transparent);
+  background: var(--color-pop);
   color: var(--color-ink);
-}
-
-.dot-grid {
-  background-image: radial-gradient(
-    circle,
-    color-mix(in srgb, var(--color-ink) 15%, transparent) 1.2px,
-    transparent 1.2px
-  );
-  background-size: 28px 28px;
 }
 
 @media (prefers-reduced-motion: reduce) {
